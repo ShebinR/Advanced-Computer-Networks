@@ -1,15 +1,22 @@
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 
-object MyFunctions {
-    def addAAtLast(s: String): String = { s + "A" }
-}
-
 object Ex2 {
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("Ex2")
     val sc = new SparkContext(conf)
-    val lines = sc.textFile("data.txt", 4)
+
+    var fileName = ""
+    if(args.length == 1)
+        fileName = args(0)
+    else {
+        println("Usage : spark-submit [<...>] <file name>")
+        return
+    }
+    println("File Name : " + fileName)
+    // Using 4 partitions
+    //val lines = sc.textFile(fileName, 4)
+    val lines = sc.textFile(fileName)
 
     // If map is used, collection Array[String] is returned
     // flatMap() -> Converts each element into an RDD
