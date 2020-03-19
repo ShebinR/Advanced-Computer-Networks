@@ -1,0 +1,3 @@
+# TO RUN:
+
+~/spark-2.4.5-bin-hadoop2.7/bin/spark-submit --class "PageRank" --master spark://prometheus.shuffling-bench.wisr-pg0.clemson.cloudlab.us:7077 target/scala-2.11/page-rank-algorithm_2.11-1.0.jar hdfs://10.10.1.2:9000/cs740/graphx/data/followers.txt
