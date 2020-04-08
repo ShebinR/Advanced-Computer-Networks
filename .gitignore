@@ -5,3 +5,4 @@ SimpleApp/project
 SimpleApp/target
 */project
 */target
+*.o
