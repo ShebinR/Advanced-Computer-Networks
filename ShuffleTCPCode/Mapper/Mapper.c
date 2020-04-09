@@ -8,62 +8,34 @@
 #include <unistd.h>
 #include <arpa/inet.h>
  
-#define MAX 80 
-
 #include "Constants.h"
-#include "Protocol.h"
+#include "message_formats.pb-c.h"
+#include "hash_map.h"
   
-// Function designed for chat between client and server. 
-void func(int sockfd) 
-{ 
-    char buff[MAX]; 
-    int n; 
-    // infinite loop for chat 
-    for (;;) { 
-        bzero(buff, MAX); 
-  
-        // read the message from client and copy it in buffer 
-        read(sockfd, buff, sizeof(buff)); 
-        // print buffer which contains the client contents 
-        printf("From client: %s\t To client : ", buff); 
-        bzero(buff, MAX); 
-        n = 0; 
-        // copy server message in the buffer 
-        while ((buff[n++] = getchar()) != '\n') 
-            ; 
-  
-        // and send that buffer to client 
-        write(sockfd, buff, sizeof(buff)); 
-  
-        // if msg contains "Exit" then server exit and chat ended. 
-        if (strncmp("exit", buff, 4) == 0) { 
-            printf("Server Exit...\n"); 
-            break; 
-        } 
-    } 
+void getOpenMessage(int sockfd) {
+    OpenMessage *msg;
+    uint8_t buf[MAX_MSG_SIZE];
+    char buffer[256];
+
+    size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
+    //printf("DEBUG: Len = %d\n", msg_len);
+    msg = open_message__unpack(NULL, msg_len, buf);	
+    if (msg == NULL) {
+        fprintf(stderr, "error unpacking incoming message\n");
+        return;
+    }
+    printf("Received: block_size = %d\n",msg->block_size);  // required field
+
+    // Free the unpacked message
+    open_message__free_unpacked(msg, NULL);
 }
 
-void getOpenMessage(int sockfd) {
-    OpenMessage *msg = (OpenMessage *) malloc(sizeof(OpenMessage));
-    read(sockfd, msg, sizeof(msg));
-
-    printf("Blocks Per response : %d\n", msg->blocksPerResponse);
-} 
-  
-int main(int argc, char *argv[]) 
-{
-    printf("INFO: Staring Mapper\n");
-    char *IPAddress = (char *) malloc(sizeof(char) * IP_ADDR_MAX_LEN);
-    strcpy(IPAddress, argv[1]);
-    int port = atoi(argv[2]);
-    printf("INFO: Addr -> %s @ %d\n", IPAddress, port);
-    
-    int sockfd, connfd; 
+void establishConnection(char *IPAddress, int port, int *sockfd, int *connfd) {
     struct sockaddr_in servaddr, cli; 
   
     // socket create and verification 
-    sockfd = socket(AF_INET, SOCK_STREAM, 0); 
-    if (sockfd == -1) { 
+    *sockfd = socket(AF_INET, SOCK_STREAM, 0); 
+    if (*sockfd == -1) { 
         printf("socket creation failed...\n"); 
         exit(0); 
     }
@@ -75,36 +47,79 @@ int main(int argc, char *argv[])
     servaddr.sin_port = htons(port); 
   
     // Binding newly created socket to given IP and verification 
-    if ((bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr))) != 0) { 
+    if ((bind(*sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr))) != 0) { 
         printf("ERROR: socket bind failed...\n"); 
         exit(0); 
     } 
-    else
-        printf("INFO: Socket successfully binded..\n"); 
+    printf("INFO: Socket successfully binded..\n"); 
   
     // Now server is ready to listen and verification 
-    if ((listen(sockfd, 5)) != 0) { 
+    if ((listen(*sockfd, 5)) != 0) { 
         printf("ERROR: Listen failed...\n"); 
         exit(0); 
     } 
-    else
-        printf("INFO: Server listening..\n");
+    printf("INFO: Server listening..\n");
  
     socklen_t len = sizeof(cli); 
     // Accept the data packet from client and verification 
-    connfd = accept(sockfd, (struct sockaddr *)&cli, &len); 
+    *connfd = accept(*sockfd, (struct sockaddr *)&cli, &len); 
     if (connfd < 0) { 
         printf("ERROR: server acccept failed...\n"); 
         exit(0); 
     } 
     else
-        printf("INFO: Server acccept the client...\n"); 
-  
-    // Function for chatting between client and server 
-    //func(connfd);
+      printf("INFO: Server acccept the client...\n"); 
+}
+ 
+void rand_string(char *str, size_t size)
+{
+    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJK";
+    if (size) {
+        --size;
+        for (size_t n = 0; n < size; n++) {
+            int key = rand() % (int) (sizeof charset - 1);
+            str[n] = charset[key];
+        }
+        str[size] = '\0';
+    }
+}
 
-    getOpenMessage(sockfd); 
+hash_map * generateData() {
+    hash_map *map = createHashMap(HASH_MAP_SIZE);
+
+    for(int i = 0; i < MAX_RECORDS; i++) {
+        char *key = (char *) malloc(sizeof(char) * KEY_SIZE);
+        rand_string(key, KEY_SIZE);
+        char *val = (char *) malloc(sizeof(char) * VAL_SIZE);
+        rand_string(val, VAL_SIZE);
+        insert(map, key, val);
+
+        free(key); free(val);
+    }
+
+    //printMap(map);
+
+    return map;
+}
+
+int main(int argc, char *argv[]) 
+{
+    printf("INFO: Staring Mapper\n");
+    char *IPAddress = (char *) malloc(sizeof(char) * IP_ADDR_MAX_LEN);
+    strcpy(IPAddress, argv[1]);
+    int port = atoi(argv[2]);
+    printf("INFO: Addr -> %s @ %d\n", IPAddress, port);
+
+    hash_map *map = generateData();
+
+    int sockfd, connfd; 
+    establishConnection(IPAddress, port, &sockfd, &connfd);
+ 
+    //getOpenMessage(sockfd); 
+    getOpenMessage(connfd); 
   
     // After chatting close the socket 
-    close(sockfd); 
+    close(sockfd);
+
+    return 0; 
 } 

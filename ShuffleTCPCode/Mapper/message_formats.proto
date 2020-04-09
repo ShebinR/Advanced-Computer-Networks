@@ -1,0 +1,3 @@
+message open_message {
+  required int32 block_size=1; 
+}
