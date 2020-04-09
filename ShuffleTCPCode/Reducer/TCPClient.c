@@ -8,52 +8,44 @@
  
 #define MAX 80
 
-#include "ThreadInput.h"
-#include "Protocol.h"
+#include "ThreadInfo.h"
+#include "message_formats.pb-c.h"
  
-void func(int sockfd) 
-{ 
-    char buff[MAX]; 
-    int n; 
-    for (;;) { 
-        bzero(buff, sizeof(buff)); 
-        printf("Enter the string : "); 
-        n = 0; 
-        while ((buff[n++] = getchar()) != '\n') 
-            ; 
-        write(sockfd, buff, sizeof(buff)); 
-        bzero(buff, sizeof(buff)); 
-        read(sockfd, buff, sizeof(buff)); 
-        printf("From Server : %s", buff); 
-        if ((strncmp(buff, "exit", 4)) == 0) { 
-            printf("Client Exit...\n"); 
-            break; 
-        } 
-    } 
+void printSerializedMessage(void *buf, int len) {
+    printf("DEBUG: writing %d serialized bytes\n", len); // See the length of message
+
+    for(int i = 0; i < len; i++)
+        printf("%d ", (int)(buf + sizeof(int) * i));
+    printf("\n");
+}
+
+void createOpenMessage(int block_size, void **buf, unsigned int *len) {
+    OpenMessage msg = OPEN_MESSAGE__INIT; // AMessage
+    
+    msg.block_size = block_size;
+    *len = open_message__get_packed_size(&msg);
+    *buf = malloc(*len);
+    open_message__pack(&msg, *buf);
+
+    //printSerializedMessage(buf, len); 
 }
 
 void sendOpenMessage(int sockfd) {
-    OpenMessage *msg = (OpenMessage *) malloc(sizeof(OpenMessage));
-    msg->blocksPerResponse = 10;
+    void *buf;                     // Buffer to store serialized data
+    unsigned len;                  // Length of serialized data
 
-    write(sockfd, msg, sizeof(msg));
+    printf("INFO: Sending open_message to the mapper!\n");
+    createOpenMessage(23456, &buf, &len);
+    write(sockfd, buf, len);
 
-    return;
+    free(buf);                      // Free the allocated serialized buffer
 }
-  
-void connectToServer(void *input) 
-{
-    //printf("IP Address : %s\n", ((struct ThreadInput *)input)->IPAddress);
-    //printf("Port : %d\n", ((struct ThreadInput *)input)->port);
 
-    char *IPAddress = ((struct ThreadInput *)input)->IPAddress;
-    int port = ((struct ThreadInput *)input)->port;
-    int sockfd, connfd; 
-    struct sockaddr_in servaddr, cli; 
-  
+void establishConnection(char *IPAddress, int port, int *sockfd) {
+    struct sockaddr_in servaddr; 
     // socket create and varification 
-    sockfd = socket(AF_INET, SOCK_STREAM, 0); 
-    if (sockfd == -1) { 
+    *sockfd = socket(AF_INET, SOCK_STREAM, 0); 
+    if (*sockfd == -1) { 
         printf("ERROR: Socket creation failed...\n"); 
         return; 
     }
@@ -65,19 +57,29 @@ void connectToServer(void *input)
     servaddr.sin_port = htons(port); 
   
     // connect the client socket to server socket
-    printf("INFO: Initiating a TCP connection with %s @ %d\n", IPAddress, port); 
-    if (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) { 
+    //printf("INFO: Initiating a TCP connection with %s @ %d\n", IPAddress, port); 
+    if (connect(*sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) { 
         printf("ERROR: connection with the server failed...\n"); 
         return; 
     }
-    printf("INFO: Connection success! Starting transfer!"); 
+}
   
-    // function for chat 
-    //func(sockfd);
-
+void connectToServer(void *input) 
+{
+    //printf("IP Address : %s\n", ((thread_info *)input)->IPAddress);
+    //printf("Port : %d\n", ((thread_info *)input)->port);
+    char *IPAddress = ((thread_info *)input)->IPAddress;
+    int port = ((thread_info *)input)->port;
+    int sockfd, connfd; 
+ 
+    /* 1. Estabilsh Connection */ 
+    establishConnection(IPAddress, port, &sockfd); 
+    printf("INFO: Connection success! Starting transfer!\n");
+  
+    /* 2. Send openMessage */
     sendOpenMessage(sockfd); 
   
-    // close the socket 
+    /* N. Close the socket */
     close(sockfd);
 
     return;

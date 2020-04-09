@@ -5,7 +5,7 @@
 
 #include "TCPClient.h"
 #include "Constants.h"
-#include "ThreadInput.h"
+#include "ThreadInfo.h"
 
 int readFile(char fileName[], char **contents) {
     int lineIndex = 0;
@@ -56,6 +56,19 @@ void printNodeInfo(char **IPAddress, int ports[], int n) {
         printf("\t%s @ %d\n", IPAddress[i], ports[i]);
 }
 
+pthread_t contactMapper(char *IPAddress, int port) {
+    thread_info *node_input = (thread_info *) malloc(sizeof(thread_info));
+    strcpy(node_input->IPAddress, IPAddress);
+    node_input->port = port;
+    printf("INFO: contacting Mapper @ %s:%d\n", node_input->IPAddress, node_input->port);
+
+    /* Creating a thread */
+    pthread_t tid;
+    pthread_create(&tid, NULL, (void *)connectToServer, (void *)node_input);
+
+    return tid;
+}
+
 int main(int argc, char *argv[]) {
     
     printf("INFO: Starting Reducer..\n");
@@ -76,23 +89,15 @@ int main(int argc, char *argv[]) {
         IPAddress[i] = (char *) malloc(sizeof(char) * IP_ADDR_MAX_LEN);
     int ports[MAX_LINES];
     extractNodeInfo(lines, IPAddress, ports, len);
-    printNodeInfo(IPAddress, ports, len);
+    //printNodeInfo(IPAddress, ports, len);
 
     /* Connect to Server in Thread */
     //connectToServer(IPAddress[0], ports[0]);
-    struct ThreadInput *node1Info = (struct ThreadInput *) malloc(sizeof(struct ThreadInput));
-    strcpy(node1Info->IPAddress, IPAddress[0]);
-    node1Info->port = ports[0];
-    //printf("IP Address : %s\n", node1Info->IPAddress);
-    //printf("Port : %d\n", node1Info->port);
-
-    /* Creating a thread */
-    pthread_t tid;
-    pthread_create(&tid, NULL, (void *)connectToServer, (void *)node1Info);
+    pthread_t tid = contactMapper(IPAddress[0], ports[0]);
 
     /* Waiting for theads to complete */
     pthread_join(tid, NULL);
-    printf("INFO: In the main thread.. Reducer done!");
 
+    printf("INFO: In the main thread.. Reducer done!\n");
     return 0; 
 }
