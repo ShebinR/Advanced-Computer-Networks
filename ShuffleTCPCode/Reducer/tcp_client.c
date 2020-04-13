@@ -5,49 +5,21 @@
 #include <arpa/inet.h> 
 #include <sys/socket.h>
 #include <unistd.h>
+#include <pthread.h>
  
 #define MAX 80
 
-#include "ThreadInfo.h"
+#include "thread_info.h"
 #include "message_formats.pb-c.h"
+#include "communication.h"
  
-void printSerializedMessage(void *buf, int len) {
-    printf("DEBUG: writing %d serialized bytes\n", len); // See the length of message
-
-    for(int i = 0; i < len; i++)
-        printf("%d ", (int)(buf + sizeof(int) * i));
-    printf("\n");
-}
-
-void createOpenMessage(int block_size, void **buf, unsigned int *len) {
-    OpenMessage msg = OPEN_MESSAGE__INIT; // AMessage
-    
-    msg.block_size = block_size;
-    *len = open_message__get_packed_size(&msg);
-    *buf = malloc(*len);
-    open_message__pack(&msg, *buf);
-
-    //printSerializedMessage(buf, len); 
-}
-
-void sendOpenMessage(int sockfd) {
-    void *buf;                     // Buffer to store serialized data
-    unsigned len;                  // Length of serialized data
-
-    printf("INFO: Sending open_message to the mapper!\n");
-    createOpenMessage(23456, &buf, &len);
-    write(sockfd, buf, len);
-
-    free(buf);                      // Free the allocated serialized buffer
-}
-
-void establishConnection(char *IPAddress, int port, int *sockfd) {
+int establishConnection(char *IPAddress, int port, int *sockfd) {
     struct sockaddr_in servaddr; 
     // socket create and varification 
     *sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if (*sockfd == -1) { 
         printf("ERROR: Socket creation failed...\n"); 
-        return; 
+        return -1; 
     }
 
     // assign IP, PORT 
@@ -60,24 +32,47 @@ void establishConnection(char *IPAddress, int port, int *sockfd) {
     //printf("INFO: Initiating a TCP connection with %s @ %d\n", IPAddress, port); 
     if (connect(*sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) { 
         printf("ERROR: connection with the server failed...\n"); 
-        return; 
+        return -1; 
     }
+    return 0;
+}
+
+int startShuffle(int sockfd) {
+    /* Send chuch_fetch_request */
+    sendChunckFetchRequest(sockfd);
+
+    /* Receive chuch_fetch_reply */
+    receiveChunckFetchReply(sockfd);
+
+    return 0;
 }
   
 void connectToServer(void *input) 
 {
     //printf("IP Address : %s\n", ((thread_info *)input)->IPAddress);
     //printf("Port : %d\n", ((thread_info *)input)->port);
+    pthread_t t = pthread_self();
+    printf("INFO: Thread ID:: %d\n", t);
     char *IPAddress = ((thread_info *)input)->IPAddress;
     int port = ((thread_info *)input)->port;
-    int sockfd, connfd; 
+    int sockfd, connfd, ret; 
  
     /* 1. Estabilsh Connection */ 
-    establishConnection(IPAddress, port, &sockfd); 
+    ret = establishConnection(IPAddress, port, &sockfd);
+    if(ret != 0)
+        exit(0); 
     printf("INFO: Connection success! Starting transfer!\n");
   
-    /* 2. Send openMessage */
-    sendOpenMessage(sockfd); 
+    /* 2. Initiate Shuffle communication */
+    sendOpenMessage(sockfd, 1500);
+    ret = receiveOpenMessageAck(sockfd);
+    if (ret != 0) {
+        printf("ERROR: Error receiving open_message_ack!");
+        exit(0);
+    }
+
+    /* 3. Start Shuffle */
+    ret = startShuffle(sockfd);
   
     /* N. Close the socket */
     close(sockfd);

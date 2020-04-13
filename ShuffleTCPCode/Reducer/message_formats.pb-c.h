@@ -16,6 +16,9 @@ PROTOBUF_C__BEGIN_DECLS
 
 
 typedef struct _OpenMessage OpenMessage;
+typedef struct _OpenMessageAck OpenMessageAck;
+typedef struct _ChunckFetchRequest ChunckFetchRequest;
+typedef struct _ChunckFetchReply ChunckFetchReply;
 
 
 /* --- enums --- */
@@ -26,11 +29,42 @@ typedef struct _OpenMessage OpenMessage;
 struct  _OpenMessage
 {
   ProtobufCMessage base;
-  int32_t block_size;
+  int32_t shuffle_size;
 };
 #define OPEN_MESSAGE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&open_message__descriptor) \
     , 0 }
+
+
+struct  _OpenMessageAck
+{
+  ProtobufCMessage base;
+  int32_t success;
+};
+#define OPEN_MESSAGE_ACK__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&open_message_ack__descriptor) \
+    , 0 }
+
+
+struct  _ChunckFetchRequest
+{
+  ProtobufCMessage base;
+  int32_t chunck_size;
+};
+#define CHUNCK_FETCH_REQUEST__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&chunck_fetch_request__descriptor) \
+    , 0 }
+
+
+struct  _ChunckFetchReply
+{
+  ProtobufCMessage base;
+  size_t n_record_info;
+  char **record_info;
+};
+#define CHUNCK_FETCH_REPLY__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&chunck_fetch_reply__descriptor) \
+    , 0,NULL }
 
 
 /* OpenMessage methods */
@@ -52,10 +86,76 @@ OpenMessage *
 void   open_message__free_unpacked
                      (OpenMessage *message,
                       ProtobufCAllocator *allocator);
+/* OpenMessageAck methods */
+void   open_message_ack__init
+                     (OpenMessageAck         *message);
+size_t open_message_ack__get_packed_size
+                     (const OpenMessageAck   *message);
+size_t open_message_ack__pack
+                     (const OpenMessageAck   *message,
+                      uint8_t             *out);
+size_t open_message_ack__pack_to_buffer
+                     (const OpenMessageAck   *message,
+                      ProtobufCBuffer     *buffer);
+OpenMessageAck *
+       open_message_ack__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   open_message_ack__free_unpacked
+                     (OpenMessageAck *message,
+                      ProtobufCAllocator *allocator);
+/* ChunckFetchRequest methods */
+void   chunck_fetch_request__init
+                     (ChunckFetchRequest         *message);
+size_t chunck_fetch_request__get_packed_size
+                     (const ChunckFetchRequest   *message);
+size_t chunck_fetch_request__pack
+                     (const ChunckFetchRequest   *message,
+                      uint8_t             *out);
+size_t chunck_fetch_request__pack_to_buffer
+                     (const ChunckFetchRequest   *message,
+                      ProtobufCBuffer     *buffer);
+ChunckFetchRequest *
+       chunck_fetch_request__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   chunck_fetch_request__free_unpacked
+                     (ChunckFetchRequest *message,
+                      ProtobufCAllocator *allocator);
+/* ChunckFetchReply methods */
+void   chunck_fetch_reply__init
+                     (ChunckFetchReply         *message);
+size_t chunck_fetch_reply__get_packed_size
+                     (const ChunckFetchReply   *message);
+size_t chunck_fetch_reply__pack
+                     (const ChunckFetchReply   *message,
+                      uint8_t             *out);
+size_t chunck_fetch_reply__pack_to_buffer
+                     (const ChunckFetchReply   *message,
+                      ProtobufCBuffer     *buffer);
+ChunckFetchReply *
+       chunck_fetch_reply__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   chunck_fetch_reply__free_unpacked
+                     (ChunckFetchReply *message,
+                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*OpenMessage_Closure)
                  (const OpenMessage *message,
+                  void *closure_data);
+typedef void (*OpenMessageAck_Closure)
+                 (const OpenMessageAck *message,
+                  void *closure_data);
+typedef void (*ChunckFetchRequest_Closure)
+                 (const ChunckFetchRequest *message,
+                  void *closure_data);
+typedef void (*ChunckFetchReply_Closure)
+                 (const ChunckFetchReply *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -64,6 +164,9 @@ typedef void (*OpenMessage_Closure)
 /* --- descriptors --- */
 
 extern const ProtobufCMessageDescriptor open_message__descriptor;
+extern const ProtobufCMessageDescriptor open_message_ack__descriptor;
+extern const ProtobufCMessageDescriptor chunck_fetch_request__descriptor;
+extern const ProtobufCMessageDescriptor chunck_fetch_reply__descriptor;
 
 PROTOBUF_C__END_DECLS
 

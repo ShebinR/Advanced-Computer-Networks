@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#include "TCPClient.h"
-#include "Constants.h"
-#include "ThreadInfo.h"
+#include "tcp_client.h"
+#include "constants.h"
+#include "thread_info.h"
 
 int readFile(char fileName[], char **contents) {
     int lineIndex = 0;
