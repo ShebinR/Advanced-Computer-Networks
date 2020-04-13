@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Constants.h"
+#include "constants.h"
 
 typedef struct node {
     char key[KEY_SIZE];
@@ -15,6 +15,12 @@ typedef struct hash_map {
     node **head;
 } hash_map;
 
+typedef struct iterator {
+    hash_map *map;
+    int index;
+    node *curr;
+} hash_map_iterator;
+
 hash_map * createHashMap(int size) {
     hash_map *map = (hash_map *) malloc (sizeof(hash_map));
     map->size = size;
@@ -23,6 +29,33 @@ hash_map * createHashMap(int size) {
         map->head[i] = NULL;
 
     return map;
+}
+
+hash_map_iterator * createIterator(hash_map *map) {
+    hash_map_iterator *itr = (hash_map_iterator *) malloc (sizeof(hash_map_iterator));
+    itr->map = map;
+    itr->curr = map->head[0];
+    itr->index = 0;
+    return itr; 
+}
+
+int getNext(hash_map_iterator *itr, char *key, char *val) {
+    if(itr->curr == NULL) {
+        return -1;
+    }
+    strcpy(key, itr->curr->key);
+    strcpy(val, itr->curr->val);
+
+    itr->curr = itr->curr->next;
+    if(itr->curr == NULL) {
+        itr->index++;
+        if(itr->index == itr->map->size) {
+            /* Reached End */
+            return 0;
+        }
+        itr->curr = itr->map->head[itr->index];
+    }
+    return 0;
 }
 
 int hashCode(hash_map *t, char *key) {

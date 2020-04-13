@@ -8,6 +8,7 @@
 #define HASH_MAP_SIZE 100
 #define KEY_SIZE 5
 #define VAL_SIZE 5
-#define MAX_MSG_SIZE 1024 
+#define MAX_MSG_SIZE 1024
+#define MAX_QUEUE_SIZE 10 
 
 #endif

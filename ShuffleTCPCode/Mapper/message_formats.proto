@@ -1,3 +1,15 @@
 message open_message {
-  required int32 block_size=1; 
+    required int32 shuffle_size=1; 
+}
+
+message open_message_ack {
+    required int32 success=1;
+}
+
+message chunck_fetch_request {
+    required int32 chunck_size=1;
+}
+
+message chunck_fetch_reply {
+    repeated string record_info=1;
 }
