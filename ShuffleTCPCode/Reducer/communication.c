@@ -7,7 +7,7 @@
 #include "constants.h"
 
 /* ------------------------------- RECEIVING FUNCTIONS ------------------------- */
-int receiveOpenMessage(int sockfd) {
+int receiveOpenMessage(int sockfd, int *total_shuffle_size) {
     OpenMessage *msg;
     uint8_t buf[MAX_MSG_SIZE];
 
@@ -19,6 +19,7 @@ int receiveOpenMessage(int sockfd) {
         return -1;
     }
     printf("RECEIVED: open_message{} block_size = %d\n",msg->shuffle_size);  // required field
+    *total_shuffle_size = msg->shuffle_size;
 
     // Free the unpacked message
     open_message__free_unpacked(msg, NULL);
@@ -156,34 +157,28 @@ void sendChunckFetchRequest(int sockfd) {
     free(buf);                      // Free the allocated serialized buffer
 }
 
-void createChunckFetchReply(char **messages, void **buf, unsigned int *len) {
+void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
+    void *buf;                                          // Buffer to store serialized data
+    unsigned len;
     ChunckFetchReply msg = CHUNCK_FETCH_REPLY__INIT;  // Message (repeated string)
-    unsigned size=0;                                  // Length of serialized data
+    unsigned size = 0, i, j;                                  // Length of serialized data
 
-    msg.n_record_info = 10;                           // Save number of repeated strings
-    for(int i = 0; i < 10; i++) {                     // Find amount of memory to allocate
+    msg.n_record_info = 3;                           // Save number of repeated strings
+    for(i = 0; i < 3; i++) {                     // Find amount of memory to allocate
         size += ((int)strlen(messages[i]) + 2);
     }
 
     msg.record_info = malloc (sizeof (char) * size);  // Allocate memory to store string
-    for(int j = 0; j < msg.n_record_info; j++) {
+    for(j = 0; j < msg.n_record_info; j++) {
         msg.record_info[j] = (char*)messages[j];      // Access msg.c[] as array
     }
 
-    *len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
-    *buf = malloc (*len);                               // Allocate required serialized buffer length
-    chunck_fetch_reply__pack (&msg, *buf);              // Pack the data
-
-    free (msg.record_info);                             // Free storage for repeated string
-}
-
-void sendChunckFetchReply(int sockfd, char **messages) {
-    void *buf;                                          // Buffer to store serialized data
-    unsigned len;
-    
-    createChunckFetchReply(messages, &buf, &len);
+    len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
+    buf = malloc (len);                               // Allocate required serialized buffer length
+    chunck_fetch_reply__pack (&msg, buf);              // Pack the data
     write(sockfd, buf, len);
 
+    free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer
 }
 

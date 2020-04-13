@@ -7,8 +7,6 @@
 #include "tcp_server.h"
 #include "communication.h"
 
-#include "test.h"
-  
 void rand_string(char *str, size_t size)
 {
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJK";
@@ -49,12 +47,12 @@ char** getChunk(hash_map_iterator *itr, int count) {
         int ret = getNext(itr, key, value);
         printf("Return value : %d\n", ret);
         if(ret == 0) {
-            printf("KEY : %s\n", key);
-            printf("VALUE : %s\n", value);
+      //      printf("KEY : %s\n", key);
+        //    printf("VALUE : %s\n", value);
             strings[record] = key;
             strings[record + 1] = value;
         } else {
-            printf("REACHED END!\n");
+          //  printf("REACHED END!\n");
         }
     }
     return strings;
@@ -64,9 +62,9 @@ int startShuffle(int connfd, hash_map *map) {
     hash_map_iterator *itr = createIterator(map);
     char **chunk = getChunk(itr, 5);
 
-    for(int i = 0; i < 5; i++) {
-        printf("%s\n", chunk[i]);
-    }
+    //for(int i = 0; i < 5; i++) {
+      //  printf("%s\n", chunk[i]);
+    //}
  
     /* Receive chunck_fetch_request */
     int ret = receiveChunckFetchRequest(connfd);

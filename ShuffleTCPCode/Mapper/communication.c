@@ -175,11 +175,7 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
 
     len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
     buf = malloc (len);                               // Allocate required serialized buffer length
-    printf("PACK\n");
-    fflush(stdout);
     chunck_fetch_reply__pack (&msg, buf);              // Pack the data
-    printf("WRITE\n");
-    fflush(stdout);
     write(sockfd, buf, len);
 
     free (msg.record_info);                             // Free storage for repeated string
