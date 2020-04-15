@@ -3,6 +3,7 @@
 
 #define MAX_LINES 10
 #define LINE_LENGTH 25
+#define MAX_SERVER_NAME 20
 #define IP_ADDR_MAX_LEN 16
 #define MAX_RECORDS 10000
 #define HASH_MAP_SIZE 100

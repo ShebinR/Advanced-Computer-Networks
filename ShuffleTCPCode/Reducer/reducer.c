@@ -56,8 +56,9 @@ void printNodeInfo(char **IPAddress, int ports[], int n) {
         printf("\t%s @ %d\n", IPAddress[i], ports[i]);
 }
 
-pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue) {
+pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *server_name) {
     thread_info *node_input = (thread_info *) malloc(sizeof(thread_info));
+    strcpy(node_input->server_name, server_name);
     strcpy(node_input->IPAddress, IPAddress);
     node_input->port = port;
     node_input->result_queue = result_queue;
@@ -97,11 +98,19 @@ int main(int argc, char *argv[]) {
   
     /* Connect to Server in Thread */
     //connectToServer(IPAddress[0], ports[0]);
-    pthread_t tid = contactMapper(IPAddress[0], ports[0], result_queue);
+    pthread_t tid0 = contactMapper(IPAddress[0], ports[0], result_queue, "server_0");
+    pthread_t tid1 = contactMapper(IPAddress[1], ports[1], result_queue, "server_1");
 
     /* Waiting for theads to complete */
-    pthread_join(tid, NULL);
+    pthread_join(tid0, NULL);
+    pthread_join(tid1, NULL);
 
-    printf("INFO: In the main thread.. Reducer done!\n");
+    printf("INFO: In the main thread..\n");
+    printf("CONTENTS OF THE QUEUE\n");
+    printf("=====================================\n");
+    printQueue(result_queue);
+    printf("=====================================\n");
+
+    printf("Reducer done!\n");
     return 0; 
 }

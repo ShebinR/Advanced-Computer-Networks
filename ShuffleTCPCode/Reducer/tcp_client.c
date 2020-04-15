@@ -37,8 +37,9 @@ int establishConnection(char *IPAddress, int port, int *sockfd) {
     return 0;
 }
 
-int startShuffle(int sockfd, int total_shuffle_size, Queue *result_queue) {
+int startShuffle(int sockfd, int total_shuffle_size, Queue *result_queue, char *server_name) {
     for(int i = 0; i < total_shuffle_size; i++) {
+        printf("FROM : %s\n", server_name);
         /* Send chuch_fetch_request */
         sendChunckFetchRequest(sockfd);
 
@@ -59,11 +60,14 @@ void connectToServer(void *input)
     //printf("IP Address : %s\n", ((thread_info *)input)->IPAddress);
     //printf("Port : %d\n", ((thread_info *)input)->port);
     pthread_t t = pthread_self();
-    printf("INFO: Thread ID:: %d\n", t);
+
+    char *server_name = ((thread_info *)input)->server_name;
     char *IPAddress = ((thread_info *)input)->IPAddress;
     int port = ((thread_info *)input)->port;
     Queue *result_queue = ((thread_info *)input)->result_queue;
-    int sockfd, connfd, ret; 
+    int sockfd, connfd, ret;
+ 
+    printf("INFO: Thread ID:: %d Contacting : %s\n", t, server_name);
  
     /* 1. Estabilsh Connection */ 
     ret = establishConnection(IPAddress, port, &sockfd);
@@ -72,7 +76,7 @@ void connectToServer(void *input)
     printf("INFO: Connection success! Starting transfer!\n");
   
     /* 2. Initiate Shuffle communication */
-    int total_shuffle_size = 100;
+    int total_shuffle_size = 20;
     sendOpenMessage(sockfd, total_shuffle_size);
     ret = receiveOpenMessageAck(sockfd);
     if (ret != 0) {
@@ -81,12 +85,7 @@ void connectToServer(void *input)
     }
 
     /* 3. Start Shuffle */
-    ret = startShuffle(sockfd, total_shuffle_size, result_queue);
-    printf("CONTENTS OF THE QUEUE\n");
-    printf("=====================================\n");
-    printQueue(result_queue);
-    printf("=====================================\n");
-
+    ret = startShuffle(sockfd, total_shuffle_size, result_queue, server_name);
   
     /* N. Close the socket */
     close(sockfd);

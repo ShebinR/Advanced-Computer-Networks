@@ -16,6 +16,9 @@ communication.o: communication.c communication.h
 queue.o: queue.c queue.h
 	gcc -c queue.c
 
+hash_map_reduce_by_key.o: hash_map_reduce_by_key.c
+	gcc -c hash_map_reduce_by_key.c
+
 clean:
 	rm -f reducer *.o
 

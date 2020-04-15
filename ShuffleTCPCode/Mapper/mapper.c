@@ -81,7 +81,7 @@ int startShuffle(int connfd, hash_map *map, int total_shuffle_size) {
         //const char *messages[] = {"hello", "beautiful", "world"};
         int record_count = 0;
         char **chunck = getChunk(itr, per_chunck_record, &record_count);
-        //sleep(1);
+        sleep(1);
         if(chunck == NULL) {
             printf("INFO: No more data to push out!\n");
             // Send end of record send??
