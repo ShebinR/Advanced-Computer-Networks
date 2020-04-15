@@ -38,43 +38,64 @@ hash_map * generateData() {
     return map;
 }
 
-char** getChunk(hash_map_iterator *itr, int count) {
+char** getChunk(hash_map_iterator *itr, int count, int *record_count) {
     int record = 0;
     char **strings = (char **) malloc (sizeof(char *) * (count * 2));
+
     for(record = 0; record != (count * 2); record += 2) {
         char *key = (char *) malloc(sizeof(char) * KEY_SIZE);
         char *value = (char *) malloc(sizeof(char) * VAL_SIZE);
         int ret = getNext(itr, key, value);
-        printf("Return value : %d\n", ret);
         if(ret == 0) {
-      //      printf("KEY : %s\n", key);
-        //    printf("VALUE : %s\n", value);
+            //printf("KEY : %s\n", key);
+            //printf("VALUE : %s\n", value);
             strings[record] = key;
             strings[record + 1] = value;
         } else {
-          //  printf("REACHED END!\n");
+          //printf("REACHED END!\n");
+            break;
         }
     }
+    if(record == 0)
+        return NULL;
+    *record_count = record;
     return strings;
 }
 
-int startShuffle(int connfd, hash_map *map) {
+int startShuffle(int connfd, hash_map *map, int total_shuffle_size) {
+    //printMap(map);
     hash_map_iterator *itr = createIterator(map);
-    char **chunk = getChunk(itr, 5);
 
     //for(int i = 0; i < 5; i++) {
       //  printf("%s\n", chunk[i]);
     //}
- 
-    /* Receive chunck_fetch_request */
-    int ret = receiveChunckFetchRequest(connfd);
-    if(ret != 0) {
-        printf("ERROR: receiving chunck_fetch_request()");
-    }
 
-    const char *messages[] = {"hello", "beautiful", "world"};
-    /* Send chunk_fetch_reply */
-    sendChunckFetchReply(connfd, chunk, 3);
+    int per_chunck_record = 2;
+    for(int i = 0; i < total_shuffle_size; i++) {
+        /* Receive chunck_fetch_request */
+        int ret = receiveChunckFetchRequest(connfd);
+        if(ret != 0) {
+            printf("ERROR: receiving chunck_fetch_request()");
+        }
+
+        //const char *messages[] = {"hello", "beautiful", "world"};
+        int record_count = 0;
+        char **chunck = getChunk(itr, per_chunck_record, &record_count);
+        //sleep(1);
+        if(chunck == NULL) {
+            printf("INFO: No more data to push out!\n");
+            // Send end of record send??
+            break;
+        }
+        /* Send chunk_fetch_reply */
+        sendChunckFetchReply(connfd, chunck, record_count);
+
+        for(int k = 0; k < per_chunck_record * 2; k++) {
+            //printf("%d : %s\n", k, chunck[k]);
+            free(chunck[k]);
+        }
+        free(chunck);
+    }
     return 0;
 }
 
@@ -103,7 +124,7 @@ int main(int argc, char *argv[])
     printf("Total Shuffle size: %d\n", total_shuffle_size);
     sendOpenMessageAck(connfd, 0);
 
-    ret = startShuffle(connfd, map);
+    ret = startShuffle(connfd, map, total_shuffle_size);
   
     // After chatting close the socket 
     closeConnection(sockfd);

@@ -65,14 +65,13 @@ int receiveChunckFetchRequest(int sockfd) {
     return 0;
 }
 
-int receiveChunckFetchReply(int sockfd) {
+int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
     ChunckFetchReply *msg;
-    uint8_t buf[MAX_MSG_SIZE];
     unsigned i;
    
-    size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
-    msg = chunck_fetch_reply__unpack (NULL, msg_len, buf); // Deserialize the serialized input
-    if(msg == NULL) { // Something failed
+    *msg_len = read(sockfd, buf, MAX_MSG_SIZE);
+    msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
+    /*if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
         return -1;
     }
@@ -84,8 +83,31 @@ int receiveChunckFetchReply(int sockfd) {
     }
     printf ("\n");
 
-    chunck_fetch_reply__free_unpacked(msg,NULL); // Free the message from unpack()
+    chunck_fetch_reply__free_unpacked(msg, NULL); // Free the message from unpack()
+    */
     return 0;
+}
+
+char** deserializeChunkFetchReply(ChunckFetchReply *msg, uint8_t *buf, size_t msg_len, int *no_of_record) {
+    unsigned i;
+    msg = chunck_fetch_reply__unpack (NULL, msg_len, buf); // Deserialize the serialized input
+    if(msg == NULL) { // Something failed
+        printf("ERROR: Deserializing the message!\n");
+        return NULL;
+    }
+    *no_of_record = msg->n_record_info;
+    char **messages = (char **) malloc (sizeof(char *) * msg->n_record_info);
+    for(i = 0; i < msg->n_record_info; i++) {
+        int len = strlen(msg->record_info[i]);
+        char *message = (char *) malloc (sizeof(char) * (len + 1));
+        strcpy(message, msg->record_info[i]);
+        messages[i] = message;
+    }
+    return messages;
+}
+
+void freeChunkFetchReplyMessage(ChunckFetchReply *msg) {
+    chunck_fetch_reply__free_unpacked(msg, NULL); // Free the message from unpack()
 }
 
 /* ------------------------------- RECEIVING FUNCTIONS ------------------------- */
@@ -163,8 +185,8 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     ChunckFetchReply msg = CHUNCK_FETCH_REPLY__INIT;  // Message (repeated string)
     unsigned size = 0, i, j;                                  // Length of serialized data
 
-    msg.n_record_info = 3;                           // Save number of repeated strings
-    for(i = 0; i < 3; i++) {                     // Find amount of memory to allocate
+    msg.n_record_info = number_of_records;                           // Save number of repeated strings
+    for(i = 0; i < number_of_records; i++) {                     // Find amount of memory to allocate
         size += ((int)strlen(messages[i]) + 2);
     }
 
@@ -176,6 +198,8 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
     buf = malloc (len);                               // Allocate required serialized buffer length
     chunck_fetch_reply__pack (&msg, buf);              // Pack the data
+
+    printf("SENDING: chunck_fetch_reply{}!\n");
     write(sockfd, buf, len);
 
     free (msg.record_info);                             // Free storage for repeated string

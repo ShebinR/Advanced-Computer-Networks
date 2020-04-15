@@ -34,8 +34,14 @@ hash_map * createHashMap(int size) {
 hash_map_iterator * createIterator(hash_map *map) {
     hash_map_iterator *itr = (hash_map_iterator *) malloc (sizeof(hash_map_iterator));
     itr->map = map;
-    itr->curr = map->head[0];
     itr->index = 0;
+    itr->curr = map->head[itr->index];
+    while(itr->curr == NULL) {
+        itr->index++;
+        if(itr->index == itr->map->size) 
+            break;
+        itr->curr = itr->map->head[itr->index];
+    }
     return itr; 
 }
 
@@ -47,11 +53,11 @@ int getNext(hash_map_iterator *itr, char *key, char *val) {
     strcpy(val, itr->curr->val);
 
     itr->curr = itr->curr->next;
-    if(itr->curr == NULL) {
+    while(itr->curr == NULL) {
         itr->index++;
         if(itr->index == itr->map->size) {
             /* Reached End */
-            return 0;
+            return 1;
         }
         itr->curr = itr->map->head[itr->index];
     }
