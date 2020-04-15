@@ -2,7 +2,9 @@
 #define QUEUE_H
 
 typedef struct QNode { 
-    int key; 
+    //int key; 
+    uint8_t *data;
+    size_t len;
     struct QNode* next; 
 } QNode; 
   
@@ -14,7 +16,7 @@ typedef struct Queue {
 } Queue;
  
 Queue* createQueue(int capacity);
-int enQueue(Queue* q, int k);
+int enQueue(Queue* q, uint8_t *data, size_t len);
 int deQueue(Queue* q, QNode *node);
 void printQueue(Queue *q);
 

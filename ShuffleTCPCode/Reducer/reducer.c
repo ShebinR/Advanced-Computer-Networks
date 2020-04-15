@@ -56,10 +56,11 @@ void printNodeInfo(char **IPAddress, int ports[], int n) {
         printf("\t%s @ %d\n", IPAddress[i], ports[i]);
 }
 
-pthread_t contactMapper(char *IPAddress, int port) {
+pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue) {
     thread_info *node_input = (thread_info *) malloc(sizeof(thread_info));
     strcpy(node_input->IPAddress, IPAddress);
     node_input->port = port;
+    node_input->result_queue = result_queue;
     printf("INFO: contacting Mapper @ %s:%d\n", node_input->IPAddress, node_input->port);
 
     /* Creating a thread */
@@ -91,9 +92,12 @@ int main(int argc, char *argv[]) {
     extractNodeInfo(lines, IPAddress, ports, len);
     //printNodeInfo(IPAddress, ports, len);
 
+    /* Create a Queue */
+    Queue *result_queue = createQueue(MAX_QUEUE_CAPACITY);
+  
     /* Connect to Server in Thread */
     //connectToServer(IPAddress[0], ports[0]);
-    pthread_t tid = contactMapper(IPAddress[0], ports[0]);
+    pthread_t tid = contactMapper(IPAddress[0], ports[0], result_queue);
 
     /* Waiting for theads to complete */
     pthread_join(tid, NULL);

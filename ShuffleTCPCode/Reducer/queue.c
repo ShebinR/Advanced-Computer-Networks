@@ -6,6 +6,7 @@
 #include <fcntl.h>
 
 #include "queue.h"
+#include "communication.h"
 
 /* QUEUE: Implementation
   1 -> 3 -> 5 -> 7 -> NULL
@@ -14,9 +15,10 @@
   Front          Rear
 */
   
-QNode* newNode(int k) { 
+QNode* newNode(uint8_t *data, size_t len) { 
     QNode* temp = (QNode*)malloc(sizeof(QNode)); 
-    temp->key = k; 
+    temp->data = data;
+    temp->len = len;
     temp->next = NULL; 
     return temp; 
 } 
@@ -33,16 +35,16 @@ Queue* createQueue(int capacity) {
     return q; 
 } 
   
-int enQueue(Queue* q, int k) {
+int enQueue(Queue* q, uint8_t *data, size_t len) {
     pthread_mutex_lock(&(q->lock));
 
     if(q->size == q->capacity) {
-        printf("INFO: Queue size exceeding capacity! Insertion failed!");
+        printf("INFO: Queue size exceeding capacity! Insertion failed!\n");
 	    
         pthread_mutex_unlock(&(q->lock));
         return -1;
     } 
-    QNode* temp = newNode(k);
+    QNode* temp = newNode(data, len);
     /* 1st insert from empty */
     if (q->rear == NULL) { 
         q->front = q->rear = temp;
@@ -88,7 +90,16 @@ void printQueue(Queue *q) {
 
     QNode *temp = q->front;
     while(temp != NULL) {
-        printf("%d -> ", temp->key);
+        int no_of_records = 0;
+        char **messages = deserializeChunkFetchReply(temp->data, temp->len, &no_of_records);
+        if(messages != NULL) {
+            for(int i = 0; i < no_of_records; i++) {
+                if(i > 0)
+                    printf(", ");
+                printf("%s", messages[i]);
+            }
+            printf("\n");
+        }
         temp = temp->next;
     }
     printf("\n");

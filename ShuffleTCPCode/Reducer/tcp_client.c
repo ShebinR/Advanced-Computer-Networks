@@ -37,12 +37,19 @@ int establishConnection(char *IPAddress, int port, int *sockfd) {
     return 0;
 }
 
-int startShuffle(int sockfd) {
-    /* Send chuch_fetch_request */
-    sendChunckFetchRequest(sockfd);
+int startShuffle(int sockfd, int total_shuffle_size, Queue *result_queue) {
+    for(int i = 0; i < total_shuffle_size; i++) {
+        /* Send chuch_fetch_request */
+        sendChunckFetchRequest(sockfd);
 
-    /* Receive chuch_fetch_reply */
-    receiveChunckFetchReply(sockfd);
+        /* Receive chuch_fetch_reply */
+        uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
+        size_t *len = (size_t *) malloc (sizeof(size_t));
+        receiveChunckFetchReply(sockfd, buf, len);
+        int ret = enQueue(result_queue, buf, *len);
+        if(ret == 0)
+            printf("INFO: Enqueued received data!\n");
+    }
 
     return 0;
 }
@@ -55,6 +62,7 @@ void connectToServer(void *input)
     printf("INFO: Thread ID:: %d\n", t);
     char *IPAddress = ((thread_info *)input)->IPAddress;
     int port = ((thread_info *)input)->port;
+    Queue *result_queue = ((thread_info *)input)->result_queue;
     int sockfd, connfd, ret; 
  
     /* 1. Estabilsh Connection */ 
@@ -64,7 +72,8 @@ void connectToServer(void *input)
     printf("INFO: Connection success! Starting transfer!\n");
   
     /* 2. Initiate Shuffle communication */
-    sendOpenMessage(sockfd, 1500);
+    int total_shuffle_size = 100;
+    sendOpenMessage(sockfd, total_shuffle_size);
     ret = receiveOpenMessageAck(sockfd);
     if (ret != 0) {
         printf("ERROR: Error receiving open_message_ack!");
@@ -72,7 +81,12 @@ void connectToServer(void *input)
     }
 
     /* 3. Start Shuffle */
-    ret = startShuffle(sockfd);
+    ret = startShuffle(sockfd, total_shuffle_size, result_queue);
+    printf("CONTENTS OF THE QUEUE\n");
+    printf("=====================================\n");
+    printQueue(result_queue);
+    printf("=====================================\n");
+
   
     /* N. Close the socket */
     close(sockfd);

@@ -88,9 +88,9 @@ int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
     return 0;
 }
 
-char** deserializeChunkFetchReply(ChunckFetchReply *msg, uint8_t *buf, size_t msg_len, int *no_of_record) {
+char** deserializeChunkFetchReply(uint8_t *buf, size_t msg_len, int *no_of_record) {
     unsigned i;
-    msg = chunck_fetch_reply__unpack (NULL, msg_len, buf); // Deserialize the serialized input
+    ChunckFetchReply *msg = chunck_fetch_reply__unpack (NULL, msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
         printf("ERROR: Deserializing the message!\n");
         return NULL;
@@ -103,11 +103,8 @@ char** deserializeChunkFetchReply(ChunckFetchReply *msg, uint8_t *buf, size_t ms
         strcpy(message, msg->record_info[i]);
         messages[i] = message;
     }
-    return messages;
-}
-
-void freeChunkFetchReplyMessage(ChunckFetchReply *msg) {
     chunck_fetch_reply__free_unpacked(msg, NULL); // Free the message from unpack()
+    return messages;
 }
 
 /* ------------------------------- RECEIVING FUNCTIONS ------------------------- */
