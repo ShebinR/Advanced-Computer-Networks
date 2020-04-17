@@ -77,6 +77,8 @@ int hashCode(hash_map_group_by_key *m, char *key) {
         //printf("%c \n", key[i]);
         sum += (int) key[i++];
         //printf("Sum : %d\n", sum);
+        if(i == 1)
+            break;
     }
     return (sum % m->size);
 }
@@ -103,15 +105,19 @@ void printMap(hash_map_group_by_key *t) {
 void insert(hash_map_group_by_key *t, char *key, char *val) {
     int pos = hashCode(t, key);
     key_node *curr_key_head;
+    //printf("INSERTING : %s -> %s\n", key, val);
     if(t->head[pos] == NULL) {
         key_node *new_key_node = (key_node *) malloc (sizeof(key_node));
-        strcpy(new_key_node->key, key); 
+        strcpy(new_key_node->key, key);
+        new_key_node->next = NULL;
+        new_key_node->val_node = NULL; 
         t->head[pos] = new_key_node;
         curr_key_head = t->head[pos];
     } else {
         key_node *prev = NULL;
         curr_key_head = t->head[pos];
         while(curr_key_head != NULL && strcmp(curr_key_head->key, key) != 0) {
+            //printf("Existing key found %s\n", curr_key_head->key);
             prev = curr_key_head;
             curr_key_head = curr_key_head->next;
         }
@@ -121,14 +127,16 @@ void insert(hash_map_group_by_key *t, char *key, char *val) {
             curr_key_head->next = (key_node *) malloc (sizeof(key_node));
             curr_key_head = curr_key_head->next;
             strcpy(curr_key_head->key, key);
+            curr_key_head->val_node = NULL;
+            curr_key_head->next = NULL;
         } else {
             //printf("Existing key found!\n");
         }
 
     }
-        
     val_node *newValNode = (val_node *) malloc (sizeof(val_node));
     strcpy(newValNode->val, val);
+    newValNode->next = NULL;
 
     if(curr_key_head->val_node == NULL) { 
         curr_key_head->val_node = newValNode;
@@ -139,6 +147,7 @@ void insert(hash_map_group_by_key *t, char *key, char *val) {
         temp = temp->next;
     }
     temp->next = newValNode;
+
 }
 
 /*

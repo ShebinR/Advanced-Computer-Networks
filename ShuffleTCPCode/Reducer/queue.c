@@ -62,33 +62,35 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
     return 0;
 } 
   
-int deQueue(Queue* q, QNode *node) { 
+QNode* deQueue(Queue* q, QNode **node) { 
     pthread_mutex_lock(&(q->lock));
     
     if (q->front == NULL) {
-        printf("INFO: Queue is empty!\n");
+        //printf("INFO: Queue is empty!\n");
     
         // release()
 	    pthread_mutex_unlock(&(q->lock));
-        return -1; 
+        return NULL; 
     }
   
     // Store previous front and move front one node ahead 
-    node = q->front; 
+    QNode *temp = q->front; 
     q->front = q->front->next; 
     // If front becomes NULL, then change rear also as NULL 
     if (q->front == NULL) 
         q->rear = NULL; 
     q->size--;
-
+    printf("INFO: Dequeue done!\n");
     pthread_mutex_unlock(&(q->lock));
-    return 0;
+    return temp;
 }
 
 void printQueue(Queue *q) {
     pthread_mutex_lock(&(q->lock));
 
     QNode *temp = q->front;
+    if(temp == NULL)
+        printf("INFO: Queue is empty!");
     while(temp != NULL) {
         int no_of_records = 0;
         char **messages = deserializeChunkFetchReply(temp->data, temp->len, &no_of_records);

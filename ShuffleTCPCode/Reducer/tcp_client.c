@@ -76,7 +76,7 @@ void connectToServer(void *input)
     printf("INFO: Connection success! Starting transfer!\n");
   
     /* 2. Initiate Shuffle communication */
-    int total_shuffle_size = 20;
+    int total_shuffle_size = 10;
     sendOpenMessage(sockfd, total_shuffle_size);
     ret = receiveOpenMessageAck(sockfd);
     if (ret != 0) {

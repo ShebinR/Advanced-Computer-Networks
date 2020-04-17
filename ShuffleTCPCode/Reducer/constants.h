@@ -6,9 +6,9 @@
 #define MAX_SERVER_NAME 20
 #define IP_ADDR_MAX_LEN 16
 #define MAX_RECORDS 10000
-#define HASH_MAP_SIZE 100
+#define HASH_MAP_SIZE 10
 #define KEY_SIZE 5
-#define VAL_SIZE 10
+#define VAL_SIZE 5
 #define MAX_MSG_SIZE 1024
 #define MAX_QUEUE_CAPACITY 1000 
 

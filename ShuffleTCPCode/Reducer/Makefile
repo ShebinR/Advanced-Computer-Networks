@@ -1,5 +1,5 @@
-reducer: reducer.o tcp_client.o message_formats.pb-c.o tcp_client.h thread_info.h communication.o queue.o
-	gcc -o reducer reducer.o tcp_client.o message_formats.pb-c.o communication.o queue.o -lprotobuf-c
+reducer: reducer.o tcp_client.o message_formats.pb-c.o tcp_client.h thread_info.h communication.o queue.o hash_map_group_by_key.o group_by_key_reducer.o
+	gcc -o reducer reducer.o tcp_client.o message_formats.pb-c.o communication.o queue.o hash_map_group_by_key.o group_by_key_reducer.o -lprotobuf-c
 
 message_formats.pb-c.o: message_formats.pb-c.c
 	gcc -c message_formats.pb-c.c
@@ -16,8 +16,11 @@ communication.o: communication.c communication.h
 queue.o: queue.c queue.h
 	gcc -c queue.c
 
-hash_map_reduce_by_key.o: hash_map_reduce_by_key.c
-	gcc -c hash_map_reduce_by_key.c
+hash_map_group_by_key.o: hash_map_group_by_key.c hash_map_group_by_key.h
+	gcc -c hash_map_group_by_key.c
+
+group_by_key_reducer.o: group_by_key_reducer.c group_by_key_reducer.h
+	gcc -c group_by_key_reducer.c
 
 clean:
 	rm -f reducer *.o
