@@ -6,12 +6,14 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <netinet/tcp.h>
  
 #define MAX 80
 
 #include "thread_info.h"
 #include "message_formats.pb-c.h"
 #include "communication.h"
+#include "constants.h"
  
 int establishConnection(char *IPAddress, int port, int *sockfd) {
     struct sockaddr_in servaddr; 
@@ -22,6 +24,11 @@ int establishConnection(char *IPAddress, int port, int *sockfd) {
         return -1; 
     }
 
+    int flag = 1;
+    if(setsockopt(*sockfd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag))) { 
+        printf("ERROR: Socket opt setting\n");
+        return -1;
+    } 
     // assign IP, PORT 
     bzero(&servaddr, sizeof(servaddr)); 
     servaddr.sin_family = AF_INET; 
@@ -37,19 +44,27 @@ int establishConnection(char *IPAddress, int port, int *sockfd) {
     return 0;
 }
 
-int startShuffle(int sockfd, int total_shuffle_size, Queue *result_queue, char *server_name) {
-    for(int i = 0; i < total_shuffle_size; i++) {
-        printf("FROM : %s\n", server_name);
-        /* Send chuch_fetch_request */
-        sendChunckFetchRequest(sockfd);
+int startShuffle(int sockfd, Queue *result_queue, char *server_name,
+        int max_reqs_in_flight_per_server, int total_shuffle_size) {
+    int total_steps = total_shuffle_size / max_reqs_in_flight_per_server;
 
-        /* Receive chuch_fetch_reply */
-        uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
-        size_t *len = (size_t *) malloc (sizeof(size_t));
-        receiveChunckFetchReply(sockfd, buf, len);
-        int ret = enQueue(result_queue, buf, *len);
-        if(ret == 0)
-            printf("INFO: Enqueued received data!\n");
+    for(int step = 0; step < total_steps; step++) {
+
+        for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
+            printf("FROM : %s\n", server_name);
+            /* Send chuch_fetch_request */
+            sendChunckFetchRequest(sockfd, i);
+        }
+
+        for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
+            /* Receive chuch_fetch_reply */
+            uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
+            size_t *len = (size_t *) malloc (sizeof(size_t));
+            receiveChunckFetchReply(sockfd, buf, len);
+            int ret = enQueue(result_queue, buf, *len);
+            if(ret == 0)
+                printf("INFO: Enqueued received data!\n");
+        }
     }
 
     return 0;
@@ -65,6 +80,10 @@ void connectToServer(void *input)
     char *IPAddress = ((thread_info *)input)->IPAddress;
     int port = ((thread_info *)input)->port;
     Queue *result_queue = ((thread_info *)input)->result_queue;
+    int max_reqs_in_flight_per_server = ((thread_info *)input)->max_reqs_in_flight_per_server;
+    int max_record_per_reply = ((thread_info *)input)->max_record_per_reply;
+    int total_shuffle_size = ((thread_info *)input)->total_shuffle_size;
+
     int sockfd, connfd, ret;
  
     printf("INFO: Thread ID:: %d Contacting : %s\n", t, server_name);
@@ -76,16 +95,16 @@ void connectToServer(void *input)
     printf("INFO: Connection success! Starting transfer!\n");
   
     /* 2. Initiate Shuffle communication */
-    int total_shuffle_size = 10;
     sendOpenMessage(sockfd, total_shuffle_size);
     ret = receiveOpenMessageAck(sockfd);
     if (ret != 0) {
         printf("ERROR: Error receiving open_message_ack!");
         exit(0);
     }
-
+    sleep(2);
     /* 3. Start Shuffle */
-    ret = startShuffle(sockfd, total_shuffle_size, result_queue, server_name);
+    ret = startShuffle(sockfd, result_queue, server_name,
+        max_reqs_in_flight_per_server, total_shuffle_size);
   
     /* N. Close the socket */
     close(sockfd);

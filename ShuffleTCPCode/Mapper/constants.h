@@ -8,8 +8,12 @@
 #define MAX_RECORDS 10000
 #define HASH_MAP_SIZE 100
 #define KEY_SIZE 5
-#define VAL_SIZE 10
+#define VAL_SIZE 5
 #define MAX_MSG_SIZE 1024
-#define MAX_QUEUE_CAPACITY 1000 
+#define MAX_QUEUE_CAPACITY 1000
+
+#define MAX_SHUFFLE_SIZE 100
+#define MAX_REQ_IN_FLIGHT 5
+#define MAX_REPLY_SIZE 2 
 
 #endif

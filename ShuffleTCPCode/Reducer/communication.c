@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
 
 #include "message_formats.pb-c.h"
 #include "constants.h"
@@ -70,8 +72,8 @@ int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
     unsigned i;
    
     *msg_len = read(sockfd, buf, MAX_MSG_SIZE);
-    msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
-    /*if(msg == NULL) { // Something failed
+    /*msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
+    if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
         return -1;
     }
@@ -154,10 +156,10 @@ void sendOpenMessage(int sockfd, int block_size) {
     free(buf);                      // Free the allocated serialized buffer
 }
 
-void createChunckFetchRequest(void **buf, unsigned int *len) {
+void createChunckFetchRequest(void **buf, unsigned int *len, int last_block) {
     ChunckFetchRequest msg = CHUNCK_FETCH_REQUEST__INIT; // AMessage
     
-    msg.chunck_size = 1;
+    msg.chunck_size = last_block;
     *len = chunck_fetch_request__get_packed_size(&msg);
     *buf = malloc(*len);
     chunck_fetch_request__pack(&msg, *buf);
@@ -165,13 +167,15 @@ void createChunckFetchRequest(void **buf, unsigned int *len) {
     //printSerializedMessage(buf, len); 
 }
 
-void sendChunckFetchRequest(int sockfd) {
+void sendChunckFetchRequest(int sockfd, int last_block) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
     printf("SENDING: chunck_fetch_request{}!\n");
-    createChunckFetchRequest(&buf, &len);
+    createChunckFetchRequest(&buf, &len, last_block);
     write(sockfd, buf, len);
+    //send(sockfd, buf, len, MSG_DONTWAIT);
+    usleep(5000);
 
     free(buf);                      // Free the allocated serialized buffer
 }
@@ -198,6 +202,7 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
 
     printf("SENDING: chunck_fetch_reply{}!\n");
     write(sockfd, buf, len);
+    usleep(1000);
 
     free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer

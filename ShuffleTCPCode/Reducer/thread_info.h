@@ -10,6 +10,9 @@ typedef struct thread_info {
     char IPAddress[IP_ADDR_MAX_LEN];
     int port;
     Queue *result_queue;
+    int max_reqs_in_flight_per_server;
+    int max_record_per_reply;
+    int total_shuffle_size;
 }thread_info;
 
 typedef struct thread_info_grouper {

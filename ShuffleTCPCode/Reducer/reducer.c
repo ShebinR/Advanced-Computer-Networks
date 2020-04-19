@@ -58,12 +58,18 @@ void printNodeInfo(char **IPAddress, int ports[], int n) {
         printf("\t%s @ %d\n", IPAddress[i], ports[i]);
 }
 
-pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *server_name) {
+pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *server_name,
+        int max_reqs_in_flight_per_server, int max_record_per_reply, int total_shuffle_size) {
     thread_info *node_input = (thread_info *) malloc(sizeof(thread_info));
+
     strcpy(node_input->server_name, server_name);
     strcpy(node_input->IPAddress, IPAddress);
     node_input->port = port;
     node_input->result_queue = result_queue;
+    node_input->max_reqs_in_flight_per_server = max_reqs_in_flight_per_server;
+    node_input->max_record_per_reply = max_record_per_reply;
+    node_input->total_shuffle_size = total_shuffle_size;
+
     printf("INFO: contacting Mapper @ %s:%d\n", node_input->IPAddress, node_input->port);
 
     /* Creating a thread */
@@ -99,6 +105,11 @@ int main(int argc, char *argv[]) {
     int number_of_servers = atoi(argv[2]);
     printf("Number of mappers : %d\n", number_of_servers);
 
+    /* Mapper Data Configs */
+    int max_reqs_in_flight_per_server = MAX_REQ_IN_FLIGHT / number_of_servers;
+    int max_record_per_reply = MAX_REPLY_SIZE;
+    int total_shuffle_size = MAX_SHUFFLE_SIZE;
+
     /* Read config file */
     char *lines[MAX_LINES];
     for(int i = 0; i < MAX_LINES; i++)
@@ -121,11 +132,13 @@ int main(int argc, char *argv[]) {
   
     /* Connect to Server in Thread */
     //connectToServer(IPAddress[0], ports[0]);
+
     pthread_t threads[number_of_servers];
     for(int i  = 0; i < number_of_servers; i++) {
         char server_name[MAX_SERVER_NAME];
         snprintf(server_name, MAX_SERVER_NAME, "server_%d", i);
-        threads[i] = contactMapper(IPAddress[i], ports[i], result_queue, server_name);
+        threads[i] = contactMapper(IPAddress[i], ports[i], result_queue, server_name,
+                max_reqs_in_flight_per_server, max_record_per_reply, total_shuffle_size);
     }
     //pthread_t tid0 = contactMapper(IPAddress[0], ports[0], result_queue, "server_0");
     //pthread_t tid1 = contactMapper(IPAddress[1], ports[1], result_queue, "server_1");
