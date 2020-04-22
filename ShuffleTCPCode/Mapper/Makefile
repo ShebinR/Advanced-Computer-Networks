@@ -1,5 +1,5 @@
 mapper: mapper.o message_formats.pb-c.o hash_map.o communication.o tcp_server.o
-	gcc -o mapper mapper.o message_formats.pb-c.o hash_map.o communication.o tcp_server.o -lprotobuf-c
+	gcc -o mapper mapper.o message_formats.pb-c.o hash_map.o communication.o tcp_server.o -lprotobuf-c -lpthread
 
 testmessage.pb-c.o: message_formats.pb-c.c
 	gcc -c message_formats.pb-c.c

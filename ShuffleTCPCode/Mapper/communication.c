@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <stdint.h>
 
 #include "message_formats.pb-c.h"
 #include "constants.h"

@@ -2,6 +2,7 @@
 #define QUEUE_H
 
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef struct QNode { 
     //int key; 
