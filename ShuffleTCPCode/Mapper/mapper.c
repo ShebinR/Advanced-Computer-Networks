@@ -89,13 +89,13 @@ void receiverThread(void *input) {
     while(1) {
         int ret = receiveChunckFetchRequest(connfd);
         if(ret == -1) {
-            printf("ERROR: receiving chunck_fetch_request()\n");
+            printf("\tRECEIVER THREAD: ERROR: receiving chunck_fetch_request()\n");
         }
         reqs_received++;
         updateRequestVal(request_update_lock, pending_request, 1);
-        printf("RECEIVER: Received a packet!\n");
+        printf("\tRECEIVER THREAD: Received a fetch chunck request!\n");
         if(reqs_received == total_shuffle_size) {
-            printf("RECEIVER: *******Last request received!********\n");
+            printf("\tRECEIVER THREAD: Last request received!!!!\n");
             *last_request = 1; 
             break;
         }
@@ -115,28 +115,28 @@ void senderThread(void *input) {
     while(1) {
         int curr_req_val = getRequestVal(request_update_lock, pending_request);
         if(*last_request == 1 && curr_req_val == 0) {
-            printf("SENDER: reached end of shuffle!\n");
+            printf("SENDER THREAD: reached end of shuffle!\n");
             break;
         }
         if(curr_req_val == 0) {
-            printf("SENDER: No request yet!\n");
+            printf("SENDER THREAD: No request yet!\n");
             usleep(1000000);
             continue;
         }
-        printf("SENDER: Got a request!\n");
+        printf("SENDER THREAD: Sending Reply!\n");
         updateRequestVal(request_update_lock, pending_request, -1);
 
         int record_count = 0;
         char **chunck = getChunk(itr, per_chunck_record, &record_count);
         if(chunck == NULL) {
-            printf("INFO: No more data to push out!\n");
+            printf("SENDER THREAD: No more data to push out!\n");
             // Send end of record send??
             break;
         }
-	printf("No of record from getchunk : %d\n", record_count);
-	printf("SENDER: Sending chunck fetch reply\n");
+	//printf("No of record from getchunk : %d\n", record_count);
+	//printf("SENDER THREAD: Sending chunck fetch reply\n");
         sendChunckFetchReply(connfd, chunck, record_count);
-	printf("SENDER: Sending done\n");
+	    printf("SENDER THREAD: Sending done\n");
         num_responses++;
 
         for(int k = 0; k < per_chunck_record * 2; k++) {
@@ -245,10 +245,21 @@ int main(int argc, char *argv[])
     printf("Total Shuffle size: %d\n", *total_shuffle_size);
     sendOpenMessageAck(connfd, 0);
 
+    /* Finding per reply size */
+    hash_map_iterator *itr = createIterator(map);
+    int record_count = 0;
+    char **chunck = getChunk(itr, MAX_REPLY_SIZE, &record_count);
+    if(chunck == NULL) {
+        printf("MAPPER THREAD: Error getting a chunck!\n");
+    }
+    unsigned int per_request_msg_size = findChunckFetchReplySize(chunck, record_count);
+    printf("MAPPER THREAD: Per request size : %d\n", per_request_msg_size); 
     //ret = startShuffle(connfd, map, total_shuffle_size);
     startShuffleThreads(connfd, map, total_shuffle_size);
-  
+
+    printf("\n");  
     // After chatting close the socket 
+    closeConnection(connfd);
     closeConnection(sockfd);
 
     printf("INFO: Closing Mapper\n");

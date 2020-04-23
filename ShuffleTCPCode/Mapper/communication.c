@@ -58,10 +58,10 @@ int receiveChunckFetchRequest(int sockfd) {
     //printf("DEBUG: Len = %d\n", msg_len);
     msg = chunck_fetch_request__unpack(NULL, msg_len, buf);	
     if (msg == NULL) {
-        printf("ERROR: Unpacking incoming message\n");
+        printf("\tRECEIVER THREAD: ERROR: Unpacking incoming message\n");
         return -1;
     }
-    printf("RECEIVED: chunck_fetch_request{} chunck_fetch = %d\n",msg->chunck_size);  // required field
+    printf("\tRECEIVER THREAD: Rcvd chunck_fetch_request{} chunck_fetch = %d\n",msg->chunck_size);  // required field
 
     // Free the unpacked message
     chunck_fetch_request__free_unpacked(msg, NULL);
@@ -182,6 +182,25 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     free(buf);                      // Free the allocated serialized buffer
 }
 
+unsigned int findChunckFetchReplySize(char **messages, int number_of_records) {
+    size_t len;
+    ChunckFetchReply msg = CHUNCK_FETCH_REPLY__INIT;  // Message (repeated string)
+    unsigned int size = 0, i, j;                                  // Length of serialized data
+    msg.n_record_info = number_of_records;                           // Save number of repeated strings
+    for(i = 0; i < number_of_records; i++) {                     // Find amount of memory to allocate
+        size += ((int)strlen(messages[i]) + 4);
+	//printf("Index I : %d\n", i);
+    }
+    msg.record_info = malloc (sizeof (char) * size);  // Allocate memory to store string
+    for(j = 0; j < msg.n_record_info; j++) {
+	//printf("Index J : %d\n", j);
+        msg.record_info[j] = (char*)messages[j];      // Access msg.c[] as array
+    }
+    len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
+    free (msg.record_info);                             // Free storage for repeated string
+    return len;
+}
+
 void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     void *buf;                                          // Buffer to store serialized data
     size_t len;
@@ -210,9 +229,11 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     //printf("Packing message Mem alloc size : %d\n\n", (int)malloc_usable_size(buf));
     chunck_fetch_reply__pack (&msg, buf);              // Pack the data
 
-    //printf("SENDING: chunck_fetch_reply{}!\n");
-    write(sockfd, buf, len);
-    //usleep(1000);
+    printf("SENDER THREAD: writing chunck_fetch_reply{}!\n");
+    size_t written_bytes = write(sockfd, buf, len);
+    printf("SENDER THREAD: Written bytes : %d\n", written_bytes);
+    printf("SENDER THREAD: Actual data len : %d\n", len);
+    usleep(1000);
 
     free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer
