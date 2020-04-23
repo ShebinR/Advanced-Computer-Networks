@@ -14,7 +14,7 @@ void groupByKeyReducer(void *input) {
     hash_map_group_by_key *map = ((thread_info_grouper *)input)->map;
     int *mapper_status = ((thread_info_grouper *)input)->mapper_status;
 
-    printf("INFO: Thread ID:: %d Name : %s\n", t, thread_name);
+    printf("INFO: Thread ID:: %d Name : %s\n", (int)t, thread_name);
     //sleep(15);
     while(1) {
         QNode *node = NULL;
@@ -26,22 +26,28 @@ void groupByKeyReducer(void *input) {
                 break;
         } while(node == NULL);
         if(*mapper_status == 1 & node == NULL) {
-            printf("INFO: Mappers done & no more data in queue!\n");
+            printf("\tGROUPER THREAD: Mappers done & no more data in queue!\n");
             break;
         }
 
         int no_of_records = 0;
+        printf("\tGROUPER THREAD: Deserializing reply!\n");
         char **messages = deserializeChunkFetchReply(node->data, node->len, &no_of_records);
         if(messages != NULL) {
+            printf("\tGROUPER THREAD: Adding to result map!\n");
             for(int i = 0; i < no_of_records; i += 2) {
-                //printf("%s -> %s ", messages[i], messages[i+1]);
+                printf("\t%s -> %s ", messages[i], messages[i+1]);
                 insert(map, messages[i], messages[i+1]);
                 free(messages[i]);
                 free(messages[i+1]);
             }
+            fflush(stdout);
+        } else {
+            printf("\tGROUPER THREAD: Error!! deserializing reply!\n");
         }
+	    printf("\n");
         free(node);
     }
     printf("\n");
-    printf("INFO: Group by done\n");
+    printf("\tGROUPER THREAD: Group by done\n");
 }
