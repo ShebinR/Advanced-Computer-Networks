@@ -50,6 +50,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
         q->front = q->rear = temp;
         q->size++;
 
+        printf("COMMUNICATION THREAD: Enqueue done!\n");
 	    pthread_mutex_unlock(&(q->lock));
         return 0; 
     } 
@@ -58,6 +59,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
     q->rear->next = temp; 
     q->rear = temp;
  
+    printf("COMMUNICATION THREAD: Enqueue done!\n");
     pthread_mutex_unlock(&(q->lock));
     return 0;
 } 

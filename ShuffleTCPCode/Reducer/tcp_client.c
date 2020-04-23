@@ -45,7 +45,7 @@ int establishConnection(char *IPAddress, int port, int *sockfd) {
     return 0;
 }
 int startShuffleSingleRequest(int sockfd, Queue *result_queue, char *server_name,
-        int max_reqs_in_flight_per_server, int total_shuffle_size) {
+        int max_reqs_in_flight_per_server, int total_shuffle_size, int reply_size) {
     int total_steps = total_shuffle_size;
 
     for(int step = 0; step < total_steps; step++) {
@@ -55,7 +55,7 @@ int startShuffleSingleRequest(int sockfd, Queue *result_queue, char *server_name
    	/* Receive chuch_fetch_reply */
     	uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
     	size_t *len = (size_t *) malloc (sizeof(size_t));
-    	receiveChunckFetchReply(sockfd, buf, len);
+    	receiveChunckFetchReply(sockfd, buf, len, reply_size);
     	int ret = enQueue(result_queue, buf, *len);
     	if(ret == 0)
 	    printf("INFO: Enqueued received data!\n");
@@ -65,7 +65,7 @@ int startShuffleSingleRequest(int sockfd, Queue *result_queue, char *server_name
 }
 
 int startShuffle(int sockfd, Queue *result_queue, char *server_name,
-        int max_reqs_in_flight_per_server, int total_shuffle_size) {
+        int max_reqs_in_flight_per_server, int total_shuffle_size, int reply_size) {
     int total_steps = total_shuffle_size / max_reqs_in_flight_per_server;
 
     printf("FROM : %s\n", server_name);
@@ -85,14 +85,11 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
             uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
             size_t *len = (size_t *) malloc (sizeof(size_t));
             printf("COMMUNICATION THREAD: Waiting for chunk fetch reply()\n");
-            receiveChunckFetchReply(sockfd, buf, len);
+            receiveChunckFetchReply(sockfd, buf, len, reply_size);
             printf("COMMUNICATION THREAD: Received chunk fetch reply()\n");
             fflush(stdout);
             int ret = enQueue(result_queue, buf, *len);
-            fflush(stdout);
-            if(ret == 0)
-                printf("COMMUNICATION THREAD: Enqueued received data!\n");
-            else
+            if(ret != 0) 
                 printf("COMMUNICATION THREAD: Enqueue failed!\n");
             fflush(stdout);
         }
@@ -127,17 +124,17 @@ void connectToServer(void *input)
   
     /* 2. Initiate Shuffle communication */
     sendOpenMessage(sockfd, total_shuffle_size);
-    ret = receiveOpenMessageAck(sockfd);
-    if (ret != 0) {
+    int reply_size = receiveOpenMessageAck(sockfd);
+    if (reply_size == -1) {
         printf("ERROR: Error receiving open_message_ack!");
         exit(0);
     }
-    sleep(2);
+    //sleep(2);
     /* 3. Start Shuffle */
     //ret = startShuffleSingleRequest(sockfd, result_queue, server_name,
       //  max_reqs_in_flight_per_server, total_shuffle_size);
     ret = startShuffle(sockfd, result_queue, server_name,
-        max_reqs_in_flight_per_server, total_shuffle_size);
+        max_reqs_in_flight_per_server, total_shuffle_size, reply_size);
   
   
     /* N. Close the socket */

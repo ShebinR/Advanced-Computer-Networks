@@ -41,12 +41,12 @@ int receiveOpenMessageAck(int sockfd) {
         printf("ERROR: Unpacking incoming message\n");
         return -1;
     }
-    printf("RECEIVED: open_message_ack{} success = %d\n",msg->success);  // required field
+    printf("RECEIVED: open_message_ack{} reply_size = %d\n",msg->reply_size);  // required field
 
     // Free the unpacked message
     open_message_ack__free_unpacked(msg, NULL);
 
-    return 0;
+    return msg->reply_size;
 }
 
 int receiveChunckFetchRequest(int sockfd) {
@@ -69,15 +69,17 @@ int receiveChunckFetchRequest(int sockfd) {
     return 0;
 }
 
-int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
+int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int reply_size) {
     ChunckFetchReply *msg;
     unsigned i;
   
     printf("COMMUNICATION THREAD: Waiting at read!\n");
     fflush(stdout); 
-    *msg_len = read(sockfd, buf, 12);
+    *msg_len = read(sockfd, buf, reply_size);
     printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", *msg_len); 
     fflush(stdout); 
+    if(reply_size != *msg_len) 
+        printf("COMMUNICATION THREAD: Something wrong!.. Message len does not match!\n");
     /*msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
@@ -121,7 +123,7 @@ char** deserializeChunkFetchReply(uint8_t *buf, size_t msg_len, int *no_of_recor
 void createOpenMessageAck(int success, void **buf, unsigned int *len) {
     OpenMessageAck msg = OPEN_MESSAGE_ACK__INIT; // AMessage
     
-    msg.success = success;
+    msg.reply_size = success;
     *len = open_message_ack__get_packed_size(&msg);
     *buf = malloc(*len);
     open_message_ack__pack(&msg, *buf);

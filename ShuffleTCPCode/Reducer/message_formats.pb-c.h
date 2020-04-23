@@ -39,7 +39,7 @@ struct  _OpenMessage
 struct  _OpenMessageAck
 {
   ProtobufCMessage base;
-  int32_t success;
+  int32_t reply_size;
 };
 #define OPEN_MESSAGE_ACK__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&open_message_ack__descriptor) \
