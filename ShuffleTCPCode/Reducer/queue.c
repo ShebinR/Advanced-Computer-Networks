@@ -39,7 +39,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
     pthread_mutex_lock(&(q->lock));
 
     if(q->size == q->capacity) {
-        printf("INFO: Queue size exceeding capacity! Insertion failed!\n");
+        printf("COMMUNICATION THREAD: Queue size exceeding capacity! Insertion failed!\n");
 	    
         pthread_mutex_unlock(&(q->lock));
         return -1;
@@ -80,7 +80,7 @@ QNode* deQueue(Queue* q, QNode **node) {
     if (q->front == NULL) 
         q->rear = NULL; 
     q->size--;
-    printf("INFO: Dequeue done!\n");
+    printf("\tGROUPER THREAD: Dequeue done!\n");
     pthread_mutex_unlock(&(q->lock));
     return temp;
 }

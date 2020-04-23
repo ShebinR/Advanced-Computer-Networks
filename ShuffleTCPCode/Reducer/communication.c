@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <time.h>
 
 #include "message_formats.pb-c.h"
 #include "constants.h"
@@ -52,6 +53,7 @@ int receiveChunckFetchRequest(int sockfd) {
     ChunckFetchRequest *msg;
     uint8_t buf[MAX_MSG_SIZE];
 
+    
     size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
     //printf("DEBUG: Len = %d\n", msg_len);
     msg = chunck_fetch_request__unpack(NULL, msg_len, buf);	
@@ -70,8 +72,12 @@ int receiveChunckFetchRequest(int sockfd) {
 int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
     ChunckFetchReply *msg;
     unsigned i;
-   
-    *msg_len = read(sockfd, buf, MAX_MSG_SIZE);
+  
+    printf("COMMUNICATION THREAD: Waiting at read!\n");
+    fflush(stdout); 
+    *msg_len = read(sockfd, buf, 12);
+    printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", *msg_len); 
+    fflush(stdout); 
     /*msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
@@ -171,7 +177,7 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
-    printf("SENDING: chunck_fetch_request{}!\n");
+    //printf("SENDING: chunck_fetch_request{}!\n");
     createChunckFetchRequest(&buf, &len, last_block);
     write(sockfd, buf, len);
     //send(sockfd, buf, len, MSG_DONTWAIT);
