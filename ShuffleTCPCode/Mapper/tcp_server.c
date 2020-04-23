@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
+#include <strings.h>
 #include <arpa/inet.h>
 
 void establishConnection(char *IPAddress, int port, int *sockfd, int *connfd) {
