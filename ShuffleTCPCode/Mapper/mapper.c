@@ -119,8 +119,8 @@ void senderThread(void *input) {
             break;
         }
         if(curr_req_val == 0) {
-            printf("SENDER THREAD: No request yet!\n");
-            usleep(1000000);
+            //printf("SENDER THREAD: No request yet!\n");
+            //usleep(1000000);
             continue;
         }
         printf("SENDER THREAD: Sending Reply!\n");
