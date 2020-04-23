@@ -18,6 +18,10 @@ void establishConnection(char *IPAddress, int port, int *sockfd, int *connfd) {
         printf("socket creation failed...\n"); 
         exit(0); 
     }
+
+    int enable = 1;
+    if (setsockopt(*sockfd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0)
+        printf("setsockopt(SO_REUSEADDR) failed");
  
     bzero(&servaddr, sizeof(servaddr)); 
     // assign IP, PORT 
@@ -52,5 +56,6 @@ void establishConnection(char *IPAddress, int port, int *sockfd, int *connfd) {
 
 void closeConnection(int sockfd) {
     printf("INFO: Closing server connection\n");
-    close(sockfd);
+    int ret = close(sockfd);
+    printf("INFO: Close Status : %d\n", ret);
 } 

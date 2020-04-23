@@ -233,7 +233,6 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     size_t written_bytes = write(sockfd, buf, len);
     printf("SENDER THREAD: Written bytes : %d\n", written_bytes);
     printf("SENDER THREAD: Actual data len : %d\n", len);
-    usleep(1000);
 
     free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer
