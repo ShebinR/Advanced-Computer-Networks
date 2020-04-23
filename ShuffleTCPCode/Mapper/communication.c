@@ -42,7 +42,7 @@ int receiveOpenMessageAck(int sockfd) {
         printf("ERROR: Unpacking incoming message\n");
         return -1;
     }
-    printf("RECEIVED: open_message_ack{} success = %d\n",msg->success);  // required field
+    printf("RECEIVED: open_message_ack{} reply_size = %d\n",msg->reply_size);  // required field
 
     // Free the unpacked message
     open_message_ack__free_unpacked(msg, NULL);
@@ -114,10 +114,10 @@ char** deserializeChunkFetchReply(uint8_t *buf, size_t msg_len, int *no_of_recor
 /* ------------------------------- RECEIVING FUNCTIONS ------------------------- */
 
 /* ------------------------------- SENDING FUNCTIONS ------------------------- */
-void createOpenMessageAck(int success, void **buf, unsigned int *len) {
+void createOpenMessageAck(int reply_size, void **buf, unsigned int *len) {
     OpenMessageAck msg = OPEN_MESSAGE_ACK__INIT; // AMessage
     
-    msg.success = success;
+    msg.reply_size = reply_size;
     *len = open_message_ack__get_packed_size(&msg);
     *buf = malloc(*len);
     open_message_ack__pack(&msg, *buf);
@@ -125,12 +125,12 @@ void createOpenMessageAck(int success, void **buf, unsigned int *len) {
     //printSerializedMessage(buf, len); 
 }
 
-void sendOpenMessageAck(int sockfd, int success) {
+void sendOpenMessageAck(int sockfd, int reply_size) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
     printf("SENDING: open_message_ack{}!\n");
-    createOpenMessageAck(success, &buf, &len);
+    createOpenMessageAck(reply_size, &buf, &len);
     write(sockfd, buf, len);
 
     free(buf);                      // Free the allocated serialized buffer

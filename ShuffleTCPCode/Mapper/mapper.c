@@ -243,7 +243,6 @@ int main(int argc, char *argv[])
         exit(0);
     }
     printf("Total Shuffle size: %d\n", *total_shuffle_size);
-    sendOpenMessageAck(connfd, 0);
 
     /* Finding per reply size */
     hash_map_iterator *itr = createIterator(map);
@@ -252,8 +251,10 @@ int main(int argc, char *argv[])
     if(chunck == NULL) {
         printf("MAPPER THREAD: Error getting a chunck!\n");
     }
-    unsigned int per_request_msg_size = findChunckFetchReplySize(chunck, record_count);
-    printf("MAPPER THREAD: Per request size : %d\n", per_request_msg_size); 
+    unsigned int reply_size = findChunckFetchReplySize(chunck, record_count);
+    printf("MAPPER THREAD: Per request size : %d\n", reply_size); 
+    sendOpenMessageAck(connfd, (int)reply_size);
+
     //ret = startShuffle(connfd, map, total_shuffle_size);
     startShuffleThreads(connfd, map, total_shuffle_size);
 

@@ -228,12 +228,12 @@ const ProtobufCMessageDescriptor open_message__descriptor =
 static const ProtobufCFieldDescriptor open_message_ack__field_descriptors[1] =
 {
   {
-    "success",
+    "reply_size",
     1,
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_INT32,
     0,   /* quantifier_offset */
-    offsetof(OpenMessageAck, success),
+    offsetof(OpenMessageAck, reply_size),
     NULL,
     NULL,
     0,             /* flags */
@@ -241,7 +241,7 @@ static const ProtobufCFieldDescriptor open_message_ack__field_descriptors[1] =
   },
 };
 static const unsigned open_message_ack__field_indices_by_name[] = {
-  0,   /* field[0] = success */
+  0,   /* field[0] = reply_size */
 };
 static const ProtobufCIntRange open_message_ack__number_ranges[1 + 1] =
 {

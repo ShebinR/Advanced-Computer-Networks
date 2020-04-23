@@ -3,7 +3,7 @@ message open_message {
 }
 
 message open_message_ack {
-    required int32 success=1;
+    required int32 reply_size=1;
 }
 
 message chunck_fetch_request {
