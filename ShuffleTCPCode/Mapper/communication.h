@@ -16,4 +16,5 @@ int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *len);
 void sendChunckFetchReply(int sockfd, char **messages, int num_of_records);
 
 char** deserializeChunkFetchReply(uint8_t *buf, size_t len, int *no_of_records);
+unsigned int findChunckFetchReplySize(char **messages, int number_of_records);
 #endif
