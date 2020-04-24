@@ -5,6 +5,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <time.h>
+#include <stdint.h>
+#include <malloc.h>
 
 #include "message_formats.pb-c.h"
 #include "constants.h"
@@ -52,16 +54,14 @@ int receiveOpenMessageAck(int sockfd) {
 int receiveChunckFetchRequest(int sockfd) {
     ChunckFetchRequest *msg;
     uint8_t buf[MAX_MSG_SIZE];
-
-    
     size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
     //printf("DEBUG: Len = %d\n", msg_len);
     msg = chunck_fetch_request__unpack(NULL, msg_len, buf);	
     if (msg == NULL) {
-        printf("ERROR: Unpacking incoming message\n");
+        printf("\tRECEIVER THREAD: ERROR: Unpacking incoming message\n");
         return -1;
     }
-    printf("RECEIVED: chunck_fetch_request{} chunck_fetch = %d\n",msg->chunck_size);  // required field
+    printf("\tRECEIVER THREAD: Rcvd chunck_fetch_request{} chunck_fetch = %d\n",msg->chunck_size);  // required field
 
     // Free the unpacked message
     chunck_fetch_request__free_unpacked(msg, NULL);
@@ -72,7 +72,7 @@ int receiveChunckFetchRequest(int sockfd) {
 int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int reply_size) {
     ChunckFetchReply *msg;
     unsigned i;
-  
+ 
     printf("COMMUNICATION THREAD: Waiting at read!\n");
     fflush(stdout); 
     *msg_len = read(sockfd, buf, reply_size);
@@ -120,10 +120,10 @@ char** deserializeChunkFetchReply(uint8_t *buf, size_t msg_len, int *no_of_recor
 /* ------------------------------- RECEIVING FUNCTIONS ------------------------- */
 
 /* ------------------------------- SENDING FUNCTIONS ------------------------- */
-void createOpenMessageAck(int success, void **buf, unsigned int *len) {
+void createOpenMessageAck(int reply_size, void **buf, unsigned int *len) {
     OpenMessageAck msg = OPEN_MESSAGE_ACK__INIT; // AMessage
     
-    msg.reply_size = success;
+    msg.reply_size = reply_size;
     *len = open_message_ack__get_packed_size(&msg);
     *buf = malloc(*len);
     open_message_ack__pack(&msg, *buf);
@@ -131,12 +131,12 @@ void createOpenMessageAck(int success, void **buf, unsigned int *len) {
     //printSerializedMessage(buf, len); 
 }
 
-void sendOpenMessageAck(int sockfd, int success) {
+void sendOpenMessageAck(int sockfd, int reply_size) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
     printf("SENDING: open_message_ack{}!\n");
-    createOpenMessageAck(success, &buf, &len);
+    createOpenMessageAck(reply_size, &buf, &len);
     write(sockfd, buf, len);
 
     free(buf);                      // Free the allocated serialized buffer
@@ -183,34 +183,63 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     createChunckFetchRequest(&buf, &len, last_block);
     write(sockfd, buf, len);
     //send(sockfd, buf, len, MSG_DONTWAIT);
-    usleep(5000);
+    //usleep(5000);
 
     free(buf);                      // Free the allocated serialized buffer
 }
 
+unsigned int findChunckFetchReplySize(char **messages, int number_of_records) {
+    size_t len;
+    ChunckFetchReply msg = CHUNCK_FETCH_REPLY__INIT;  // Message (repeated string)
+    unsigned int size = 0, i, j;                                  // Length of serialized data
+    msg.n_record_info = number_of_records;                           // Save number of repeated strings
+    for(i = 0; i < number_of_records; i++) {                     // Find amount of memory to allocate
+        size += ((int)strlen(messages[i]) + 4);
+	//printf("Index I : %d\n", i);
+    }
+    msg.record_info = malloc (sizeof (char) * size);  // Allocate memory to store string
+    for(j = 0; j < msg.n_record_info; j++) {
+	//printf("Index J : %d\n", j);
+        msg.record_info[j] = (char*)messages[j];      // Access msg.c[] as array
+    }
+    len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
+    free (msg.record_info);                             // Free storage for repeated string
+    return len;
+}
+
 void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
     void *buf;                                          // Buffer to store serialized data
-    unsigned len;
+    size_t len;
     ChunckFetchReply msg = CHUNCK_FETCH_REPLY__INIT;  // Message (repeated string)
     unsigned size = 0, i, j;                                  // Length of serialized data
 
+    //printf("No of recs: %d\n", number_of_records);
     msg.n_record_info = number_of_records;                           // Save number of repeated strings
+    /*for(i = 0; i < number_of_records; i++) {                     // Find amount of memory to allocate
+    	printf("STRING : %s ", messages[i]);
+	printf(" len : %d\n", (int)strlen(messages[i]));
+    }*/
     for(i = 0; i < number_of_records; i++) {                     // Find amount of memory to allocate
-        size += ((int)strlen(messages[i]) + 2);
+        size += ((int)strlen(messages[i]) + 4);
+	//printf("Index I : %d\n", i);
     }
 
     msg.record_info = malloc (sizeof (char) * size);  // Allocate memory to store string
     for(j = 0; j < msg.n_record_info; j++) {
+	//printf("Index J : %d\n", j);
         msg.record_info[j] = (char*)messages[j];      // Access msg.c[] as array
     }
 
     len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
+    //printf("Packing message len : Calc Len : %d\n", len);
     buf = malloc (len);                               // Allocate required serialized buffer length
+    //printf("Packing message Mem alloc size : %d\n\n", (int)malloc_usable_size(buf));
     chunck_fetch_reply__pack (&msg, buf);              // Pack the data
 
-    printf("SENDING: chunck_fetch_reply{}!\n");
-    write(sockfd, buf, len);
-    usleep(1000);
+    printf("SENDER THREAD: writing chunck_fetch_reply{}!\n");
+    size_t written_bytes = write(sockfd, buf, len);
+    printf("SENDER THREAD: Written bytes : %d\n", written_bytes);
+    printf("SENDER THREAD: Actual data len : %d\n", len);
 
     free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer
