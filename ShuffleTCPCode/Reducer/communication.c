@@ -77,7 +77,7 @@ int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int reply
     printf("COMMUNICATION THREAD: Waiting at read!\n");
     fflush(stdout); 
     *msg_len = read(sockfd, buf, reply_size);
-    printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", *msg_len); 
+    printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", (int)*msg_len); 
     fflush(stdout); 
     if(reply_size != *msg_len) 
         printf("COMMUNICATION THREAD: Something wrong!.. Message len does not match!\n");
@@ -184,7 +184,7 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     createChunckFetchRequest(&buf, &len, last_block);
     size_t written_bytes = write(sockfd, buf, len);
     if(written_bytes != len) {
-        printf("COMMUNICATION THREAD: Written bytes: %d\n", written_bytes);
+        printf("COMMUNICATION THREAD: Written bytes: %d\n", (int)written_bytes);
         printf("COMMUNICATION THREAD: Actual bytes: %d\n", len);
     }
     //send(sockfd, buf, len, MSG_DONTWAIT);
@@ -241,8 +241,8 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
 
     printf("SENDER THREAD: writing chunck_fetch_reply{}!\n");
     size_t written_bytes = write(sockfd, buf, len);
-    printf("SENDER THREAD: Written bytes : %d\n", written_bytes);
-    printf("SENDER THREAD: Actual data len : %d\n", len);
+    printf("SENDER THREAD: Written bytes : %d\n", (int)written_bytes);
+    printf("SENDER THREAD: Actual data len : %d\n", (int)len);
 
     free (msg.record_info);                             // Free storage for repeated string
     free (buf);                                         // Free serialized buffer
@@ -251,9 +251,9 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
 void printSerializedMessage(void *buf, int len) {
     printf("DEBUG: writing %d serialized bytes\n", len); // See the length of message
 
-    for(int i = 0; i < len; i++)
-        printf("%d ", (int)(buf + sizeof(int) * i));
-    printf("\n");
+    //for(int i = 0; i < len; i++)
+      //  printf("%d ", (int)(buf + sizeof(int) * i));
+    //printf("\n");
 }
 
 /* ------------------------------- SENDING FUNCTIONS ------------------------- */
