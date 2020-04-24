@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <time.h>
 #include <stdint.h>
 #include <malloc.h>
 
@@ -47,7 +48,7 @@ int receiveOpenMessageAck(int sockfd) {
     // Free the unpacked message
     open_message_ack__free_unpacked(msg, NULL);
 
-    return 0;
+    return msg->reply_size;
 }
 
 int receiveChunckFetchRequest(int sockfd) {
@@ -69,11 +70,17 @@ int receiveChunckFetchRequest(int sockfd) {
     return 0;
 }
 
-int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
+int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int reply_size) {
     ChunckFetchReply *msg;
     unsigned i;
-   
-    *msg_len = read(sockfd, buf, MAX_MSG_SIZE);
+ 
+    printf("COMMUNICATION THREAD: Waiting at read!\n");
+    fflush(stdout); 
+    *msg_len = read(sockfd, buf, reply_size);
+    printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", *msg_len); 
+    fflush(stdout); 
+    if(reply_size != *msg_len) 
+        printf("COMMUNICATION THREAD: Something wrong!.. Message len does not match!\n");
     /*msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
@@ -173,11 +180,14 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
-    printf("SENDING: chunck_fetch_request{}!\n");
+    //printf("SENDING: chunck_fetch_request{}!\n");
     createChunckFetchRequest(&buf, &len, last_block);
-    write(sockfd, buf, len);
+    size_t written_bytes = write(sockfd, buf, len);
+    if(written_bytes != len) {
+        printf("COMMUNICATION THREAD: Written bytes: %d\n", written_bytes);
+        printf("COMMUNICATION THREAD: Actual bytes: %d\n", len);
+    }
     //send(sockfd, buf, len, MSG_DONTWAIT);
-    //usleep(5000);
 
     free(buf);                      // Free the allocated serialized buffer
 }

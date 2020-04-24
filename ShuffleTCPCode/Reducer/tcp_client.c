@@ -72,10 +72,12 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
     for(int step = 0; step < total_steps; step++) {
 
         for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
-            printf("COMMUNICATION THREAD: Sending chunck fetch request()\n");
+            printf("COMMUNICATION THREAD: Sending chunck fetch request() -> index : %d\n", i);
             fflush(stdout);
             /* Send chuch_fetch_request */
-            sendChunckFetchRequest(sockfd, i);
+            // i % 127 : Not a good solution though. Be careful about the multiple write/read situation between reader writter.
+            // To solve this, the reader always reads 2 bytes of request. Thus, 128 makes its fail in certain situations due to race-condition.
+            sendChunckFetchRequest(sockfd, (i % 127));
             printf("COMMUNICATION THREAD: Sending chunck fetch request() success!\n");
             fflush(stdout);
         }
