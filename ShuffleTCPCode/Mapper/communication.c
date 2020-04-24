@@ -4,7 +4,6 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <time.h>
 #include <stdint.h>
 #include <malloc.h>
 
@@ -48,12 +47,13 @@ int receiveOpenMessageAck(int sockfd) {
     // Free the unpacked message
     open_message_ack__free_unpacked(msg, NULL);
 
-    return msg->reply_size;
+    return 0;
 }
 
 int receiveChunckFetchRequest(int sockfd) {
     ChunckFetchRequest *msg;
     uint8_t buf[MAX_MSG_SIZE];
+
     size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
     //printf("DEBUG: Len = %d\n", msg_len);
     msg = chunck_fetch_request__unpack(NULL, msg_len, buf);	
@@ -69,17 +69,11 @@ int receiveChunckFetchRequest(int sockfd) {
     return 0;
 }
 
-int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int reply_size) {
+int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len) {
     ChunckFetchReply *msg;
     unsigned i;
- 
-    printf("COMMUNICATION THREAD: Waiting at read!\n");
-    fflush(stdout); 
-    *msg_len = read(sockfd, buf, reply_size);
-    printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", *msg_len); 
-    fflush(stdout); 
-    if(reply_size != *msg_len) 
-        printf("COMMUNICATION THREAD: Something wrong!.. Message len does not match!\n");
+   
+    *msg_len = read(sockfd, buf, MAX_MSG_SIZE);
     /*msg = chunck_fetch_reply__unpack (NULL, *msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
         fprintf(stderr, "error unpacking incoming message\n");
@@ -179,7 +173,7 @@ void sendChunckFetchRequest(int sockfd, int last_block) {
     void *buf;                     // Buffer to store serialized data
     unsigned len;                  // Length of serialized data
 
-    //printf("SENDING: chunck_fetch_request{}!\n");
+    printf("SENDING: chunck_fetch_request{}!\n");
     createChunckFetchRequest(&buf, &len, last_block);
     write(sockfd, buf, len);
     //send(sockfd, buf, len, MSG_DONTWAIT);
@@ -229,7 +223,6 @@ void sendChunckFetchReply(int sockfd, char **messages, int number_of_records) {
 	//printf("Index J : %d\n", j);
         msg.record_info[j] = (char*)messages[j];      // Access msg.c[] as array
     }
-
     len = chunck_fetch_reply__get_packed_size (&msg);  // This is calculated packing length
     //printf("Packing message len : Calc Len : %d\n", len);
     buf = malloc (len);                               // Allocate required serialized buffer length
