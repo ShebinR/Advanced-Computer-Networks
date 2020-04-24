@@ -58,14 +58,14 @@ int startShuffleSingleRequest(int sockfd, Queue *result_queue, char *server_name
     	receiveChunckFetchReply(sockfd, buf, len, reply_size);
     	int ret = enQueue(result_queue, buf, *len);
     	if(ret == 0)
-	    printf("INFO: Enqueued received data!\n");
+	        printf("INFO: Enqueued received data!\n");
     }
 
     return 0;
 }
 
 int startShuffle(int sockfd, Queue *result_queue, char *server_name,
-        int max_reqs_in_flight_per_server, int total_shuffle_size, int reply_size) {
+        int max_reqs_in_flight_per_server, int total_shuffle_size, int reply_size, stats_mapper *stat_m) {
     int total_steps = total_shuffle_size / max_reqs_in_flight_per_server;
 
     printf("FROM : %s\n", server_name);
@@ -80,7 +80,9 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
             sendChunckFetchRequest(sockfd, (i % 127));
             printf("COMMUNICATION THREAD: Sending chunck fetch request() success!\n");
             fflush(stdout);
+            stat_m->number_of_chuck_fetch_requests++;
         }
+        stat_m->number_of_request_blocks++;
 
         for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
             /* Receive chuch_fetch_reply */
@@ -94,7 +96,9 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
             if(ret != 0) 
                 printf("COMMUNICATION THREAD: Enqueue failed!\n");
             fflush(stdout);
+            stat_m->number_of_chuck_fetch_replies_sent++;
         }
+        stat_m->number_of_reply_blocks++;
     }
 
     return 0;
@@ -113,6 +117,7 @@ void connectToServer(void *input)
     int max_reqs_in_flight_per_server = ((thread_info *)input)->max_reqs_in_flight_per_server;
     int max_record_per_reply = ((thread_info *)input)->max_record_per_reply;
     int total_shuffle_size = ((thread_info *)input)->total_shuffle_size;
+    stats_mapper *stat_m = ((thread_info *)input)->stat_m;
 
     int sockfd, connfd, ret;
  
@@ -136,7 +141,7 @@ void connectToServer(void *input)
     //ret = startShuffleSingleRequest(sockfd, result_queue, server_name,
       //  max_reqs_in_flight_per_server, total_shuffle_size);
     ret = startShuffle(sockfd, result_queue, server_name,
-        max_reqs_in_flight_per_server, total_shuffle_size, reply_size);
+        max_reqs_in_flight_per_server, total_shuffle_size, reply_size, stat_m);
   
   
     /* N. Close the socket */
