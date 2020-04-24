@@ -55,7 +55,7 @@ int receiveChunckFetchRequest(int sockfd) {
     ChunckFetchRequest *msg;
     uint8_t buf[MAX_MSG_SIZE];
 
-    size_t msg_len = read(sockfd, buf, MAX_MSG_SIZE);
+    size_t msg_len = read(sockfd, buf, MAX_CHUNK_REQ_SIZE);
     //printf("DEBUG: Len = %d\n", msg_len);
     msg = chunck_fetch_request__unpack(NULL, msg_len, buf);	
     if (msg == NULL) {

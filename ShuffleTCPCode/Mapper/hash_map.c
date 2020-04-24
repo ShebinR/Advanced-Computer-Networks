@@ -31,6 +31,17 @@ hash_map * createHashMap(int size) {
     return map;
 }
 
+void resetIterator(hash_map_iterator *itr) {
+    itr->index = 0;
+    itr->curr = itr->map->head[itr->index];
+    while(itr->curr == NULL) {
+        itr->index++;
+        if(itr->index == itr->map->size)
+            break;
+        itr->curr = itr->map->head[itr->index];
+    }
+}
+
 hash_map_iterator * createIterator(hash_map *map) {
     hash_map_iterator *itr = (hash_map_iterator *) malloc (sizeof(hash_map_iterator));
     itr->map = map;

@@ -126,12 +126,21 @@ void senderThread(void *input) {
         printf("SENDER THREAD: Sending Reply!\n");
         updateRequestVal(request_update_lock, pending_request, -1);
 
+
         int record_count = 0;
-        char **chunck = getChunk(itr, per_chunck_record, &record_count);
-        if(chunck == NULL) {
-            printf("SENDER THREAD: No more data to push out!\n");
+        char **chunck = NULL;
+        while(1) {
+            record_count = 0;
+            chunck = getChunk(itr, per_chunck_record, &record_count);
+            if(chunck == NULL) {
+                printf("SENDER THREAD: No more data to push out!\n");
             // Send end of record send??
-            break;
+            //break;
+                resetIterator(itr);
+                continue;
+            } else {
+                break;
+            }
         }
 	//printf("No of record from getchunk : %d\n", record_count);
 	//printf("SENDER THREAD: Sending chunck fetch reply\n");
