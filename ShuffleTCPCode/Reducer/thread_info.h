@@ -7,10 +7,15 @@
 
 typedef struct stats_mapper {
     char server_name[MAX_SERVER_NAME];
-    int number_of_chuck_fetch_requests;
+    int N_CF_Reqs_sent;
+    int N_CF_Reps_rcvd;
     int number_of_request_blocks;
-    int number_of_chuck_fetch_replies_sent;
     int number_of_reply_blocks;
+    size_t SO_Reqs_sent;
+    size_t SO_Reps_rcvd;
+    clock_t r_start[MAX_SHUFFLE_SIZE + 10];
+    clock_t r_end[MAX_SHUFFLE_SIZE + 10];
+    double total_rr_latency;
 } stats_mapper;
 
 typedef struct thread_info {

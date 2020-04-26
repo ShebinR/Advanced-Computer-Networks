@@ -95,23 +95,37 @@ pthread_t createGroupByReducerThread(Queue *queue, hash_map_group_by_key *map, c
 }
 
 double timeTaken(clock_t start, clock_t end) {
-    return ((double) (end - start) / CLOCKS_PER_SEC);
+    return ((double) (end - start) / CLOCKS_PER_SEC) * 1000;
 }
 
 void initStats(stats_mapper *stats_m) {
-    stats_m->number_of_chuck_fetch_requests = 0;
+    stats_m->N_CF_Reqs_sent = 0;
+    stats_m->N_CF_Reps_rcvd = 0;
     stats_m->number_of_request_blocks = 0;
-    stats_m->number_of_chuck_fetch_replies_sent = 0;
     stats_m->number_of_reply_blocks = 0;
+    stats_m->SO_Reqs_sent = 0;
+    stats_m->SO_Reps_rcvd = 0;
 }
 
 void printStatsMapper(stats_mapper *stats_m) {
     printf("Server Name : %s\n", stats_m->server_name);
 
-    printf("Number of Chunck Fetch Requests sent : %d\n", stats_m->number_of_chuck_fetch_requests);
+    printf("Number of Chunck Fetch Requests sent : %d\n", stats_m->N_CF_Reqs_sent);
+    printf("Number of Chunck Fetch Repiles rcvd : %d\n", stats_m->N_CF_Reps_rcvd);
     printf("Number of Request Blocks sent : %d\n", stats_m->number_of_request_blocks);
-    printf("Number of Chunck Fetch Repiles rcvd : %d\n", stats_m->number_of_chuck_fetch_replies_sent);
     printf("Number of Reply Blocks rcvd : %d\n", stats_m->number_of_reply_blocks);
+    printf("Size of Requests sent : %zu bytes\n", stats_m->SO_Reqs_sent);
+    printf("Size of Replies rcvd : %zu bytes\n", stats_m->SO_Reps_rcvd);
+    for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
+        if(i % 5 == 0)
+            printf("\n");
+        double r_tt = timeTaken(stats_m->r_start[i], stats_m->r_end[i]);
+        printf("Req (%d) took (%f) msecs ", i, r_tt);
+        if(r_tt > 0)
+        stats_m->total_rr_latency += r_tt;
+    }
+    printf("\n");
+    printf("Requests Latency : %f msecs\n", stats_m->total_rr_latency);
 }
 
 int main(int argc, char *argv[]) {

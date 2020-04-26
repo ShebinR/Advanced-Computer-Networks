@@ -51,7 +51,7 @@ int startShuffleSingleRequest(int sockfd, Queue *result_queue, char *server_name
     for(int step = 0; step < total_steps; step++) {
     	printf("FROM : %s\n", server_name);
         /* Send chuch_fetch_request */
-    	sendChunckFetchRequest(sockfd, step);
+    	//sendChunckFetchRequest(sockfd, step);
    	/* Receive chuch_fetch_reply */
     	uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
     	size_t *len = (size_t *) malloc (sizeof(size_t));
@@ -72,31 +72,38 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
     for(int step = 0; step < total_steps; step++) {
 
         for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
-            printf("COMMUNICATION THREAD: Sending chunck fetch request() -> index : %d\n", i);
-            fflush(stdout);
             /* Send chuch_fetch_request */
             // i % 127 : Not a good solution though. Be careful about the multiple write/read situation between reader writter.
             // To solve this, the reader always reads 2 bytes of request. Thus, 128 makes its fail in certain situations due to race-condition.
-            sendChunckFetchRequest(sockfd, (i % 127));
-            printf("COMMUNICATION THREAD: Sending chunck fetch request() success!\n");
+            size_t tw_bytes, w_bytes;
+            stat_m->r_start[stat_m->N_CF_Reqs_sent] = clock();
+            sendChunckFetchRequest(sockfd, (i % 127), &tw_bytes, &w_bytes);
+            printf("CT: CF Req %d TOW = %zu bytes W = %zu bytes\n",
+                        stat_m->N_CF_Reqs_sent, tw_bytes, w_bytes);
             fflush(stdout);
-            stat_m->number_of_chuck_fetch_requests++;
+            stat_m->N_CF_Reqs_sent++;
+            stat_m->SO_Reqs_sent += w_bytes;
         }
         stat_m->number_of_request_blocks++;
 
         for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
             /* Receive chuch_fetch_reply */
             uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
-            size_t *len = (size_t *) malloc (sizeof(size_t));
-            printf("COMMUNICATION THREAD: Waiting for chunk fetch reply()\n");
-            receiveChunckFetchReply(sockfd, buf, len, reply_size);
-            printf("COMMUNICATION THREAD: Received chunk fetch reply()\n");
+            size_t tr_bytes = reply_size, r_bytes;
+
+            stat_m->r_end[stat_m->N_CF_Reps_rcvd] = clock();
+            receiveChunckFetchReply(sockfd, buf, &r_bytes, tr_bytes);
+            //CF Reply 41 TOR = 10880 bytes R = 10880 bytes
+            printf("CT: CF Reply %d TOR = %zu bytes R = %zu bytes\n",
+                stat_m->N_CF_Reps_rcvd, tr_bytes, r_bytes);
             fflush(stdout);
-            int ret = enQueue(result_queue, buf, *len);
-            if(ret != 0) 
-                printf("COMMUNICATION THREAD: Enqueue failed!\n");
-            fflush(stdout);
-            stat_m->number_of_chuck_fetch_replies_sent++;
+            int ret = enQueue(result_queue, buf, r_bytes);
+            if(ret != 0) {
+                printf("CT: Enqueue failed!\n");
+                fflush(stdout);
+            }
+            stat_m->N_CF_Reps_rcvd++;
+            stat_m->SO_Reps_rcvd += r_bytes;
         }
         stat_m->number_of_reply_blocks++;
     }

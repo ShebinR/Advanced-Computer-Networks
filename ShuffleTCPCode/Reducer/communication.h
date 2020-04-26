@@ -9,7 +9,7 @@ int receiveOpenMessage(int sockfd, int *total_shuffle_size);
 void sendOpenMessageAck(int sockfd, int success);
 int receiveOpenMessageAck(int sockfd);
 
-void sendChunckFetchRequest(int sockfd, int last_block);
+void sendChunckFetchRequest(int sockfd, int last_block, size_t *tw_bytes, size_t *w_bytes);
 int receiveChunckFetchRequest(int sockfd);
 
 int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *len, int reply_size);

@@ -29,7 +29,7 @@ Queue* createQueue(int capacity) {
     q->size = 0;
     q->front = q->rear = NULL;
     if(pthread_mutex_init(&(q->lock), NULL) != 0) { 
-        printf("ERROR: Queue mutex init has failed\n");
+        //printf("ERROR: Queue mutex init has failed\n");
         return NULL; 
     }
     return q; 
@@ -39,7 +39,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
     pthread_mutex_lock(&(q->lock));
 
     if(q->size == q->capacity) {
-        printf("COMMUNICATION THREAD: Queue size exceeding capacity! Insertion failed!\n");
+        //printf("COMMUNICATION THREAD: Queue size exceeding capacity! Insertion failed!\n");
 	    
         pthread_mutex_unlock(&(q->lock));
         return -1;
@@ -50,7 +50,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
         q->front = q->rear = temp;
         q->size++;
 
-        printf("COMMUNICATION THREAD: Enqueue done!\n");
+        //printf("COMMUNICATION THREAD: Enqueue done!\n");
 	    pthread_mutex_unlock(&(q->lock));
         return 0; 
     } 
@@ -59,7 +59,7 @@ int enQueue(Queue* q, uint8_t *data, size_t len) {
     q->rear->next = temp; 
     q->rear = temp;
  
-    printf("COMMUNICATION THREAD: Enqueue done!\n");
+    //printf("COMMUNICATION THREAD: Enqueue done!\n");
     pthread_mutex_unlock(&(q->lock));
     return 0;
 } 
@@ -68,7 +68,7 @@ QNode* deQueue(Queue* q, QNode **node) {
     pthread_mutex_lock(&(q->lock));
     
     if (q->front == NULL) {
-        //printf("INFO: Queue is empty!\n");
+        ////printf("INFO: Queue is empty!\n");
     
         // release()
 	    pthread_mutex_unlock(&(q->lock));
@@ -82,7 +82,7 @@ QNode* deQueue(Queue* q, QNode **node) {
     if (q->front == NULL) 
         q->rear = NULL; 
     q->size--;
-    printf("\tGROUPER THREAD: Dequeue done!\n");
+    //printf("\tGROUPER THREAD: Dequeue done!\n");
     pthread_mutex_unlock(&(q->lock));
     return temp;
 }
@@ -92,21 +92,21 @@ void printQueue(Queue *q) {
 
     QNode *temp = q->front;
     if(temp == NULL)
-        printf("INFO: Queue is empty!");
+        //printf("INFO: Queue is empty!");
     while(temp != NULL) {
         int no_of_records = 0;
         char **messages = deserializeChunkFetchReply(temp->data, temp->len, &no_of_records);
         if(messages != NULL) {
-            for(int i = 0; i < no_of_records; i++) {
-                if(i > 0)
-                    printf(", ");
-                printf("%s", messages[i]);
-            }
-            printf("\n");
+            //for(int i = 0; i < no_of_records; i++) {
+              //  if(i > 0)
+                    //printf(", ");
+                //printf("%s", messages[i]);
+            //}
+            //printf("\n");
         }
         temp = temp->next;
     }
-    printf("\n");
+    //printf("\n");
 
     pthread_mutex_unlock(&(q->lock));
 }
