@@ -18,8 +18,17 @@ typedef struct stats_mapper {
     double total_rr_latency;
 } stats_mapper;
 
+typedef struct stats_grouper {
+    //clock_t *d_start;
+    //clock_t *d_end;
+    //clock_t *d_diff;
+    double *per_tt;
+    double total_deser_latency;
+} stats_grouper;
+
 typedef struct thread_info {
     char server_name[MAX_SERVER_NAME];
+    int core_id;
     char IPAddress[IP_ADDR_MAX_LEN];
     int port;
     Queue *result_queue;
@@ -31,9 +40,11 @@ typedef struct thread_info {
 
 typedef struct thread_info_grouper {
     char thread_name[MAX_SERVER_NAME];
+    int core_id;
     Queue *result_queue;
     hash_map_group_by_key *map;
     int *mapper_status;
+    stats_grouper *stats_g;
 } thread_info_grouper;
 
 #endif

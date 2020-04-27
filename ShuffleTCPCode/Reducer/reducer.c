@@ -59,9 +59,10 @@ void printNodeInfo(char **IPAddress, int ports[], int n) {
 }
 
 pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *server_name,
-        int max_reqs_in_flight_per_server, int max_record_per_reply, int total_shuffle_size, stats_mapper *stat_m) {
+        int max_reqs_in_flight_per_server, int max_record_per_reply, int total_shuffle_size, stats_mapper *stat_m, int core_id) {
     thread_info *node_input = (thread_info *) malloc(sizeof(thread_info));
 
+    printf("MAX REQS PER SERVER: %d\n", max_reqs_in_flight_per_server);
     strcpy(node_input->server_name, server_name);
     strcpy(node_input->IPAddress, IPAddress);
     node_input->port = port;
@@ -70,6 +71,7 @@ pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *se
     node_input->max_record_per_reply = max_record_per_reply;
     node_input->total_shuffle_size = total_shuffle_size;
     node_input->stat_m = stat_m;
+    node_input->core_id = core_id;
 
     printf("INFO: contacting Mapper @ %s:%d\n", node_input->IPAddress, node_input->port);
 
@@ -80,12 +82,15 @@ pthread_t contactMapper(char *IPAddress, int port, Queue *result_queue, char *se
     return tid;
 }
 
-pthread_t createGroupByReducerThread(Queue *queue, hash_map_group_by_key *map, char *thread_name, int *mapper_status) {
+pthread_t createGroupByReducerThread(Queue *queue, hash_map_group_by_key *map, char *thread_name, int *mapper_status,
+        stats_grouper *stat_g, int core_id) {
     thread_info_grouper *grouper_info = (thread_info_grouper *) malloc(sizeof(thread_info_grouper));
     strcpy(grouper_info->thread_name, thread_name);
     grouper_info->result_queue = queue;
     grouper_info->map = map;
     grouper_info->mapper_status = mapper_status;
+    grouper_info->stats_g = stat_g;
+    grouper_info->core_id = core_id;
 
     /* Creating a thread */
     pthread_t tid;
@@ -95,6 +100,7 @@ pthread_t createGroupByReducerThread(Queue *queue, hash_map_group_by_key *map, c
 }
 
 double timeTaken(clock_t start, clock_t end) {
+    //printf(" [S: %ld E: %ld] ", start, end);
     return ((double) (end - start) / CLOCKS_PER_SEC) * 1000;
 }
 
@@ -105,6 +111,22 @@ void initStats(stats_mapper *stats_m) {
     stats_m->number_of_reply_blocks = 0;
     stats_m->SO_Reqs_sent = 0;
     stats_m->SO_Reps_rcvd = 0;
+    for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
+        stats_m->r_start[i] = 0;
+        stats_m->r_end[i] = 0;
+    }
+}
+
+void initGrouperStats(stats_grouper *stats_g, int number_of_servers) {
+    //stats_g->d_start = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    //stats_g->d_end = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    //stats_g->d_diff = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->per_tt = (double *) malloc(sizeof(double) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    /*for(int i = 0; i < MAX_SHUFFLE_SIZE * 3; i++) {
+        stats_g->d_start[i] = (clock_t) malloc(sizeof(clock_t));
+        stats_g->d_end[i] = (clock_t) malloc(sizeof(clock_t));
+        stats_g->d_diff[i] = (clock_t) malloc(sizeof(clock_t));
+    }*/
 }
 
 void printStatsMapper(stats_mapper *stats_m) {
@@ -128,6 +150,20 @@ void printStatsMapper(stats_mapper *stats_m) {
     printf("Requests Latency : %f msecs\n", stats_m->total_rr_latency);
 }
 
+void printStatsGrouper(stats_grouper *stats_g, int no_of_servers) {
+    for(int i = 0; i < MAX_SHUFFLE_SIZE * no_of_servers; i++) {
+        if(i % 4 == 0)
+            printf("\n");
+        //double d_tt = timeTaken(stats_g->d_start[i], stats_g->d_end[i]);
+        double d_tt = stats_g->per_tt[i];
+        printf("Des. Req (%d) took (%f) msecs ", i, d_tt);
+        if(d_tt > 0)
+        stats_g->total_deser_latency += d_tt;
+    }
+    printf("\n");
+    printf("Deserialization Latency : %f msecs\n", stats_g->total_deser_latency);
+}
+
 int main(int argc, char *argv[]) {
     if(argc != 3) {
         printf("Usage : reducer <config_file_name> <number_of_mappers>\n");
@@ -142,7 +178,7 @@ int main(int argc, char *argv[]) {
     printf("Number of mappers : %d\n", number_of_servers);
 
     /* Mapper Data Configs */
-    int max_reqs_in_flight_per_server = MAX_REQ_IN_FLIGHT / number_of_servers;
+    int max_reqs_in_flight_per_server = MAX_REQ_IN_FLIGHT;
     int max_record_per_reply = MAX_REPLY_SIZE;
     int total_shuffle_size = MAX_SHUFFLE_SIZE;
 
@@ -180,14 +216,16 @@ int main(int argc, char *argv[]) {
         snprintf(server_name, MAX_SERVER_NAME, "server_%d", i);
         strcpy(stats_m[i]->server_name, server_name);
         threads[i] = contactMapper(IPAddress[i], ports[i], result_queue, server_name,
-                max_reqs_in_flight_per_server, max_record_per_reply, total_shuffle_size, stats_m[i]);
+                max_reqs_in_flight_per_server, max_record_per_reply, total_shuffle_size, stats_m[i], i);
     }
     //pthread_t tid0 = contactMapper(IPAddress[0], ports[0], result_queue, "server_0");
     //pthread_t tid1 = contactMapper(IPAddress[1], ports[1], result_queue, "server_1");
 
     /* Create a reducer Thread */
     int mapper_status = 0;
-    pthread_t tid_r = createGroupByReducerThread(result_queue, result_map, "group_by_key", &mapper_status);
+    stats_grouper *stats_g = (stats_grouper *) malloc(sizeof(stats_grouper));
+    initGrouperStats(stats_g, number_of_servers);
+    pthread_t tid_r = createGroupByReducerThread(result_queue, result_map, "group_by_key", &mapper_status, stats_g, number_of_servers);
 
     /* Waiting for theads to complete */
     //pthread_join(tid0, NULL);
@@ -219,6 +257,7 @@ int main(int argc, char *argv[]) {
     for(int i = 0; i < number_of_servers; i++) {
         printStatsMapper(stats_m[i]);
     }
+    printStatsGrouper(stats_g, number_of_servers);
     printf("------------------------------------------------\n");
     return 0; 
 }

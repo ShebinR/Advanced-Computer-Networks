@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <netdb.h> 
 #include <stdio.h> 
 #include <stdlib.h> 
@@ -6,8 +7,10 @@
 #include <arpa/inet.h> 
 #include <sys/socket.h>
 #include <unistd.h>
+#include <sched.h>
 #include <pthread.h>
 #include <netinet/tcp.h>
+#include <time.h>
  
 #define MAX 80
 
@@ -78,8 +81,8 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
             size_t tw_bytes, w_bytes;
             stat_m->r_start[stat_m->N_CF_Reqs_sent] = clock();
             sendChunckFetchRequest(sockfd, (i % 127), &tw_bytes, &w_bytes);
-            printf("CT: CF Req %d TOW = %zu bytes W = %zu bytes\n",
-                        stat_m->N_CF_Reqs_sent, tw_bytes, w_bytes);
+            printf("CT: %s CF Req %d TOW = %zu bytes W = %zu bytes\n",
+                        server_name, stat_m->N_CF_Reqs_sent, tw_bytes, w_bytes);
             fflush(stdout);
             stat_m->N_CF_Reqs_sent++;
             stat_m->SO_Reqs_sent += w_bytes;
@@ -91,17 +94,19 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
             uint8_t *buf = (uint8_t *) malloc (sizeof(uint8_t) * MAX_MSG_SIZE);
             size_t tr_bytes = reply_size, r_bytes;
 
-            stat_m->r_end[stat_m->N_CF_Reps_rcvd] = clock();
             receiveChunckFetchReply(sockfd, buf, &r_bytes, tr_bytes);
             //CF Reply 41 TOR = 10880 bytes R = 10880 bytes
-            printf("CT: CF Reply %d TOR = %zu bytes R = %zu bytes\n",
-                stat_m->N_CF_Reps_rcvd, tr_bytes, r_bytes);
+            printf("CT: %s CF Reply %d TOR = %zu bytes R = %zu bytes\n",
+                server_name, stat_m->N_CF_Reps_rcvd, tr_bytes, r_bytes);
             fflush(stdout);
             int ret = enQueue(result_queue, buf, r_bytes);
             if(ret != 0) {
                 printf("CT: Enqueue failed!\n");
                 fflush(stdout);
             }
+            stat_m->r_end[stat_m->N_CF_Reps_rcvd] = clock();
+            printf("Clock reqs : %ld \n", stat_m->r_end[stat_m->N_CF_Reps_rcvd]);
+            fflush(stdout);
             stat_m->N_CF_Reps_rcvd++;
             stat_m->SO_Reps_rcvd += r_bytes;
         }
@@ -125,10 +130,22 @@ void connectToServer(void *input)
     int max_record_per_reply = ((thread_info *)input)->max_record_per_reply;
     int total_shuffle_size = ((thread_info *)input)->total_shuffle_size;
     stats_mapper *stat_m = ((thread_info *)input)->stat_m;
+    int core_id = ((thread_info *)input)->core_id;
 
+    /* SETTING CPU AFFINITY */
+    cpu_set_t cpuset;
+    CPU_ZERO(&cpuset);
+    CPU_SET(core_id, &cpuset);
+    int set_result = pthread_setaffinity_np(t, sizeof(cpu_set_t), &cpuset);
+    if(set_result != 0) {
+        printf("ERROR: CPU AFINITY COULD NOT BE SET! exiting ");
+        exit(0);
+    }
+
+    /* Thread Workload */
     int sockfd, connfd, ret;
  
-    printf("INFO: Thread ID:: %d Contacting : %s\n", (int)t, server_name);
+    printf("INFO: Thread ID:: %d Contacting : %s Core ID: %d\n", (int)t, server_name, core_id);
  
     /* 1. Estabilsh Connection */ 
     ret = establishConnection(IPAddress, port, &sockfd);
