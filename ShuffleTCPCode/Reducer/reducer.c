@@ -111,10 +111,11 @@ void initStats(stats_mapper *stats_m) {
     stats_m->number_of_reply_blocks = 0;
     stats_m->SO_Reqs_sent = 0;
     stats_m->SO_Reps_rcvd = 0;
-    for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
-        stats_m->r_start[i] = 0;
-        stats_m->r_end[i] = 0;
-    }
+    //for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
+      //  stats_m->r_start[i] = 0;
+      //  stats_m->r_end[i] = 0;
+    //}
+    stats_m->per_tt = (double *) malloc(sizeof(double) * (MAX_SHUFFLE_SIZE));
 }
 
 void initGrouperStats(stats_grouper *stats_g, int number_of_servers) {
@@ -129,6 +130,32 @@ void initGrouperStats(stats_grouper *stats_g, int number_of_servers) {
     }*/
 }
 
+void findTTMapper(stats_mapper *stats_m) {
+    for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
+        if(i % 7 == 0)
+            printf("\n");
+        //double r_tt = timeTaken(stats_m->r_start[i], stats_m->r_end[i]);
+        double r_tt = stats_m->per_tt[i];
+        printf("|(%d) -> (%f)msecs| ", i, r_tt);
+        if(r_tt > 0)
+        stats_m->total_rr_latency += r_tt;
+    }
+    printf("\n");
+}
+
+void findTTGrouper(stats_grouper *stats_g, int no_of_servers) {
+    for(int i = 0; i < MAX_SHUFFLE_SIZE * no_of_servers; i++) {
+        if(i % 7 == 0)
+            printf("\n");
+        //double d_tt = timeTaken(stats_g->d_start[i], stats_g->d_end[i]);
+        double d_tt = stats_g->per_tt[i];
+        printf("|(%d) -> (%f)msecs| ", i, d_tt);
+        if(d_tt > 0)
+        stats_g->total_deser_latency += d_tt;
+    }
+    printf("\n");
+}
+
 void printStatsMapper(stats_mapper *stats_m) {
     printf("Server Name : %s\n", stats_m->server_name);
 
@@ -138,29 +165,10 @@ void printStatsMapper(stats_mapper *stats_m) {
     printf("Number of Reply Blocks rcvd : %d\n", stats_m->number_of_reply_blocks);
     printf("Size of Requests sent : %zu bytes\n", stats_m->SO_Reqs_sent);
     printf("Size of Replies rcvd : %zu bytes\n", stats_m->SO_Reps_rcvd);
-    for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
-        if(i % 5 == 0)
-            printf("\n");
-        double r_tt = timeTaken(stats_m->r_start[i], stats_m->r_end[i]);
-        printf("Req (%d) took (%f) msecs ", i, r_tt);
-        if(r_tt > 0)
-        stats_m->total_rr_latency += r_tt;
-    }
-    printf("\n");
     printf("Requests Latency : %f msecs\n", stats_m->total_rr_latency);
 }
 
 void printStatsGrouper(stats_grouper *stats_g, int no_of_servers) {
-    for(int i = 0; i < MAX_SHUFFLE_SIZE * no_of_servers; i++) {
-        if(i % 4 == 0)
-            printf("\n");
-        //double d_tt = timeTaken(stats_g->d_start[i], stats_g->d_end[i]);
-        double d_tt = stats_g->per_tt[i];
-        printf("Des. Req (%d) took (%f) msecs ", i, d_tt);
-        if(d_tt > 0)
-        stats_g->total_deser_latency += d_tt;
-    }
-    printf("\n");
     printf("Deserialization Latency : %f msecs\n", stats_g->total_deser_latency);
 }
 
@@ -248,6 +256,10 @@ int main(int argc, char *argv[]) {
     printf("=====================================\n");
     //printMap(result_map);
     printf("=====================================\n");
+    for(int i = 0; i < number_of_servers; i++) {
+        findTTMapper(stats_m[i]);
+    }
+    findTTGrouper(stats_g, number_of_servers);
     
     printf("Reducer done!\n\n");
     printf("------------------------------------------------\n");

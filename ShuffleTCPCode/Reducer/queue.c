@@ -99,8 +99,8 @@ void printQueue(Queue *q) {
         if(messages != NULL) {
             //for(int i = 0; i < no_of_records; i++) {
               //  if(i > 0)
-                    //printf(", ");
-                //printf("%s", messages[i]);
+                   //// //printf(", ");
+                //////printf("%s", messages[i]);
             //}
             //printf("\n");
         }

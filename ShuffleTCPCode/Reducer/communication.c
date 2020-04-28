@@ -75,6 +75,7 @@ int receiveChunckFetchReply(int sockfd, uint8_t *buf, size_t *msg_len, int max_r
     unsigned i;
  
     //printf("COMMUNICATION THREAD: Waiting at read!\n");
+    //fflush(stdout);
     //*msg_len = read(sockfd, buf, max_reply_size);
     *msg_len = recv(sockfd, buf, max_reply_size, MSG_WAITALL);
     //printf("COMMUNICATION THREAD: Reading done! read_len : %d\n", (int)*msg_len); 
@@ -102,11 +103,15 @@ char** deserializeChunkFetchReply(uint8_t *buf, size_t msg_len, int *no_of_recor
     unsigned i;
     ChunckFetchReply *msg = chunck_fetch_reply__unpack (NULL, msg_len, buf); // Deserialize the serialized input
     if(msg == NULL) { // Something failed
-        //printf("ERROR: Deserializing the message!\n");
+        printf("ERROR: Deserializing the message!\n");
         return NULL;
     }
     *no_of_record = msg->n_record_info;
     char **messages = (char **) malloc (sizeof(char *) * msg->n_record_info);
+    if(messages == NULL) {
+        printf("ERROR: Deserializing the message!, Malloc failed!\n");
+        return NULL;
+    }
     for(i = 0; i < msg->n_record_info; i++) {
         int len = strlen(msg->record_info[i]);
         char *message = (char *) malloc (sizeof(char) * (len + 1));

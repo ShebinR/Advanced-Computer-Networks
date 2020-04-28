@@ -13,9 +13,10 @@ typedef struct stats_mapper {
     int number_of_reply_blocks;
     size_t SO_Reqs_sent;
     size_t SO_Reps_rcvd;
-    clock_t r_start[MAX_SHUFFLE_SIZE + 10];
-    clock_t r_end[MAX_SHUFFLE_SIZE + 10];
+    //clock_t r_start[MAX_SHUFFLE_SIZE + 10];
+    //clock_t r_end[MAX_SHUFFLE_SIZE + 10];
     double total_rr_latency;
+    double *per_tt;
 } stats_mapper;
 
 typedef struct stats_grouper {

@@ -52,10 +52,10 @@ void groupByKeyReducer(void *input) {
         gettimeofday(&start_t, NULL);
         //clock_t start = clock();
         //stats_g->d_start[index] = start;
-        //printf("\tGROUPER THREAD: Deserializing reply! %ld \n", stats_g->d_start[index]);
         char **messages = deserializeChunkFetchReply(node->data, node->len, &no_of_records);
         if(messages != NULL) {
             printf("\tGROUPER THREAD: Deserialize reply : %d\n", index);
+            //fflush(stdout);
             for(int i = 0; i < no_of_records; i += 2) {
                 //printf("\t%s -> %s ", messages[i], messages[i+1]);
                 insert(map, messages[i], messages[i+1]);
