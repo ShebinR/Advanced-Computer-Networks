@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <x86intrin.h> 
 
 #include "tcp_client.h"
 #include "constants.h"
@@ -111,18 +112,28 @@ void initStats(stats_mapper *stats_m) {
     stats_m->number_of_reply_blocks = 0;
     stats_m->SO_Reqs_sent = 0;
     stats_m->SO_Reps_rcvd = 0;
+    stats_m->total_r_clocks = 0;
+    stats_m->total_rr_latency = 0;
     //for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
       //  stats_m->r_start[i] = 0;
       //  stats_m->r_end[i] = 0;
     //}
+    stats_m->r_start = (clock_t *) malloc(sizeof(clock_t) * MAX_SHUFFLE_SIZE);
+    stats_m->r_end = (clock_t *) malloc(sizeof(clock_t) * MAX_SHUFFLE_SIZE);
+    stats_m->r_diff = (clock_t *) malloc(sizeof(clock_t) * MAX_SHUFFLE_SIZE);
     stats_m->per_tt = (double *) malloc(sizeof(double) * (MAX_SHUFFLE_SIZE));
+    stats_m->rdts_cc = (uint64_t *) malloc(sizeof(uint64_t) * (MAX_SHUFFLE_SIZE));
 }
 
 void initGrouperStats(stats_grouper *stats_g, int number_of_servers) {
-    //stats_g->d_start = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
-    //stats_g->d_end = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
-    //stats_g->d_diff = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->total_deser_latency = 0;
+    stats_g->total_d_clocks = 0;
+    stats_g->d_start = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->d_end = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->d_diff = (clock_t *) malloc(sizeof(clock_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
     stats_g->per_tt = (double *) malloc(sizeof(double) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->rdts_cs = (uint64_t *) malloc(sizeof(uint64_t) * (MAX_SHUFFLE_SIZE * number_of_servers));
+    stats_g->rdts_total_cs = 0;
     /*for(int i = 0; i < MAX_SHUFFLE_SIZE * 3; i++) {
         stats_g->d_start[i] = (clock_t) malloc(sizeof(clock_t));
         stats_g->d_end[i] = (clock_t) malloc(sizeof(clock_t));
@@ -132,26 +143,32 @@ void initGrouperStats(stats_grouper *stats_g, int number_of_servers) {
 
 void findTTMapper(stats_mapper *stats_m) {
     for(int i = 0; i < MAX_SHUFFLE_SIZE; i++) {
-        if(i % 7 == 0)
+        if(i % 4 == 0)
             printf("\n");
         //double r_tt = timeTaken(stats_m->r_start[i], stats_m->r_end[i]);
         double r_tt = stats_m->per_tt[i];
-        printf("|(%d) -> (%f)msecs| ", i, r_tt);
-        if(r_tt > 0)
+        printf("|(%d) -> (%f)msecs [%ld]| ", i, r_tt, stats_m->rdts_cc[i]);
+        if(r_tt <= 0)
+            printf("ERROR: Mapper Time diff is negative!\n");
         stats_m->total_rr_latency += r_tt;
+        stats_m->total_r_clocks += stats_m->r_diff[i];
+        stats_m->rdts_total_cc += stats_m->rdts_cc[i];
     }
     printf("\n");
 }
 
 void findTTGrouper(stats_grouper *stats_g, int no_of_servers) {
     for(int i = 0; i < MAX_SHUFFLE_SIZE * no_of_servers; i++) {
-        if(i % 7 == 0)
+        if(i % 4 == 0)
             printf("\n");
         //double d_tt = timeTaken(stats_g->d_start[i], stats_g->d_end[i]);
         double d_tt = stats_g->per_tt[i];
-        printf("|(%d) -> (%f)msecs| ", i, d_tt);
-        if(d_tt > 0)
+        printf("|(%d) -> (%f)msecs [%ld]| ", i, d_tt, stats_g->rdts_cs[i]);
+        if(d_tt <= 0)
+            printf("ERROR: Grouper Time diff is negative!\n");
         stats_g->total_deser_latency += d_tt;
+        stats_g->total_d_clocks += stats_g->d_diff[i];
+        stats_g->rdts_total_cs += stats_g->rdts_cs[i];
     }
     printf("\n");
 }
@@ -166,10 +183,17 @@ void printStatsMapper(stats_mapper *stats_m) {
     printf("Size of Requests sent : %zu bytes\n", stats_m->SO_Reqs_sent);
     printf("Size of Replies rcvd : %zu bytes\n", stats_m->SO_Reps_rcvd);
     printf("Requests Latency : %f msecs\n", stats_m->total_rr_latency);
+    printf("Requests clocks taken : %ld cycles\n", stats_m->total_r_clocks);
+    printf("Requests clocks taken(rdtsc) : %ld cycles\n", stats_m->rdts_total_cc);
+
+    printf("\n");
 }
 
 void printStatsGrouper(stats_grouper *stats_g, int no_of_servers) {
+    printf("Grouper Thread stats\n");
     printf("Deserialization Latency : %f msecs\n", stats_g->total_deser_latency);
+    printf("Deseialization clocks taken : %ld cycles\n", stats_g->total_d_clocks);
+    printf("Deseialization clocks taken (rdtsc) : %ld cycles\n", stats_g->rdts_total_cs);
 }
 
 int main(int argc, char *argv[]) {

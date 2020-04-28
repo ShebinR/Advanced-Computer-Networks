@@ -13,18 +13,27 @@ typedef struct stats_mapper {
     int number_of_reply_blocks;
     size_t SO_Reqs_sent;
     size_t SO_Reps_rcvd;
-    //clock_t r_start[MAX_SHUFFLE_SIZE + 10];
-    //clock_t r_end[MAX_SHUFFLE_SIZE + 10];
+    clock_t *r_start;
+    clock_t *r_end;
+    clock_t *r_diff;
+    clock_t total_r_clocks;
     double total_rr_latency;
     double *per_tt;
+
+    uint64_t *rdts_cc;
+    uint64_t rdts_total_cc;
 } stats_mapper;
 
 typedef struct stats_grouper {
-    //clock_t *d_start;
-    //clock_t *d_end;
-    //clock_t *d_diff;
+    clock_t *d_start;
+    clock_t *d_end;
+    clock_t *d_diff;
+    clock_t total_d_clocks;
     double *per_tt;
     double total_deser_latency;
+
+    uint64_t *rdts_cs;
+    uint64_t rdts_total_cs;
 } stats_grouper;
 
 typedef struct thread_info {

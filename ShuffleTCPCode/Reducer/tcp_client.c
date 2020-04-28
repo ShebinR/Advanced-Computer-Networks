@@ -12,6 +12,7 @@
 #include <netinet/tcp.h>
 #include <time.h>
 #include <sys/time.h> 
+#include <x86intrin.h> 
  
 #define MAX 80
 
@@ -76,14 +77,21 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
     for(int step = 0; step < total_steps; step++) {
 
         struct timeval start_t[max_reqs_in_flight_per_server], end_t[max_reqs_in_flight_per_server];
+        unsigned int start[max_reqs_in_flight_per_server];
+        for(int k = 0; k < max_reqs_in_flight_per_server; k++)
+            start[k] = 0;
+        uint64_t time1[max_reqs_in_flight_per_server], time2[max_reqs_in_flight_per_server];
+        
         for(int i = 0; i < max_reqs_in_flight_per_server; i++) {
             /* Send chuch_fetch_request */
             // i % 127 : Not a good solution though. Be careful about the multiple write/read situation between reader writter.
             // To solve this, the reader always reads 2 bytes of request. Thus, 128 makes its fail in certain situations due to race-condition.
             size_t tw_bytes, w_bytes;
+
+            time1[i] = __rdtscp(&start[i]);
             //stat_m->r_start[stat_m->N_CF_Reqs_sent] = clock();
-            
             gettimeofday(&start_t[i], NULL);
+
             sendChunckFetchRequest(sockfd, (i % 127), &tw_bytes, &w_bytes);
             printf("CT: %s CF Req %d TOW = %zu bytes W = %zu bytes\n",
                         server_name, stat_m->N_CF_Reqs_sent, tw_bytes, w_bytes);
@@ -109,14 +117,16 @@ int startShuffle(int sockfd, Queue *result_queue, char *server_name,
                 fflush(stdout);
             }
             gettimeofday(&end_t[i], NULL);
+            time2[i] = __rdtscp(&start[i]) - time1[i];
+            //stat_m->r_end[stat_m->N_CF_Reps_rcvd] = clock();
 
             double time_taken;
             time_taken = (end_t[i].tv_sec - start_t[i].tv_sec) * 1e6; 
             time_taken = (time_taken + (end_t[i].tv_usec -  
                               start_t[i].tv_usec)) * 1e-6;
             stat_m->per_tt[stat_m->N_CF_Reps_rcvd] = time_taken * 1000;
-
-            //stat_m->r_end[stat_m->N_CF_Reps_rcvd] = clock();
+            //stat_m->r_diff[stat_m->N_CF_Reps_rcvd] = stat_m->r_end[stat_m->N_CF_Reps_rcvd] - stat_m->r_start[stat_m->N_CF_Reps_rcvd];
+            stat_m->rdts_cc[stat_m->N_CF_Reps_rcvd] = time2[i];
             //printf("Clock reqs : %ld \n", stat_m->r_end[stat_m->N_CF_Reps_rcvd]);
             //fflush(stdout);
             stat_m->N_CF_Reps_rcvd++;

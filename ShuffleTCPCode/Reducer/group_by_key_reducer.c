@@ -3,7 +3,8 @@
 #include <sched.h>
 #include <pthread.h>
 #include <time.h>
-#include <sys/time.h> 
+#include <sys/time.h>
+#include <x86intrin.h> 
 
 #include "thread_info.h"
 #include "hash_map_group_by_key.h"
@@ -48,10 +49,16 @@ void groupByKeyReducer(void *input) {
         }
 
         int no_of_records = 0;
+        
+        unsigned int start = 0;
+        register uint64_t time1,time2;
+        time1 = __rdtscp(&start);
+        
+        //stats_g->d_start[index] = clock();
+        
         struct timeval start_t, end_t;
         gettimeofday(&start_t, NULL);
         //clock_t start = clock();
-        //stats_g->d_start[index] = start;
         char **messages = deserializeChunkFetchReply(node->data, node->len, &no_of_records);
         if(messages != NULL) {
             printf("\tGROUPER THREAD: Deserialize reply : %d\n", index);
@@ -73,8 +80,11 @@ void groupByKeyReducer(void *input) {
         //clock_t end = clock();
         gettimeofday(&end_t, NULL); 
 
-        //stats_g->d_end[index] = end;
-        //stats_g->d_diff[index] = end - start;
+        //stats_g->d_end[index] = clock();
+        //stats_g->d_diff[index] = stats_g->d_end[index] - stats_g->d_start[index];
+        
+        time2 = __rdtscp(&start) - time1;
+        stats_g->rdts_cs[index] = time2;
         //printf("End in D %d stats : %ld Diff : %ld\n", index, stats_g->d_end[index], stats_g->d_diff[index]);
 
         double time_taken;
