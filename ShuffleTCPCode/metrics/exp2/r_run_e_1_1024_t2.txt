@@ -1,0 +1,2764 @@
+INFO: Starting Reducer..
+INFO: Conf. file Name :: reducer_conf.txt
+Number of mappers : 3
+MAX REQS PER SERVER: 3
+INFO: contacting Mapper @ 128.110.96.25:8090
+MAX REQS PER SERVER: 3
+INFO: contacting Mapper @ 128.110.96.193:8090
+MAX REQS PER SERVER: 3
+INFO: contacting Mapper @ 128.110.96.27:8090
+INFO: Thread ID:: -20441344 Contacting : server_1 Core ID: 1
+INFO: Thread ID:: -12048640 Contacting : server_0 Core ID: 0
+INFO: Thread ID:: -28834048 Contacting : server_2 Core ID: 2
+INFO: Thread ID:: -37226752 Name : group_by_key Core ID : 3
+INFO: Connection success! Starting transfer!
+INFO: Connection success! Starting transfer!
+INFO: Connection success! Starting transfer!
+FROM : server_1
+FROM : server_0
+CT: server_1 CF Req 0 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 0 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 1 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 1 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 2 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 2 TOW = 2 bytes W = 2 bytes
+FROM : server_2
+CT: server_2 CF Req 0 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 1 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 2 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 0 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 0 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 1 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 0
+CT: server_0 CF Reply 1 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 1
+	GROUPER THREAD: Deserialize reply : 2
+CT: server_2 CF Reply 0 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 3
+CT: server_2 CF Reply 1 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 4
+	GROUPER THREAD: Deserialize reply : 5
+CT: server_1 CF Reply 2 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 3 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 4 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 2 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 5 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 6
+CT: server_0 CF Req 3 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 4 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 5 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 7
+CT: server_2 CF Reply 2 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 3 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 4 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 8
+CT: server_2 CF Req 5 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 3 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 9
+CT: server_0 CF Reply 3 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 3 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 4 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 4 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 10
+CT: server_2 CF Reply 4 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 11
+CT: server_2 CF Reply 5 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 6 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 12
+CT: server_2 CF Req 7 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 8 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 13
+	GROUPER THREAD: Deserialize reply : 14
+CT: server_1 CF Reply 5 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 15
+CT: server_1 CF Req 6 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 7 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 8 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 16
+CT: server_2 CF Reply 6 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 7 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 5 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 17
+CT: server_0 CF Req 6 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 7 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 8 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 18
+CT: server_1 CF Reply 6 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 7 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 19
+	GROUPER THREAD: Deserialize reply : 20
+	GROUPER THREAD: Deserialize reply : 21
+CT: server_1 CF Reply 8 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 9 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 10 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 11 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 22
+CT: server_2 CF Reply 8 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 9 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 10 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 23
+CT: server_2 CF Req 11 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 6 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 24
+CT: server_0 CF Reply 7 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 25
+CT: server_0 CF Reply 8 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 9 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 10 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 11 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 26
+CT: server_1 CF Reply 9 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 10 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 27
+CT: server_2 CF Reply 9 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 10 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 28
+	GROUPER THREAD: Deserialize reply : 29
+CT: server_0 CF Reply 9 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 30
+CT: server_0 CF Reply 10 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 31
+CT: server_2 CF Reply 11 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 32
+CT: server_1 CF Reply 11 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 12 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 12 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 13 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 13 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 14 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 14 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 33
+	GROUPER THREAD: Deserialize reply : 34
+CT: server_0 CF Reply 11 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 12 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 13 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 14 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 35
+CT: server_1 CF Reply 12 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 12 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 13 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 36
+CT: server_2 CF Reply 13 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 37
+CT: server_0 CF Reply 12 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 13 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 38
+	GROUPER THREAD: Deserialize reply : 39
+	GROUPER THREAD: Deserialize reply : 40
+	GROUPER THREAD: Deserialize reply : 41
+CT: server_0 CF Reply 14 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 15 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 14 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 16 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 15 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 17 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 14 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 16 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 42
+CT: server_1 CF Req 17 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 15 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 16 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 17 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 43
+	GROUPER THREAD: Deserialize reply : 44
+CT: server_1 CF Reply 15 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 16 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 45
+CT: server_0 CF Reply 15 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 16 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 46
+CT: server_2 CF Reply 15 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 16 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 47
+	GROUPER THREAD: Deserialize reply : 48
+CT: server_0 CF Reply 17 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 17 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 18 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 18 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 19 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 19 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 20 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 20 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 49
+	GROUPER THREAD: Deserialize reply : 50
+CT: server_2 CF Reply 17 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 51
+CT: server_2 CF Req 18 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 19 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 20 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 52
+CT: server_0 CF Reply 18 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 53
+	GROUPER THREAD: Deserialize reply : 54
+CT: server_1 CF Reply 18 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 19 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 55
+CT: server_2 CF Reply 18 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 19 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 56
+CT: server_0 CF Reply 19 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 20 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 21 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 22 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 23 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 57
+CT: server_2 CF Reply 20 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 21 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 22 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 23 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 58
+	GROUPER THREAD: Deserialize reply : 59
+CT: server_1 CF Reply 20 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 21 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 22 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 23 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 60
+CT: server_0 CF Reply 21 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 61
+	GROUPER THREAD: Deserialize reply : 62
+CT: server_2 CF Reply 21 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 22 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 22 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 63
+CT: server_0 CF Reply 23 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 24 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 25 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 26 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 64
+	GROUPER THREAD: Deserialize reply : 65
+CT: server_2 CF Reply 23 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 24 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 25 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 26 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 21 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 66
+CT: server_1 CF Reply 22 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 67
+CT: server_0 CF Reply 24 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 68
+CT: server_0 CF Reply 25 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 24 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 23 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 25 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 69
+CT: server_1 CF Req 24 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 25 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 26 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 70
+	GROUPER THREAD: Deserialize reply : 71
+CT: server_2 CF Reply 26 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 72
+CT: server_2 CF Req 27 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 28 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 29 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 73
+	GROUPER THREAD: Deserialize reply : 74
+CT: server_0 CF Reply 26 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 27 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 28 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 29 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 75
+CT: server_1 CF Reply 24 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 25 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 27 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 76
+CT: server_2 CF Reply 28 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 77
+CT: server_2 CF Reply 29 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 78
+CT: server_2 CF Req 30 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 31 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 32 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 26 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 79
+CT: server_1 CF Req 27 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 28 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 29 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 27 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 28 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 80
+	GROUPER THREAD: Deserialize reply : 81
+CT: server_2 CF Reply 30 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 82
+CT: server_0 CF Reply 29 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 30 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 31 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 32 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 27 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 28 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 83
+	GROUPER THREAD: Deserialize reply : 84
+CT: server_2 CF Reply 31 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 32 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 33 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 34 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 29 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 35 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 30 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 85
+CT: server_1 CF Req 31 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 32 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 86
+	GROUPER THREAD: Deserialize reply : 87
+	GROUPER THREAD: Deserialize reply : 88
+CT: server_2 CF Reply 33 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 34 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 89
+CT: server_1 CF Reply 30 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 30 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 31 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 31 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 90
+	GROUPER THREAD: Deserialize reply : 91
+CT: server_2 CF Reply 35 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 36 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 37 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 38 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 32 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 33 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 92
+CT: server_0 CF Req 34 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 35 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 93
+CT: server_1 CF Reply 32 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 33 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 34 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 35 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 94
+CT: server_2 CF Reply 36 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 33 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 95
+CT: server_0 CF Reply 34 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 96
+CT: server_0 CF Reply 35 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 36 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 37 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 38 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 97
+CT: server_2 CF Reply 37 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 33 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 38 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 34 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 39 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 40 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 41 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 98
+CT: server_1 CF Reply 35 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 36 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 37 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 99
+CT: server_1 CF Req 38 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 100
+CT: server_2 CF Reply 39 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 36 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 101
+CT: server_0 CF Reply 37 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 36 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 102
+CT: server_2 CF Reply 40 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 41 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 42 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 43 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 44 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 103
+	GROUPER THREAD: Deserialize reply : 104
+CT: server_0 CF Reply 38 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 39 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 40 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 41 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 37 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 105
+CT: server_1 CF Reply 38 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 39 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 40 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 41 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 106
+CT: server_2 CF Reply 42 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 43 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 107
+CT: server_0 CF Reply 39 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 40 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 108
+CT: server_1 CF Reply 39 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 40 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 44 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 45 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 46 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 47 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 109
+CT: server_1 CF Reply 41 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 110
+CT: server_1 CF Req 42 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 43 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 44 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 41 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 111
+CT: server_0 CF Req 42 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 43 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 44 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 112
+CT: server_1 CF Reply 42 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 45 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 46 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 113
+	GROUPER THREAD: Deserialize reply : 114
+CT: server_2 CF Reply 47 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 48 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 115
+CT: server_2 CF Req 49 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 50 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 43 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 44 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 45 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 46 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 47 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 116
+CT: server_0 CF Reply 42 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 43 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 117
+	GROUPER THREAD: Deserialize reply : 118
+CT: server_1 CF Reply 45 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 44 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 46 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 45 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 48 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 46 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 47 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 119
+CT: server_2 CF Reply 49 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 120
+CT: server_1 CF Reply 47 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 48 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 49 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 50 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 50 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 51 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 121
+CT: server_2 CF Req 52 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 53 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 45 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 46 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 122
+	GROUPER THREAD: Deserialize reply : 123
+CT: server_0 CF Reply 47 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 124
+CT: server_0 CF Req 48 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 49 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 50 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 48 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 49 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 125
+CT: server_2 CF Reply 51 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 52 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 126
+CT: server_0 CF Reply 48 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 50 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 51 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 52 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 53 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 49 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 127
+CT: server_0 CF Reply 50 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 53 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 51 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 52 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 54 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 53 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 55 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 56 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 128
+	GROUPER THREAD: Deserialize reply : 129
+CT: server_1 CF Reply 51 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 52 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 54 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 130
+CT: server_2 CF Reply 55 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 131
+CT: server_0 CF Reply 51 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 56 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 52 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 53 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 57 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 58 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 54 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 59 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 55 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 56 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 132
+	GROUPER THREAD: Deserialize reply : 133
+	GROUPER THREAD: Deserialize reply : 134
+CT: server_0 CF Reply 53 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 54 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 55 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 56 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 57 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 54 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 58 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 55 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 135
+	GROUPER THREAD: Deserialize reply : 136
+CT: server_1 CF Reply 56 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 57 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 58 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 59 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 137
+CT: server_0 CF Reply 54 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 138
+CT: server_0 CF Reply 55 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 59 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 60 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 61 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 62 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 139
+CT: server_0 CF Reply 56 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 57 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 58 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 59 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 140
+CT: server_1 CF Reply 57 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 58 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 141
+CT: server_0 CF Reply 57 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 142
+CT: server_1 CF Reply 59 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 60 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 61 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 62 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 143
+CT: server_2 CF Reply 60 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 61 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 58 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 59 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 144
+CT: server_0 CF Req 60 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 61 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 62 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 62 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 145
+CT: server_2 CF Req 63 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 64 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 65 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 60 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 61 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 146
+CT: server_0 CF Reply 60 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 61 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 147
+CT: server_0 CF Reply 62 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 63 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 64 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 65 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 62 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 63 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 64 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 65 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 148
+CT: server_2 CF Reply 63 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 64 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 149
+	GROUPER THREAD: Deserialize reply : 150
+CT: server_0 CF Reply 63 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 64 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 65 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 66 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 67 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 68 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 63 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 151
+CT: server_1 CF Reply 64 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 152
+CT: server_1 CF Reply 65 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 66 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 67 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 68 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 65 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 66 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 153
+CT: server_0 CF Req 67 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 68 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 66 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 154
+CT: server_2 CF Reply 67 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 155
+CT: server_0 CF Reply 66 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 68 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 69 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 70 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 66 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 71 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 67 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 67 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 156
+	GROUPER THREAD: Deserialize reply : 157
+CT: server_1 CF Reply 68 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 69 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 70 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 71 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 158
+CT: server_0 CF Reply 68 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 69 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 70 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 71 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 69 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 159
+CT: server_2 CF Reply 70 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 160
+CT: server_2 CF Reply 71 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 69 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 72 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 161
+CT: server_2 CF Req 73 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 70 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 74 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 162
+CT: server_0 CF Reply 69 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 71 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 70 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 72 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 73 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 74 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 163
+CT: server_2 CF Reply 72 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 164
+CT: server_2 CF Reply 73 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 165
+CT: server_0 CF Reply 71 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 72 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 74 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 73 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 72 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 74 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 75 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 73 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 76 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 77 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 166
+CT: server_1 CF Reply 74 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 75 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 76 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 167
+CT: server_1 CF Req 77 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 168
+CT: server_0 CF Reply 72 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 73 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 169
+CT: server_0 CF Reply 74 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 75 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 75 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 76 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 76 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 77 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 170
+CT: server_1 CF Reply 75 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 171
+CT: server_1 CF Reply 76 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 77 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 75 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 76 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 78 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 79 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 80 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 172
+CT: server_1 CF Reply 77 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 78 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 79 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 80 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 173
+CT: server_0 CF Reply 77 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 78 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 79 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 80 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 174
+	GROUPER THREAD: Deserialize reply : 175
+CT: server_2 CF Reply 78 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 79 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 78 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 79 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 176
+CT: server_0 CF Reply 78 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 79 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 80 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 81 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 82 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 83 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 177
+CT: server_1 CF Reply 80 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 81 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 82 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 83 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 178
+CT: server_2 CF Reply 81 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 179
+CT: server_0 CF Reply 80 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 81 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 82 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 82 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 83 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 83 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 84 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 85 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 86 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 180
+CT: server_1 CF Reply 81 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 82 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 181
+CT: server_1 CF Reply 83 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 84 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 84 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 85 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 85 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 182
+CT: server_1 CF Req 86 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 81 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 82 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 183
+CT: server_2 CF Reply 86 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 87 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 88 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 89 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 83 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 84 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 85 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 86 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 184
+CT: server_1 CF Reply 84 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 85 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 185
+CT: server_2 CF Reply 87 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 84 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 186
+CT: server_1 CF Reply 86 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 87 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 88 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 89 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 187
+CT: server_2 CF Reply 88 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 89 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 85 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 90 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 91 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 86 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 92 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 87 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 88 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 89 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 188
+CT: server_1 CF Reply 87 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 88 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 189
+CT: server_0 CF Reply 87 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 90 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 190
+CT: server_1 CF Reply 89 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 90 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 91 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 88 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 92 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 89 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 90 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 91 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 91 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 92 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 92 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 93 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 94 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 95 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 191
+	GROUPER THREAD: Deserialize reply : 192
+CT: server_0 CF Reply 90 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 90 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 91 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 91 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 193
+CT: server_2 CF Reply 93 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 94 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 92 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 92 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 93 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 194
+CT: server_0 CF Req 93 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 94 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 94 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 95 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 95 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 95 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 96 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 97 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 98 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 195
+CT: server_0 CF Reply 93 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 196
+CT: server_0 CF Reply 94 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 93 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 94 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 197
+CT: server_0 CF Reply 95 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 96 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 97 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 98 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 96 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 97 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 95 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 198
+CT: server_1 CF Req 96 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 97 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 98 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 199
+CT: server_2 CF Reply 98 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 99 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 100 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 96 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 101 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 97 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 200
+CT: server_0 CF Reply 98 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 99 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 96 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 100 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 201
+CT: server_0 CF Req 101 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 97 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 99 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 100 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 202
+CT: server_1 CF Reply 98 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 99 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 100 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 101 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 99 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 100 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 101 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 102 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 203
+CT: server_2 CF Req 103 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 104 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 101 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 102 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 103 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 104 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 204
+CT: server_1 CF Reply 99 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 100 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 205
+CT: server_0 CF Reply 102 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 103 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 102 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 103 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 101 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 206
+CT: server_1 CF Req 102 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 103 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 104 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 104 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 105 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 104 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 106 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 105 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 107 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 106 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 107 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 207
+	GROUPER THREAD: Deserialize reply : 208
+CT: server_1 CF Reply 102 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 103 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 105 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 106 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 209
+CT: server_2 CF Reply 105 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 106 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 104 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 105 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 106 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 107 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 210
+CT: server_2 CF Reply 107 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 108 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 109 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 110 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 211
+CT: server_0 CF Reply 107 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 108 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 109 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 110 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 212
+CT: server_1 CF Reply 105 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 106 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 213
+CT: server_2 CF Reply 108 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 109 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 107 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 108 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 108 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 109 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 110 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 214
+CT: server_0 CF Reply 109 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 110 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 110 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 111 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 112 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 111 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 113 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 112 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 113 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 215
+CT: server_1 CF Reply 108 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 109 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 216
+CT: server_2 CF Reply 111 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 111 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 110 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 112 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 112 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 217
+CT: server_1 CF Req 111 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 112 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 113 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 113 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 113 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 218
+CT: server_2 CF Req 114 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 114 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 115 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 115 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 116 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 116 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 219
+CT: server_1 CF Reply 111 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 112 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 114 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 220
+CT: server_0 CF Reply 115 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 114 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 116 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 117 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 113 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 115 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 114 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 118 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 115 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 119 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 116 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 221
+CT: server_2 CF Reply 116 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 117 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 118 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 119 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 222
+CT: server_0 CF Reply 117 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 118 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 223
+CT: server_1 CF Reply 114 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 115 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 119 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 120 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 121 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 224
+CT: server_0 CF Req 122 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 116 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 117 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 118 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 119 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 117 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 118 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 225
+CT: server_0 CF Reply 120 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 119 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 120 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 121 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 121 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 226
+CT: server_2 CF Req 122 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 117 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 122 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 118 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 123 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 124 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 125 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 227
+CT: server_1 CF Reply 119 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 120 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 121 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 122 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 123 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 228
+CT: server_2 CF Reply 120 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 121 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 229
+CT: server_2 CF Reply 122 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 123 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 124 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 125 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 124 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 125 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 126 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 127 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 128 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 120 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 121 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 230
+CT: server_2 CF Reply 123 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 122 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 124 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 123 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 231
+CT: server_1 CF Req 124 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 125 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 126 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 127 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 125 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 126 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 127 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 128 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 128 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 232
+CT: server_0 CF Req 129 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 130 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 131 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 123 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 124 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 233
+CT: server_2 CF Reply 126 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 127 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 128 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 129 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 130 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 131 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 234
+CT: server_1 CF Reply 125 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 126 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 127 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 128 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 129 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 130 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 235
+CT: server_0 CF Reply 131 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 132 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 236
+CT: server_0 CF Req 133 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 129 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 134 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 130 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 126 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 127 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 237
+CT: server_2 CF Reply 131 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 132 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 128 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 133 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 129 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 134 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 130 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 131 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 132 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 238
+CT: server_0 CF Reply 133 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 239
+CT: server_0 CF Reply 134 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 135 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 136 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 137 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 129 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 130 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 132 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 133 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 240
+CT: server_0 CF Reply 135 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 131 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 132 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 133 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 134 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 134 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 135 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 136 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 136 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 241
+CT: server_2 CF Req 137 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 137 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 138 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 139 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 140 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 242
+CT: server_1 CF Reply 132 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 133 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 135 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 136 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 243
+CT: server_1 CF Reply 134 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 135 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 136 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 138 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 137 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 137 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 139 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 138 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 139 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 140 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 244
+CT: server_0 CF Reply 140 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 141 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 142 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 143 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 245
+CT: server_1 CF Reply 135 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 136 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 138 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 139 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 246
+CT: server_0 CF Reply 141 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 137 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 142 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 138 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 140 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 139 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 140 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 141 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 142 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 143 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 247
+CT: server_0 CF Reply 143 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 144 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 145 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 146 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 248
+CT: server_1 CF Reply 138 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 139 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 141 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 142 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 249
+CT: server_0 CF Reply 144 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 145 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 140 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 141 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 142 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 143 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 146 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 143 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 147 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 144 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 148 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 145 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 149 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 146 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 250
+	GROUPER THREAD: Deserialize reply : 251
+CT: server_1 CF Reply 141 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 142 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 147 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 148 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 144 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 252
+CT: server_2 CF Reply 145 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 143 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 144 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 145 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 146 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 146 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 147 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 148 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 149 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 253
+CT: server_2 CF Req 149 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 150 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 151 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 152 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 144 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 254
+CT: server_0 CF Reply 150 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 255
+CT: server_0 CF Reply 151 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 147 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 152 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 148 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 153 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 154 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 155 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 145 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 146 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 147 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 148 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 149 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 256
+CT: server_2 CF Reply 149 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 150 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 151 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 152 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 147 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 153 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 257
+CT: server_0 CF Reply 154 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 148 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 149 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 150 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 151 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 152 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 155 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 156 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 157 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 158 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 258
+CT: server_2 CF Reply 150 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 151 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 259
+CT: server_2 CF Reply 152 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 150 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 153 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 151 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 154 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 155 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 260
+CT: server_0 CF Reply 156 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 157 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 152 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 153 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 154 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 155 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 261
+CT: server_2 CF Reply 153 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 154 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 153 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 154 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 262
+CT: server_0 CF Reply 158 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 159 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 160 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 161 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 155 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 156 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 157 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 158 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 155 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 156 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 157 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 158 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 263
+CT: server_0 CF Reply 159 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 264
+CT: server_0 CF Reply 160 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 156 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 157 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 156 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 157 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 265
+CT: server_0 CF Reply 161 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 162 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 163 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 164 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 158 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 159 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 158 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 160 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 159 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 161 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 160 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 161 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 266
+CT: server_0 CF Reply 162 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 163 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 267
+CT: server_2 CF Reply 159 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 160 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 159 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 164 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 160 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 165 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 166 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 167 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 268
+CT: server_2 CF Reply 161 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 161 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 162 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 162 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 163 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 163 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 164 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 164 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 165 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 269
+CT: server_0 CF Reply 166 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 167 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 168 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 169 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 170 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 270
+CT: server_2 CF Reply 162 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 162 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 163 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 163 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 168 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 169 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 271
+CT: server_1 CF Reply 164 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 164 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 165 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 166 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 165 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 167 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 166 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 167 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 170 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 171 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 172 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 173 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 272
+	GROUPER THREAD: Deserialize reply : 273
+CT: server_1 CF Reply 165 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 165 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 166 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 171 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 172 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 166 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 167 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 168 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 167 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 169 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 274
+CT: server_0 CF Reply 173 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 170 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 168 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 174 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 169 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 175 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 176 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 170 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 275
+CT: server_1 CF Reply 168 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 169 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 168 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 169 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 276
+CT: server_0 CF Reply 174 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 175 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 170 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 171 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 172 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 173 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 170 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 171 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 172 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 173 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 277
+CT: server_1 CF Reply 171 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 278
+CT: server_0 CF Reply 176 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 177 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 178 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 179 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 172 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 173 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 174 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 175 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 171 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 279
+CT: server_1 CF Req 176 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 172 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 177 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 173 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 178 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 280
+CT: server_2 CF Req 174 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 175 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 176 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 174 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 175 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 281
+CT: server_1 CF Reply 176 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 177 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 178 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 179 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 179 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 180 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 181 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 182 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 174 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 282
+CT: server_2 CF Reply 175 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 177 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 178 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 180 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 176 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 177 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 283
+CT: server_2 CF Req 178 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 179 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 181 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 179 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 180 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 181 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 182 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 182 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 183 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 184 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 185 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 284
+CT: server_2 CF Reply 177 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 178 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 180 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 285
+CT: server_2 CF Reply 179 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 180 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 181 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 182 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 181 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 183 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 184 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 182 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 183 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 184 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 185 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 286
+CT: server_2 CF Reply 180 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 183 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 181 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 287
+CT: server_0 CF Reply 185 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 186 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 187 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 188 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 182 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 183 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 184 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 185 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 184 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 185 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 186 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 187 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 188 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 288
+CT: server_2 CF Reply 183 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 186 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 289
+CT: server_0 CF Reply 187 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 186 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 187 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 184 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 185 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 186 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 187 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 188 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 188 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 189 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 190 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 290
+CT: server_1 CF Req 191 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 188 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 189 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 190 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 191 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 186 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 291
+CT: server_2 CF Reply 187 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 188 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 189 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 190 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 191 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 189 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 190 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 292
+CT: server_0 CF Reply 189 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 190 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 189 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 191 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 192 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 193 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 194 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 293
+CT: server_2 CF Reply 190 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 192 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 191 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 294
+CT: server_1 CF Reply 193 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 192 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 193 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 194 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 191 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 192 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 193 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 194 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 194 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 195 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 196 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 197 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 295
+CT: server_2 CF Reply 192 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 193 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 195 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 196 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 192 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 296
+CT: server_2 CF Reply 194 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 197 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 195 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 198 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 193 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 196 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 199 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 200 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 197 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 297
+CT: server_0 CF Reply 194 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 195 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 196 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 197 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 298
+CT: server_1 CF Reply 198 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 199 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 195 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 196 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 200 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 299
+CT: server_1 CF Req 201 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 202 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 203 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 197 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 198 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 199 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 200 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 195 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 196 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 300
+CT: server_1 CF Reply 201 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 202 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 197 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 198 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 199 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 200 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 198 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 199 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 301
+CT: server_1 CF Reply 203 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 198 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 204 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 205 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 206 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 199 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 200 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 201 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 202 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 200 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 203 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 201 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 202 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 203 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 302
+CT: server_1 CF Reply 204 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 205 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 303
+CT: server_2 CF Reply 201 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 202 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 201 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 202 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 206 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 207 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 208 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 209 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 304
+CT: server_2 CF Reply 203 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 204 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 203 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 205 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 204 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 206 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 205 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 206 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 305
+CT: server_0 CF Reply 204 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 207 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 208 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 205 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 206 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 207 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 208 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 204 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 209 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 209 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 210 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 306
+CT: server_1 CF Req 211 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 205 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 212 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 206 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 207 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 208 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 209 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 307
+CT: server_0 CF Reply 207 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 208 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 210 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 211 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 308
+CT: server_0 CF Reply 209 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 210 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 211 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 212 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 207 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 208 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 212 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 213 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 214 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 215 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 309
+CT: server_0 CF Reply 210 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 209 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 211 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 210 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 211 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 212 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 310
+CT: server_0 CF Reply 212 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 213 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 213 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 214 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 214 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 215 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 311
+CT: server_1 CF Reply 215 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 216 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 217 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 210 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 213 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 218 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 211 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 312
+CT: server_2 CF Reply 212 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 213 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 214 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 215 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 214 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 215 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 216 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 217 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 218 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 216 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 217 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 313
+CT: server_2 CF Reply 213 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 214 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 218 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 219 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 220 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 221 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 216 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 215 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 217 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 216 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 217 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 218 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 314
+CT: server_0 CF Reply 218 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 219 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 220 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 221 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 219 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 220 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 315
+CT: server_2 CF Reply 216 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 217 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 221 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 222 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 223 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 224 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 218 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 219 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 220 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 221 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 219 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 316
+CT: server_0 CF Reply 220 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 221 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 222 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 223 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 224 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 317
+CT: server_1 CF Reply 222 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 223 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 219 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 220 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 222 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 223 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 224 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 225 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 318
+CT: server_1 CF Req 226 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 227 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 224 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 221 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 225 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 222 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 226 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 223 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 227 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 224 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 319
+CT: server_0 CF Reply 225 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 225 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 226 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 320
+CT: server_2 CF Reply 222 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 227 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 223 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 228 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 229 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 230 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 226 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 227 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 228 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 229 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 230 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 321
+CT: server_2 CF Reply 224 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 225 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 226 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 227 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 228 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 228 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 322
+CT: server_1 CF Reply 229 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 229 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 230 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 231 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 232 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 233 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 230 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 231 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 232 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 233 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 225 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 226 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 323
+CT: server_0 CF Reply 231 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 227 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 228 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 229 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 230 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 324
+CT: server_1 CF Reply 231 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 232 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 232 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 233 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 234 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 235 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 236 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 233 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 234 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 235 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 236 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 325
+CT: server_2 CF Reply 228 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 229 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 234 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 235 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 326
+CT: server_2 CF Reply 230 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 231 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 232 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 233 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 234 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 235 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 327
+CT: server_1 CF Reply 236 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 237 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 238 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 239 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 236 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 237 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 238 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 239 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 231 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 232 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 328
+CT: server_0 CF Reply 237 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 237 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 238 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 233 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 238 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 234 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 235 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 236 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 239 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 240 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 241 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 242 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 329
+CT: server_1 CF Reply 239 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 240 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 241 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 242 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 234 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 330
+CT: server_2 CF Reply 235 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 240 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 241 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 236 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 237 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 238 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 239 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 240 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 241 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 331
+CT: server_0 CF Reply 242 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 243 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 244 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 245 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 242 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 243 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 244 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 245 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 332
+CT: server_2 CF Reply 237 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 243 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 238 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 244 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 245 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 246 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 247 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 248 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 239 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 240 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 241 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 242 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 333
+CT: server_1 CF Reply 243 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 244 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 245 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 246 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 247 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 248 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 334
+CT: server_0 CF Reply 246 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 247 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 240 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 241 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 248 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 249 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 250 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 251 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 242 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 335
+CT: server_2 CF Req 243 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 244 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 245 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 246 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 247 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 336
+CT: server_1 CF Reply 248 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 249 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 250 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 251 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 249 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 250 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 243 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 244 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 337
+CT: server_0 CF Reply 251 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Req 252 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 253 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Req 254 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Reply 245 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 246 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 247 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 248 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 249 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 250 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 338
+CT: server_0 CF Reply 252 TOR = 2176 bytes R = 2176 bytes
+CT: server_0 CF Reply 253 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Reply 251 TOR = 2176 bytes R = 2176 bytes
+CT: server_1 CF Req 252 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 253 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Req 254 TOW = 2 bytes W = 2 bytes
+CT: server_0 CF Reply 254 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 246 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 339
+CT: server_2 CF Reply 247 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 248 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 249 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 250 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 252 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 251 TOW = 2 bytes W = 2 bytes
+CT: server_1 CF Reply 253 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 340
+CT: server_1 CF Reply 254 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 341
+CT: server_2 CF Reply 249 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 250 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 251 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Req 252 TOW = 2 bytes W = 2 bytes
+CT: server_2 CF Req 253 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 342
+CT: server_2 CF Req 254 TOW = 2 bytes W = 2 bytes
+	GROUPER THREAD: Deserialize reply : 343
+CT: server_2 CF Reply 252 TOR = 2176 bytes R = 2176 bytes
+CT: server_2 CF Reply 253 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 344
+CT: server_2 CF Reply 254 TOR = 2176 bytes R = 2176 bytes
+	GROUPER THREAD: Deserialize reply : 345
+	GROUPER THREAD: Deserialize reply : 346
+	GROUPER THREAD: Deserialize reply : 347
+	GROUPER THREAD: Deserialize reply : 348
+	GROUPER THREAD: Deserialize reply : 349
+	GROUPER THREAD: Deserialize reply : 350
+	GROUPER THREAD: Deserialize reply : 351
+	GROUPER THREAD: Deserialize reply : 352
+	GROUPER THREAD: Deserialize reply : 353
+	GROUPER THREAD: Deserialize reply : 354
+	GROUPER THREAD: Deserialize reply : 355
+	GROUPER THREAD: Deserialize reply : 356
+	GROUPER THREAD: Deserialize reply : 357
+	GROUPER THREAD: Deserialize reply : 358
+	GROUPER THREAD: Deserialize reply : 359
+	GROUPER THREAD: Deserialize reply : 360
+	GROUPER THREAD: Deserialize reply : 361
+	GROUPER THREAD: Deserialize reply : 362
+	GROUPER THREAD: Deserialize reply : 363
+	GROUPER THREAD: Deserialize reply : 364
+	GROUPER THREAD: Deserialize reply : 365
+	GROUPER THREAD: Deserialize reply : 366
+	GROUPER THREAD: Deserialize reply : 367
+	GROUPER THREAD: Deserialize reply : 368
+	GROUPER THREAD: Deserialize reply : 369
+	GROUPER THREAD: Deserialize reply : 370
+	GROUPER THREAD: Deserialize reply : 371
+	GROUPER THREAD: Deserialize reply : 372
+	GROUPER THREAD: Deserialize reply : 373
+	GROUPER THREAD: Deserialize reply : 374
+	GROUPER THREAD: Deserialize reply : 375
+	GROUPER THREAD: Deserialize reply : 376
+	GROUPER THREAD: Deserialize reply : 377
+	GROUPER THREAD: Deserialize reply : 378
+	GROUPER THREAD: Deserialize reply : 379
+	GROUPER THREAD: Deserialize reply : 380
+	GROUPER THREAD: Deserialize reply : 381
+	GROUPER THREAD: Deserialize reply : 382
+	GROUPER THREAD: Deserialize reply : 383
+	GROUPER THREAD: Deserialize reply : 384
+	GROUPER THREAD: Deserialize reply : 385
+	GROUPER THREAD: Deserialize reply : 386
+	GROUPER THREAD: Deserialize reply : 387
+	GROUPER THREAD: Deserialize reply : 388
+	GROUPER THREAD: Deserialize reply : 389
+	GROUPER THREAD: Deserialize reply : 390
+	GROUPER THREAD: Deserialize reply : 391
+	GROUPER THREAD: Deserialize reply : 392
+	GROUPER THREAD: Deserialize reply : 393
+	GROUPER THREAD: Deserialize reply : 394
+	GROUPER THREAD: Deserialize reply : 395
+	GROUPER THREAD: Deserialize reply : 396
+	GROUPER THREAD: Deserialize reply : 397
+	GROUPER THREAD: Deserialize reply : 398
+	GROUPER THREAD: Deserialize reply : 399
+	GROUPER THREAD: Deserialize reply : 400
+	GROUPER THREAD: Deserialize reply : 401
+	GROUPER THREAD: Deserialize reply : 402
+	GROUPER THREAD: Deserialize reply : 403
+	GROUPER THREAD: Deserialize reply : 404
+	GROUPER THREAD: Deserialize reply : 405
+	GROUPER THREAD: Deserialize reply : 406
+	GROUPER THREAD: Deserialize reply : 407
+	GROUPER THREAD: Deserialize reply : 408
+	GROUPER THREAD: Deserialize reply : 409
+	GROUPER THREAD: Deserialize reply : 410
+	GROUPER THREAD: Deserialize reply : 411
+	GROUPER THREAD: Deserialize reply : 412
+	GROUPER THREAD: Deserialize reply : 413
+	GROUPER THREAD: Deserialize reply : 414
+	GROUPER THREAD: Deserialize reply : 415
+	GROUPER THREAD: Deserialize reply : 416
+	GROUPER THREAD: Deserialize reply : 417
+	GROUPER THREAD: Deserialize reply : 418
+	GROUPER THREAD: Deserialize reply : 419
+	GROUPER THREAD: Deserialize reply : 420
+	GROUPER THREAD: Deserialize reply : 421
+	GROUPER THREAD: Deserialize reply : 422
+	GROUPER THREAD: Deserialize reply : 423
+	GROUPER THREAD: Deserialize reply : 424
+	GROUPER THREAD: Deserialize reply : 425
+	GROUPER THREAD: Deserialize reply : 426
+	GROUPER THREAD: Deserialize reply : 427
+	GROUPER THREAD: Deserialize reply : 428
+	GROUPER THREAD: Deserialize reply : 429
+	GROUPER THREAD: Deserialize reply : 430
+	GROUPER THREAD: Deserialize reply : 431
+	GROUPER THREAD: Deserialize reply : 432
+	GROUPER THREAD: Deserialize reply : 433
+	GROUPER THREAD: Deserialize reply : 434
+	GROUPER THREAD: Deserialize reply : 435
+	GROUPER THREAD: Deserialize reply : 436
+	GROUPER THREAD: Deserialize reply : 437
+	GROUPER THREAD: Deserialize reply : 438
+	GROUPER THREAD: Deserialize reply : 439
+	GROUPER THREAD: Deserialize reply : 440
+	GROUPER THREAD: Deserialize reply : 441
+	GROUPER THREAD: Deserialize reply : 442
+	GROUPER THREAD: Deserialize reply : 443
+	GROUPER THREAD: Deserialize reply : 444
+	GROUPER THREAD: Deserialize reply : 445
+	GROUPER THREAD: Deserialize reply : 446
+	GROUPER THREAD: Deserialize reply : 447
+	GROUPER THREAD: Deserialize reply : 448
+	GROUPER THREAD: Deserialize reply : 449
+	GROUPER THREAD: Deserialize reply : 450
+	GROUPER THREAD: Deserialize reply : 451
+	GROUPER THREAD: Deserialize reply : 452
+	GROUPER THREAD: Deserialize reply : 453
+	GROUPER THREAD: Deserialize reply : 454
+	GROUPER THREAD: Deserialize reply : 455
+	GROUPER THREAD: Deserialize reply : 456
+	GROUPER THREAD: Deserialize reply : 457
+	GROUPER THREAD: Deserialize reply : 458
+	GROUPER THREAD: Deserialize reply : 459
+	GROUPER THREAD: Deserialize reply : 460
+	GROUPER THREAD: Deserialize reply : 461
+	GROUPER THREAD: Deserialize reply : 462
+	GROUPER THREAD: Deserialize reply : 463
+	GROUPER THREAD: Deserialize reply : 464
+	GROUPER THREAD: Deserialize reply : 465
+	GROUPER THREAD: Deserialize reply : 466
+	GROUPER THREAD: Deserialize reply : 467
+	GROUPER THREAD: Deserialize reply : 468
+	GROUPER THREAD: Deserialize reply : 469
+	GROUPER THREAD: Deserialize reply : 470
+	GROUPER THREAD: Deserialize reply : 471
+	GROUPER THREAD: Deserialize reply : 472
+	GROUPER THREAD: Deserialize reply : 473
+	GROUPER THREAD: Deserialize reply : 474
+	GROUPER THREAD: Deserialize reply : 475
+	GROUPER THREAD: Deserialize reply : 476
+	GROUPER THREAD: Deserialize reply : 477
+	GROUPER THREAD: Deserialize reply : 478
+	GROUPER THREAD: Deserialize reply : 479
+	GROUPER THREAD: Deserialize reply : 480
+	GROUPER THREAD: Deserialize reply : 481
+	GROUPER THREAD: Deserialize reply : 482
+	GROUPER THREAD: Deserialize reply : 483
+	GROUPER THREAD: Deserialize reply : 484
+	GROUPER THREAD: Deserialize reply : 485
+	GROUPER THREAD: Deserialize reply : 486
+	GROUPER THREAD: Deserialize reply : 487
+	GROUPER THREAD: Deserialize reply : 488
+	GROUPER THREAD: Deserialize reply : 489
+	GROUPER THREAD: Deserialize reply : 490
+	GROUPER THREAD: Deserialize reply : 491
+	GROUPER THREAD: Deserialize reply : 492
+	GROUPER THREAD: Deserialize reply : 493
+	GROUPER THREAD: Deserialize reply : 494
+	GROUPER THREAD: Deserialize reply : 495
+	GROUPER THREAD: Deserialize reply : 496
+	GROUPER THREAD: Deserialize reply : 497
+	GROUPER THREAD: Deserialize reply : 498
+	GROUPER THREAD: Deserialize reply : 499
+	GROUPER THREAD: Deserialize reply : 500
+	GROUPER THREAD: Deserialize reply : 501
+	GROUPER THREAD: Deserialize reply : 502
+	GROUPER THREAD: Deserialize reply : 503
+	GROUPER THREAD: Deserialize reply : 504
+	GROUPER THREAD: Deserialize reply : 505
+	GROUPER THREAD: Deserialize reply : 506
+	GROUPER THREAD: Deserialize reply : 507
+	GROUPER THREAD: Deserialize reply : 508
+	GROUPER THREAD: Deserialize reply : 509
+	GROUPER THREAD: Deserialize reply : 510
+	GROUPER THREAD: Deserialize reply : 511
+	GROUPER THREAD: Deserialize reply : 512
+	GROUPER THREAD: Deserialize reply : 513
+	GROUPER THREAD: Deserialize reply : 514
+	GROUPER THREAD: Deserialize reply : 515
+	GROUPER THREAD: Deserialize reply : 516
+	GROUPER THREAD: Deserialize reply : 517
+	GROUPER THREAD: Deserialize reply : 518
+	GROUPER THREAD: Deserialize reply : 519
+	GROUPER THREAD: Deserialize reply : 520
+	GROUPER THREAD: Deserialize reply : 521
+	GROUPER THREAD: Deserialize reply : 522
+	GROUPER THREAD: Deserialize reply : 523
+	GROUPER THREAD: Deserialize reply : 524
+	GROUPER THREAD: Deserialize reply : 525
+	GROUPER THREAD: Deserialize reply : 526
+	GROUPER THREAD: Deserialize reply : 527
+	GROUPER THREAD: Deserialize reply : 528
+	GROUPER THREAD: Deserialize reply : 529
+	GROUPER THREAD: Deserialize reply : 530
+	GROUPER THREAD: Deserialize reply : 531
+	GROUPER THREAD: Deserialize reply : 532
+	GROUPER THREAD: Deserialize reply : 533
+	GROUPER THREAD: Deserialize reply : 534
+	GROUPER THREAD: Deserialize reply : 535
+	GROUPER THREAD: Deserialize reply : 536
+	GROUPER THREAD: Deserialize reply : 537
+	GROUPER THREAD: Deserialize reply : 538
+	GROUPER THREAD: Deserialize reply : 539
+	GROUPER THREAD: Deserialize reply : 540
+	GROUPER THREAD: Deserialize reply : 541
+	GROUPER THREAD: Deserialize reply : 542
+	GROUPER THREAD: Deserialize reply : 543
+	GROUPER THREAD: Deserialize reply : 544
+	GROUPER THREAD: Deserialize reply : 545
+	GROUPER THREAD: Deserialize reply : 546
+	GROUPER THREAD: Deserialize reply : 547
+	GROUPER THREAD: Deserialize reply : 548
+	GROUPER THREAD: Deserialize reply : 549
+	GROUPER THREAD: Deserialize reply : 550
+	GROUPER THREAD: Deserialize reply : 551
+	GROUPER THREAD: Deserialize reply : 552
+	GROUPER THREAD: Deserialize reply : 553
+	GROUPER THREAD: Deserialize reply : 554
+	GROUPER THREAD: Deserialize reply : 555
+	GROUPER THREAD: Deserialize reply : 556
+	GROUPER THREAD: Deserialize reply : 557
+	GROUPER THREAD: Deserialize reply : 558
+	GROUPER THREAD: Deserialize reply : 559
+	GROUPER THREAD: Deserialize reply : 560
+	GROUPER THREAD: Deserialize reply : 561
+	GROUPER THREAD: Deserialize reply : 562
+	GROUPER THREAD: Deserialize reply : 563
+	GROUPER THREAD: Deserialize reply : 564
+	GROUPER THREAD: Deserialize reply : 565
+	GROUPER THREAD: Deserialize reply : 566
+	GROUPER THREAD: Deserialize reply : 567
+	GROUPER THREAD: Deserialize reply : 568
+	GROUPER THREAD: Deserialize reply : 569
+	GROUPER THREAD: Deserialize reply : 570
+	GROUPER THREAD: Deserialize reply : 571
+	GROUPER THREAD: Deserialize reply : 572
+	GROUPER THREAD: Deserialize reply : 573
+	GROUPER THREAD: Deserialize reply : 574
+	GROUPER THREAD: Deserialize reply : 575
+	GROUPER THREAD: Deserialize reply : 576
+	GROUPER THREAD: Deserialize reply : 577
+	GROUPER THREAD: Deserialize reply : 578
+	GROUPER THREAD: Deserialize reply : 579
+	GROUPER THREAD: Deserialize reply : 580
+	GROUPER THREAD: Deserialize reply : 581
+	GROUPER THREAD: Deserialize reply : 582
+	GROUPER THREAD: Deserialize reply : 583
+	GROUPER THREAD: Deserialize reply : 584
+	GROUPER THREAD: Deserialize reply : 585
+	GROUPER THREAD: Deserialize reply : 586
+	GROUPER THREAD: Deserialize reply : 587
+	GROUPER THREAD: Deserialize reply : 588
+	GROUPER THREAD: Deserialize reply : 589
+	GROUPER THREAD: Deserialize reply : 590
+	GROUPER THREAD: Deserialize reply : 591
+	GROUPER THREAD: Deserialize reply : 592
+	GROUPER THREAD: Deserialize reply : 593
+	GROUPER THREAD: Deserialize reply : 594
+	GROUPER THREAD: Deserialize reply : 595
+	GROUPER THREAD: Deserialize reply : 596
+	GROUPER THREAD: Deserialize reply : 597
+	GROUPER THREAD: Deserialize reply : 598
+	GROUPER THREAD: Deserialize reply : 599
+	GROUPER THREAD: Deserialize reply : 600
+	GROUPER THREAD: Deserialize reply : 601
+	GROUPER THREAD: Deserialize reply : 602
+	GROUPER THREAD: Deserialize reply : 603
+	GROUPER THREAD: Deserialize reply : 604
+	GROUPER THREAD: Deserialize reply : 605
+	GROUPER THREAD: Deserialize reply : 606
+	GROUPER THREAD: Deserialize reply : 607
+	GROUPER THREAD: Deserialize reply : 608
+	GROUPER THREAD: Deserialize reply : 609
+	GROUPER THREAD: Deserialize reply : 610
+	GROUPER THREAD: Deserialize reply : 611
+	GROUPER THREAD: Deserialize reply : 612
+	GROUPER THREAD: Deserialize reply : 613
+	GROUPER THREAD: Deserialize reply : 614
+	GROUPER THREAD: Deserialize reply : 615
+	GROUPER THREAD: Deserialize reply : 616
+	GROUPER THREAD: Deserialize reply : 617
+	GROUPER THREAD: Deserialize reply : 618
+	GROUPER THREAD: Deserialize reply : 619
+	GROUPER THREAD: Deserialize reply : 620
+	GROUPER THREAD: Deserialize reply : 621
+	GROUPER THREAD: Deserialize reply : 622
+	GROUPER THREAD: Deserialize reply : 623
+	GROUPER THREAD: Deserialize reply : 624
+	GROUPER THREAD: Deserialize reply : 625
+	GROUPER THREAD: Deserialize reply : 626
+	GROUPER THREAD: Deserialize reply : 627
+	GROUPER THREAD: Deserialize reply : 628
+	GROUPER THREAD: Deserialize reply : 629
+	GROUPER THREAD: Deserialize reply : 630
+	GROUPER THREAD: Deserialize reply : 631
+	GROUPER THREAD: Deserialize reply : 632
+	GROUPER THREAD: Deserialize reply : 633
+	GROUPER THREAD: Deserialize reply : 634
+	GROUPER THREAD: Deserialize reply : 635
+	GROUPER THREAD: Deserialize reply : 636
+	GROUPER THREAD: Deserialize reply : 637
+	GROUPER THREAD: Deserialize reply : 638
+	GROUPER THREAD: Deserialize reply : 639
+	GROUPER THREAD: Deserialize reply : 640
+	GROUPER THREAD: Deserialize reply : 641
+	GROUPER THREAD: Deserialize reply : 642
+	GROUPER THREAD: Deserialize reply : 643
+	GROUPER THREAD: Deserialize reply : 644
+	GROUPER THREAD: Deserialize reply : 645
+	GROUPER THREAD: Deserialize reply : 646
+	GROUPER THREAD: Deserialize reply : 647
+	GROUPER THREAD: Deserialize reply : 648
+	GROUPER THREAD: Deserialize reply : 649
+	GROUPER THREAD: Deserialize reply : 650
+	GROUPER THREAD: Deserialize reply : 651
+	GROUPER THREAD: Deserialize reply : 652
+	GROUPER THREAD: Deserialize reply : 653
+	GROUPER THREAD: Deserialize reply : 654
+	GROUPER THREAD: Deserialize reply : 655
+	GROUPER THREAD: Deserialize reply : 656
+	GROUPER THREAD: Deserialize reply : 657
+	GROUPER THREAD: Deserialize reply : 658
+	GROUPER THREAD: Deserialize reply : 659
+	GROUPER THREAD: Deserialize reply : 660
+	GROUPER THREAD: Deserialize reply : 661
+	GROUPER THREAD: Deserialize reply : 662
+	GROUPER THREAD: Deserialize reply : 663
+	GROUPER THREAD: Deserialize reply : 664
+	GROUPER THREAD: Deserialize reply : 665
+	GROUPER THREAD: Deserialize reply : 666
+	GROUPER THREAD: Deserialize reply : 667
+	GROUPER THREAD: Deserialize reply : 668
+	GROUPER THREAD: Deserialize reply : 669
+	GROUPER THREAD: Deserialize reply : 670
+	GROUPER THREAD: Deserialize reply : 671
+	GROUPER THREAD: Deserialize reply : 672
+	GROUPER THREAD: Deserialize reply : 673
+	GROUPER THREAD: Deserialize reply : 674
+	GROUPER THREAD: Deserialize reply : 675
+	GROUPER THREAD: Deserialize reply : 676
+	GROUPER THREAD: Deserialize reply : 677
+	GROUPER THREAD: Deserialize reply : 678
+	GROUPER THREAD: Deserialize reply : 679
+	GROUPER THREAD: Deserialize reply : 680
+	GROUPER THREAD: Deserialize reply : 681
+	GROUPER THREAD: Deserialize reply : 682
+	GROUPER THREAD: Deserialize reply : 683
+	GROUPER THREAD: Deserialize reply : 684
+	GROUPER THREAD: Deserialize reply : 685
+	GROUPER THREAD: Deserialize reply : 686
+	GROUPER THREAD: Deserialize reply : 687
+	GROUPER THREAD: Deserialize reply : 688
+	GROUPER THREAD: Deserialize reply : 689
+	GROUPER THREAD: Deserialize reply : 690
+	GROUPER THREAD: Deserialize reply : 691
+	GROUPER THREAD: Deserialize reply : 692
+	GROUPER THREAD: Deserialize reply : 693
+	GROUPER THREAD: Deserialize reply : 694
+	GROUPER THREAD: Deserialize reply : 695
+	GROUPER THREAD: Deserialize reply : 696
+	GROUPER THREAD: Deserialize reply : 697
+	GROUPER THREAD: Deserialize reply : 698
+	GROUPER THREAD: Deserialize reply : 699
+	GROUPER THREAD: Deserialize reply : 700
+	GROUPER THREAD: Deserialize reply : 701
+	GROUPER THREAD: Deserialize reply : 702
+	GROUPER THREAD: Deserialize reply : 703
+	GROUPER THREAD: Deserialize reply : 704
+	GROUPER THREAD: Deserialize reply : 705
+	GROUPER THREAD: Deserialize reply : 706
+	GROUPER THREAD: Deserialize reply : 707
+	GROUPER THREAD: Deserialize reply : 708
+	GROUPER THREAD: Deserialize reply : 709
+	GROUPER THREAD: Deserialize reply : 710
+	GROUPER THREAD: Deserialize reply : 711
+	GROUPER THREAD: Deserialize reply : 712
+	GROUPER THREAD: Deserialize reply : 713
+	GROUPER THREAD: Deserialize reply : 714
+	GROUPER THREAD: Deserialize reply : 715
+	GROUPER THREAD: Deserialize reply : 716
+	GROUPER THREAD: Deserialize reply : 717
+	GROUPER THREAD: Deserialize reply : 718
+	GROUPER THREAD: Deserialize reply : 719
+	GROUPER THREAD: Deserialize reply : 720
+	GROUPER THREAD: Deserialize reply : 721
+	GROUPER THREAD: Deserialize reply : 722
+	GROUPER THREAD: Deserialize reply : 723
+	GROUPER THREAD: Deserialize reply : 724
+	GROUPER THREAD: Deserialize reply : 725
+	GROUPER THREAD: Deserialize reply : 726
+	GROUPER THREAD: Deserialize reply : 727
+	GROUPER THREAD: Deserialize reply : 728
+	GROUPER THREAD: Deserialize reply : 729
+	GROUPER THREAD: Deserialize reply : 730
+	GROUPER THREAD: Deserialize reply : 731
+	GROUPER THREAD: Deserialize reply : 732
+	GROUPER THREAD: Deserialize reply : 733
+	GROUPER THREAD: Deserialize reply : 734
+	GROUPER THREAD: Deserialize reply : 735
+	GROUPER THREAD: Deserialize reply : 736
+	GROUPER THREAD: Deserialize reply : 737
+	GROUPER THREAD: Deserialize reply : 738
+	GROUPER THREAD: Deserialize reply : 739
+	GROUPER THREAD: Deserialize reply : 740
+	GROUPER THREAD: Deserialize reply : 741
+	GROUPER THREAD: Deserialize reply : 742
+	GROUPER THREAD: Deserialize reply : 743
+	GROUPER THREAD: Deserialize reply : 744
+	GROUPER THREAD: Deserialize reply : 745
+	GROUPER THREAD: Deserialize reply : 746
+	GROUPER THREAD: Deserialize reply : 747
+	GROUPER THREAD: Deserialize reply : 748
+	GROUPER THREAD: Deserialize reply : 749
+	GROUPER THREAD: Deserialize reply : 750
+	GROUPER THREAD: Deserialize reply : 751
+	GROUPER THREAD: Deserialize reply : 752
+	GROUPER THREAD: Deserialize reply : 753
+	GROUPER THREAD: Deserialize reply : 754
+	GROUPER THREAD: Deserialize reply : 755
+	GROUPER THREAD: Deserialize reply : 756
+	GROUPER THREAD: Deserialize reply : 757
+	GROUPER THREAD: Deserialize reply : 758
+	GROUPER THREAD: Deserialize reply : 759
+	GROUPER THREAD: Deserialize reply : 760
+	GROUPER THREAD: Deserialize reply : 761
+	GROUPER THREAD: Deserialize reply : 762
+	GROUPER THREAD: Deserialize reply : 763
+	GROUPER THREAD: Deserialize reply : 764
+	GROUPER THREAD: Mappers done & no more data in queue!
+
+	GROUPER THREAD: Group by done
+
+INFO: In the main thread..
+CONTENTS OF THE QUEUE
+=====================================
+=====================================
+
+INFO: Group by key function 
+=====================================
+=====================================
+
+|(0) -> (0.276000)msecs [718796]| |(1) -> (0.292000)msecs [759886]| |(2) -> (0.471000)msecs [1222795]| |(3) -> (0.304000)msecs [791033]| 
+|(4) -> (0.313000)msecs [813763]| |(5) -> (0.671000)msecs [1745207]| |(6) -> (0.299000)msecs [778324]| |(7) -> (0.339000)msecs [882538]| 
+|(8) -> (0.470000)msecs [1222392]| |(9) -> (0.205000)msecs [532104]| |(10) -> (0.207000)msecs [537610]| |(11) -> (0.370000)msecs [964104]| 
+|(12) -> (0.238000)msecs [619776]| |(13) -> (0.243000)msecs [630888]| |(14) -> (0.365000)msecs [949226]| |(15) -> (0.329000)msecs [856382]| 
+|(16) -> (0.333000)msecs [865001]| |(17) -> (0.443000)msecs [1151537]| |(18) -> (0.178000)msecs [462298]| |(19) -> (0.337000)msecs [877986]| 
+|(20) -> (0.345000)msecs [897046]| |(21) -> (0.176000)msecs [456006]| |(22) -> (0.262000)msecs [681087]| |(23) -> (0.288000)msecs [750436]| 
+|(24) -> (0.265000)msecs [690456]| |(25) -> (0.271000)msecs [703771]| |(26) -> (0.560000)msecs [1457505]| |(27) -> (0.285000)msecs [741153]| 
+|(28) -> (0.293000)msecs [761243]| |(29) -> (0.413000)msecs [1074999]| |(30) -> (0.403000)msecs [1048976]| |(31) -> (0.421000)msecs [1096844]| 
+|(32) -> (0.538000)msecs [1400386]| |(33) -> (0.185000)msecs [480597]| |(34) -> (0.216000)msecs [562108]| |(35) -> (0.258000)msecs [670696]| 
+|(36) -> (0.268000)msecs [697020]| |(37) -> (0.276000)msecs [719551]| |(38) -> (0.463000)msecs [1203216]| |(39) -> (0.200000)msecs [519914]| 
+|(40) -> (0.205000)msecs [533811]| |(41) -> (0.429000)msecs [1114519]| |(42) -> (0.390000)msecs [1014487]| |(43) -> (0.394000)msecs [1026351]| 
+|(44) -> (0.523000)msecs [1361760]| |(45) -> (0.231000)msecs [602050]| |(46) -> (0.231000)msecs [600673]| |(47) -> (0.357000)msecs [928090]| 
+|(48) -> (0.155000)msecs [403208]| |(49) -> (0.196000)msecs [510147]| |(50) -> (0.234000)msecs [608461]| |(51) -> (0.302000)msecs [786785]| 
+|(52) -> (0.312000)msecs [810946]| |(53) -> (0.554000)msecs [1441550]| |(54) -> (0.261000)msecs [678212]| |(55) -> (0.264000)msecs [687617]| 
+|(56) -> (0.346000)msecs [900041]| |(57) -> (0.176000)msecs [456719]| |(58) -> (0.356000)msecs [925976]| |(59) -> (0.365000)msecs [950579]| 
+|(60) -> (0.190000)msecs [495731]| |(61) -> (0.193000)msecs [502715]| |(62) -> (0.265000)msecs [687321]| |(63) -> (0.224000)msecs [582844]| 
+|(64) -> (0.227000)msecs [589986]| |(65) -> (0.431000)msecs [1121270]| |(66) -> (0.198000)msecs [514674]| |(67) -> (0.254000)msecs [659950]| 
+|(68) -> (0.425000)msecs [1103804]| |(69) -> (0.396000)msecs [1031028]| |(70) -> (0.401000)msecs [1044291]| |(71) -> (0.633000)msecs [1645810]| 
+|(72) -> (0.263000)msecs [681992]| |(73) -> (0.262000)msecs [681561]| |(74) -> (0.355000)msecs [922973]| |(75) -> (0.180000)msecs [466256]| 
+|(76) -> (0.183000)msecs [476810]| |(77) -> (0.349000)msecs [907647]| |(78) -> (0.280000)msecs [727125]| |(79) -> (0.281000)msecs [730667]| 
+|(80) -> (0.556000)msecs [1444787]| |(81) -> (0.300000)msecs [778740]| |(82) -> (0.300000)msecs [779003]| |(83) -> (0.408000)msecs [1059072]| 
+|(84) -> (0.179000)msecs [465039]| |(85) -> (0.346000)msecs [901407]| |(86) -> (0.356000)msecs [924903]| |(87) -> (0.169000)msecs [438813]| 
+|(88) -> (0.265000)msecs [687765]| |(89) -> (0.270000)msecs [700887]| |(90) -> (0.233000)msecs [607097]| |(91) -> (0.235000)msecs [612239]| 
+|(92) -> (0.355000)msecs [923287]| |(93) -> (0.178000)msecs [463078]| |(94) -> (0.215000)msecs [559058]| |(95) -> (0.323000)msecs [841302]| 
+|(96) -> (0.195000)msecs [508052]| |(97) -> (0.199000)msecs [517467]| |(98) -> (0.370000)msecs [963542]| |(99) -> (0.201000)msecs [524769]| 
+|(100) -> (0.202000)msecs [527329]| |(101) -> (0.276000)msecs [719108]| |(102) -> (0.181000)msecs [472717]| |(103) -> (0.182000)msecs [475316]| 
+|(104) -> (0.339000)msecs [881550]| |(105) -> (0.239000)msecs [623957]| |(106) -> (0.239000)msecs [622697]| |(107) -> (0.527000)msecs [1370689]| 
+|(108) -> (0.241000)msecs [628291]| |(109) -> (0.285000)msecs [741193]| |(110) -> (0.325000)msecs [845866]| |(111) -> (0.298000)msecs [773573]| 
+|(112) -> (0.300000)msecs [779871]| |(113) -> (0.410000)msecs [1064679]| |(114) -> (0.173000)msecs [450914]| |(115) -> (0.259000)msecs [675768]| 
+|(116) -> (0.267000)msecs [695240]| |(117) -> (0.247000)msecs [643628]| |(118) -> (0.247000)msecs [642778]| |(119) -> (0.364000)msecs [948716]| 
+|(120) -> (0.197000)msecs [512879]| |(121) -> (0.242000)msecs [628359]| |(122) -> (0.324000)msecs [844364]| |(123) -> (0.167000)msecs [434408]| 
+|(124) -> (0.351000)msecs [912162]| |(125) -> (0.353000)msecs [918809]| |(126) -> (0.222000)msecs [577674]| |(127) -> (0.226000)msecs [587190]| 
+|(128) -> (0.310000)msecs [806863]| |(129) -> (0.352000)msecs [915495]| |(130) -> (0.366000)msecs [952874]| |(131) -> (0.481000)msecs [1249852]| 
+|(132) -> (0.260000)msecs [676315]| |(133) -> (0.261000)msecs [677994]| |(134) -> (0.417000)msecs [1085093]| |(135) -> (0.154000)msecs [401691]| 
+|(136) -> (0.195000)msecs [507814]| |(137) -> (0.232000)msecs [603304]| |(138) -> (0.330000)msecs [857648]| |(139) -> (0.343000)msecs [892457]| 
+|(140) -> (0.485000)msecs [1260101]| |(141) -> (0.231000)msecs [600493]| |(142) -> (0.234000)msecs [607048]| |(143) -> (0.379000)msecs [985192]| 
+|(144) -> (0.182000)msecs [472374]| |(145) -> (0.187000)msecs [486503]| |(146) -> (0.259000)msecs [672593]| |(147) -> (0.292000)msecs [759536]| 
+|(148) -> (0.302000)msecs [786717]| |(149) -> (0.445000)msecs [1158517]| |(150) -> (0.180000)msecs [469633]| |(151) -> (0.268000)msecs [698859]| 
+|(152) -> (0.275000)msecs [713804]| |(153) -> (0.253000)msecs [657693]| |(154) -> (0.256000)msecs [666056]| |(155) -> (0.375000)msecs [973994]| 
+|(156) -> (0.310000)msecs [805291]| |(157) -> (0.311000)msecs [810267]| |(158) -> (0.598000)msecs [1556727]| |(159) -> (0.214000)msecs [556853]| 
+|(160) -> (0.254000)msecs [660480]| |(161) -> (0.395000)msecs [1027382]| |(162) -> (0.200000)msecs [519452]| |(163) -> (0.201000)msecs [523918]| 
+|(164) -> (0.373000)msecs [971165]| |(165) -> (0.153000)msecs [396537]| |(166) -> (0.187000)msecs [487910]| |(167) -> (0.192000)msecs [498811]| 
+|(168) -> (0.244000)msecs [634471]| |(169) -> (0.251000)msecs [652120]| |(170) -> (0.372000)msecs [965276]| |(171) -> (0.236000)msecs [614132]| 
+|(172) -> (0.257000)msecs [670084]| |(173) -> (0.352000)msecs [913285]| |(174) -> (0.361000)msecs [938517]| |(175) -> (0.357000)msecs [928120]| 
+|(176) -> (0.626000)msecs [1629295]| |(177) -> (0.259000)msecs [673321]| |(178) -> (0.279000)msecs [724696]| |(179) -> (0.503000)msecs [1307543]| 
+|(180) -> (0.221000)msecs [576469]| |(181) -> (0.263000)msecs [685678]| |(182) -> (0.302000)msecs [785056]| |(183) -> (0.298000)msecs [775506]| 
+|(184) -> (0.302000)msecs [783505]| |(185) -> (0.552000)msecs [1435451]| |(186) -> (0.274000)msecs [711501]| |(187) -> (0.319000)msecs [827690]| 
+|(188) -> (0.502000)msecs [1305995]| |(189) -> (0.323000)msecs [839479]| |(190) -> (0.325000)msecs [845312]| |(191) -> (0.613000)msecs [1593274]| 
+|(192) -> (0.264000)msecs [685999]| |(193) -> (0.333000)msecs [867259]| |(194) -> (0.493000)msecs [1279977]| |(195) -> (0.341000)msecs [886132]| 
+|(196) -> (0.343000)msecs [889888]| |(197) -> (0.493000)msecs [1280613]| |(198) -> (0.148000)msecs [384029]| |(199) -> (0.191000)msecs [497961]| 
+|(200) -> (0.236000)msecs [612689]| |(201) -> (0.274000)msecs [712887]| |(202) -> (0.275000)msecs [715590]| |(203) -> (0.396000)msecs [1030101]| 
+|(204) -> (0.179000)msecs [466348]| |(205) -> (0.221000)msecs [575346]| |(206) -> (0.258000)msecs [671650]| |(207) -> (0.263000)msecs [686002]| 
+|(208) -> (0.264000)msecs [686326]| |(209) -> (0.389000)msecs [1013676]| |(210) -> (0.202000)msecs [526518]| |(211) -> (0.209000)msecs [543009]| 
+|(212) -> (0.357000)msecs [927885]| |(213) -> (0.178000)msecs [463595]| |(214) -> (0.357000)msecs [928968]| |(215) -> (0.356000)msecs [926606]| 
+|(216) -> (0.229000)msecs [595893]| |(217) -> (0.235000)msecs [612101]| |(218) -> (0.351000)msecs [910826]| |(219) -> (0.268000)msecs [696464]| 
+|(220) -> (0.270000)msecs [700202]| |(221) -> (0.376000)msecs [979129]| |(222) -> (0.209000)msecs [544012]| |(223) -> (0.219000)msecs [570449]| 
+|(224) -> (0.294000)msecs [764703]| |(225) -> (0.170000)msecs [440046]| |(226) -> (0.357000)msecs [927188]| |(227) -> (0.353000)msecs [919054]| 
+|(228) -> (0.192000)msecs [497943]| |(229) -> (0.286000)msecs [742899]| |(230) -> (0.325000)msecs [845508]| |(231) -> (0.169000)msecs [440678]| 
+|(232) -> (0.354000)msecs [921464]| |(233) -> (0.356000)msecs [925600]| |(234) -> (0.247000)msecs [643295]| |(235) -> (0.249000)msecs [647061]| 
+|(236) -> (0.516000)msecs [1341548]| |(237) -> (0.195000)msecs [506113]| |(238) -> (0.241000)msecs [625924]| |(239) -> (0.274000)msecs [712531]| 
+|(240) -> (0.269000)msecs [697806]| |(241) -> (0.271000)msecs [704731]| |(242) -> (0.413000)msecs [1073026]| |(243) -> (0.150000)msecs [390930]| 
+|(244) -> (0.196000)msecs [509863]| |(245) -> (0.234000)msecs [608360]| |(246) -> (0.300000)msecs [778357]| |(247) -> (0.305000)msecs [793174]| 
+|(248) -> (0.425000)msecs [1106373]| |(249) -> (0.272000)msecs [707127]| |(250) -> (0.275000)msecs [716743]| |(251) -> (0.402000)msecs [1044358]| 
+|(252) -> (0.183000)msecs [475338]| |(253) -> (0.187000)msecs [485992]| |(254) -> (0.264000)msecs [686859]| |(255) -> (0.000000)msecs [0]| ERROR: Mapper Time diff is negative!
+
+
+|(0) -> (0.248000)msecs [647446]| |(1) -> (0.285000)msecs [742092]| |(2) -> (0.459000)msecs [1195415]| |(3) -> (0.330000)msecs [859532]| 
+|(4) -> (0.334000)msecs [868816]| |(5) -> (0.463000)msecs [1203962]| |(6) -> (0.282000)msecs [733558]| |(7) -> (0.281000)msecs [731943]| 
+|(8) -> (0.449000)msecs [1166305]| |(9) -> (0.329000)msecs [856142]| |(10) -> (0.333000)msecs [865899]| |(11) -> (0.518000)msecs [1346927]| 
+|(12) -> (0.273000)msecs [709338]| |(13) -> (0.271000)msecs [703744]| |(14) -> (0.475000)msecs [1235630]| |(15) -> (0.288000)msecs [749072]| 
+|(16) -> (0.294000)msecs [763483]| |(17) -> (0.428000)msecs [1111827]| |(18) -> (0.271000)msecs [704413]| |(19) -> (0.277000)msecs [720258]| 
+|(20) -> (0.467000)msecs [1214460]| |(21) -> (0.346000)msecs [899751]| |(22) -> (0.350000)msecs [909518]| |(23) -> (0.485000)msecs [1260457]| 
+|(24) -> (0.321000)msecs [833269]| |(25) -> (0.320000)msecs [832248]| |(26) -> (0.490000)msecs [1273535]| |(27) -> (0.204000)msecs [529305]| 
+|(28) -> (0.216000)msecs [561187]| |(29) -> (0.321000)msecs [834881]| |(30) -> (0.248000)msecs [643947]| |(31) -> (0.264000)msecs [685262]| 
+|(32) -> (0.461000)msecs [1198236]| |(33) -> (0.254000)msecs [659250]| |(34) -> (0.257000)msecs [666878]| |(35) -> (0.330000)msecs [856483]| 
+|(36) -> (0.174000)msecs [453349]| |(37) -> (0.357000)msecs [928824]| |(38) -> (0.361000)msecs [939399]| |(39) -> (0.214000)msecs [556624]| 
+|(40) -> (0.216000)msecs [562713]| |(41) -> (0.338000)msecs [878387]| |(42) -> (0.176000)msecs [455985]| |(43) -> (0.356000)msecs [926735]| 
+|(44) -> (0.361000)msecs [937141]| |(45) -> (0.215000)msecs [557975]| |(46) -> (0.220000)msecs [571324]| |(47) -> (0.356000)msecs [927295]| 
+|(48) -> (0.262000)msecs [681399]| |(49) -> (0.264000)msecs [686121]| |(50) -> (0.384000)msecs [1000055]| |(51) -> (0.270000)msecs [703276]| 
+|(52) -> (0.273000)msecs [709803]| |(53) -> (0.396000)msecs [1030536]| |(54) -> (0.278000)msecs [721772]| |(55) -> (0.279000)msecs [726694]| 
+|(56) -> (0.377000)msecs [978931]| |(57) -> (0.315000)msecs [819377]| |(58) -> (0.317000)msecs [824499]| |(59) -> (0.437000)msecs [1137688]| 
+|(60) -> (0.289000)msecs [751761]| |(61) -> (0.292000)msecs [760812]| |(62) -> (0.423000)msecs [1100819]| |(63) -> (0.269000)msecs [697883]| 
+|(64) -> (0.270000)msecs [701440]| |(65) -> (0.388000)msecs [1009446]| |(66) -> (0.269000)msecs [698516]| |(67) -> (0.278000)msecs [722720]| 
+|(68) -> (0.373000)msecs [970180]| |(69) -> (0.335000)msecs [870549]| |(70) -> (0.342000)msecs [890887]| |(71) -> (0.469000)msecs [1219634]| 
+|(72) -> (0.264000)msecs [685724]| |(73) -> (0.268000)msecs [696650]| |(74) -> (0.373000)msecs [970567]| |(75) -> (0.374000)msecs [974504]| 
+|(76) -> (0.371000)msecs [963199]| |(77) -> (0.477000)msecs [1240531]| |(78) -> (0.312000)msecs [811189]| |(79) -> (0.318000)msecs [825297]| 
+|(80) -> (0.427000)msecs [1109189]| |(81) -> (0.311000)msecs [807468]| |(82) -> (0.311000)msecs [808954]| |(83) -> (0.432000)msecs [1121411]| 
+|(84) -> (0.262000)msecs [681843]| |(85) -> (0.255000)msecs [661868]| |(86) -> (0.388000)msecs [1008607]| |(87) -> (0.259000)msecs [673635]| 
+|(88) -> (0.258000)msecs [672810]| |(89) -> (0.396000)msecs [1027982]| |(90) -> (0.264000)msecs [686525]| |(91) -> (0.265000)msecs [687241]| 
+|(92) -> (0.381000)msecs [991625]| |(93) -> (0.281000)msecs [730530]| |(94) -> (0.276000)msecs [718698]| |(95) -> (0.391000)msecs [1018301]| 
+|(96) -> (0.343000)msecs [894289]| |(97) -> (0.352000)msecs [915520]| |(98) -> (0.471000)msecs [1224681]| |(99) -> (0.263000)msecs [683916]| 
+|(100) -> (0.261000)msecs [679799]| |(101) -> (0.380000)msecs [987627]| |(102) -> (0.311000)msecs [807962]| |(103) -> (0.313000)msecs [813878]| 
+|(104) -> (0.429000)msecs [1114411]| |(105) -> (0.285000)msecs [742930]| |(106) -> (0.287000)msecs [746090]| |(107) -> (0.417000)msecs [1086164]| 
+|(108) -> (0.269000)msecs [700853]| |(109) -> (0.271000)msecs [705435]| |(110) -> (0.394000)msecs [1024538]| |(111) -> (0.279000)msecs [724143]| 
+|(112) -> (0.277000)msecs [721616]| |(113) -> (0.399000)msecs [1035311]| |(114) -> (0.294000)msecs [766275]| |(115) -> (0.295000)msecs [766676]| 
+|(116) -> (0.394000)msecs [1024856]| |(117) -> (0.302000)msecs [785842]| |(118) -> (0.303000)msecs [786625]| |(119) -> (0.422000)msecs [1098075]| 
+|(120) -> (0.280000)msecs [729022]| |(121) -> (0.281000)msecs [730156]| |(122) -> (0.396000)msecs [1030557]| |(123) -> (0.269000)msecs [701444]| 
+|(124) -> (0.260000)msecs [678438]| |(125) -> (0.382000)msecs [993723]| |(126) -> (0.308000)msecs [801030]| |(127) -> (0.311000)msecs [808799]| 
+|(128) -> (0.424000)msecs [1103278]| |(129) -> (0.267000)msecs [696525]| |(130) -> (0.267000)msecs [694573]| |(131) -> (0.389000)msecs [1010287]| 
+|(132) -> (0.266000)msecs [690413]| |(133) -> (0.268000)msecs [696983]| |(134) -> (0.387000)msecs [1005781]| |(135) -> (0.286000)msecs [742456]| 
+|(136) -> (0.289000)msecs [751104]| |(137) -> (0.411000)msecs [1066541]| |(138) -> (0.279000)msecs [725385]| |(139) -> (0.281000)msecs [732668]| 
+|(140) -> (0.394000)msecs [1022446]| |(141) -> (0.283000)msecs [736684]| |(142) -> (0.284000)msecs [740064]| |(143) -> (0.406000)msecs [1054407]| 
+|(144) -> (0.173000)msecs [451289]| |(145) -> (0.360000)msecs [934391]| |(146) -> (0.364000)msecs [947327]| |(147) -> (0.181000)msecs [471582]| 
+|(148) -> (0.265000)msecs [690423]| |(149) -> (0.269000)msecs [700853]| |(150) -> (0.293000)msecs [760870]| |(151) -> (0.295000)msecs [767034]| 
+|(152) -> (0.436000)msecs [1134050]| |(153) -> (0.199000)msecs [518560]| |(154) -> (0.209000)msecs [541207]| |(155) -> (0.323000)msecs [838763]| 
+|(156) -> (0.256000)msecs [667013]| |(157) -> (0.258000)msecs [671452]| |(158) -> (0.364000)msecs [946859]| |(159) -> (0.321000)msecs [836705]| 
+|(160) -> (0.328000)msecs [851323]| |(161) -> (0.417000)msecs [1082539]| |(162) -> (0.293000)msecs [761907]| |(163) -> (0.297000)msecs [770756]| 
+|(164) -> (0.399000)msecs [1035507]| |(165) -> (0.285000)msecs [742012]| |(166) -> (0.288000)msecs [749390]| |(167) -> (0.391000)msecs [1016465]| 
+|(168) -> (0.285000)msecs [740529]| |(169) -> (0.297000)msecs [771640]| |(170) -> (0.399000)msecs [1037767]| |(171) -> (0.182000)msecs [472383]| 
+|(172) -> (0.349000)msecs [908452]| |(173) -> (0.356000)msecs [923392]| |(174) -> (0.201000)msecs [524307]| |(175) -> (0.203000)msecs [528932]| 
+|(176) -> (0.334000)msecs [868629]| |(177) -> (0.176000)msecs [456597]| |(178) -> (0.178000)msecs [461363]| |(179) -> (0.354000)msecs [918772]| 
+|(180) -> (0.218000)msecs [567323]| |(181) -> (0.279000)msecs [725547]| |(182) -> (0.321000)msecs [836267]| |(183) -> (0.170000)msecs [440198]| 
+|(184) -> (0.355000)msecs [923578]| |(185) -> (0.359000)msecs [934771]| |(186) -> (0.236000)msecs [614995]| |(187) -> (0.240000)msecs [626022]| 
+|(188) -> (0.321000)msecs [833205]| |(189) -> (0.311000)msecs [810050]| |(190) -> (0.312000)msecs [810640]| |(191) -> (0.433000)msecs [1126094]| 
+|(192) -> (0.191000)msecs [496627]| |(193) -> (0.191000)msecs [496805]| |(194) -> (0.268000)msecs [697381]| |(195) -> (0.173000)msecs [448484]| 
+|(196) -> (0.216000)msecs [562453]| |(197) -> (0.271000)msecs [702832]| |(198) -> (0.322000)msecs [836585]| |(199) -> (0.315000)msecs [820839]| 
+|(200) -> (0.437000)msecs [1136564]| |(201) -> (0.222000)msecs [575622]| |(202) -> (0.222000)msecs [578390]| |(203) -> (0.366000)msecs [952040]| 
+|(204) -> (0.285000)msecs [741389]| |(205) -> (0.285000)msecs [740990]| |(206) -> (0.405000)msecs [1053808]| |(207) -> (0.279000)msecs [726881]| 
+|(208) -> (0.282000)msecs [732760]| |(209) -> (0.395000)msecs [1028224]| |(210) -> (0.309000)msecs [804541]| |(211) -> (0.310000)msecs [804709]| 
+|(212) -> (0.426000)msecs [1106419]| |(213) -> (0.305000)msecs [793553]| |(214) -> (0.307000)msecs [799886]| |(215) -> (0.437000)msecs [1136469]| 
+|(216) -> (0.259000)msecs [673840]| |(217) -> (0.259000)msecs [672779]| |(218) -> (0.384000)msecs [997076]| |(219) -> (0.261000)msecs [678413]| 
+|(220) -> (0.261000)msecs [678814]| |(221) -> (0.382000)msecs [992674]| |(222) -> (0.280000)msecs [728456]| |(223) -> (0.280000)msecs [727829]| 
+|(224) -> (0.400000)msecs [1040186]| |(225) -> (0.281000)msecs [732548]| |(226) -> (0.282000)msecs [732197]| |(227) -> (0.393000)msecs [1020270]| 
+|(228) -> (0.284000)msecs [739327]| |(229) -> (0.286000)msecs [744891]| |(230) -> (0.388000)msecs [1006766]| |(231) -> (0.280000)msecs [728936]| 
+|(232) -> (0.280000)msecs [728153]| |(233) -> (0.399000)msecs [1038621]| |(234) -> (0.282000)msecs [732849]| |(235) -> (0.282000)msecs [732530]| 
+|(236) -> (0.405000)msecs [1053205]| |(237) -> (0.263000)msecs [683029]| |(238) -> (0.266000)msecs [693689]| |(239) -> (0.368000)msecs [957626]| 
+|(240) -> (0.322000)msecs [838675]| |(241) -> (0.324000)msecs [844110]| |(242) -> (0.443000)msecs [1151865]| |(243) -> (0.292000)msecs [759812]| 
+|(244) -> (0.294000)msecs [764666]| |(245) -> (0.412000)msecs [1071112]| |(246) -> (0.284000)msecs [738159]| |(247) -> (0.287000)msecs [745285]| 
+|(248) -> (0.422000)msecs [1097298]| |(249) -> (0.265000)msecs [690456]| |(250) -> (0.267000)msecs [695402]| |(251) -> (0.390000)msecs [1015062]| 
+|(252) -> (0.287000)msecs [746332]| |(253) -> (0.301000)msecs [783760]| |(254) -> (0.422000)msecs [1098644]| |(255) -> (0.000000)msecs [0]| ERROR: Mapper Time diff is negative!
+
+
+|(0) -> (0.361000)msecs [939585]| |(1) -> (0.360000)msecs [936394]| |(2) -> (0.543000)msecs [1412210]| |(3) -> (0.180000)msecs [469897]| 
+|(4) -> (0.225000)msecs [585584]| |(5) -> (0.255000)msecs [663545]| |(6) -> (0.299000)msecs [778382]| |(7) -> (0.301000)msecs [781193]| 
+|(8) -> (0.569000)msecs [1480177]| |(9) -> (0.338000)msecs [879204]| |(10) -> (0.340000)msecs [882522]| |(11) -> (0.477000)msecs [1239729]| 
+|(12) -> (0.284000)msecs [738801]| |(13) -> (0.297000)msecs [773338]| |(14) -> (0.492000)msecs [1280332]| |(15) -> (0.348000)msecs [904035]| 
+|(16) -> (0.349000)msecs [908128]| |(17) -> (0.527000)msecs [1371249]| |(18) -> (0.204000)msecs [529543]| |(19) -> (0.214000)msecs [555452]| 
+|(20) -> (0.269000)msecs [700067]| |(21) -> (0.218000)msecs [568737]| |(22) -> (0.224000)msecs [583134]| |(23) -> (0.352000)msecs [913998]| 
+|(24) -> (0.188000)msecs [488772]| |(25) -> (0.207000)msecs [537576]| |(26) -> (0.339000)msecs [882706]| |(27) -> (0.202000)msecs [524087]| 
+|(28) -> (0.207000)msecs [538818]| |(29) -> (0.296000)msecs [767294]| |(30) -> (0.182000)msecs [474417]| |(31) -> (0.342000)msecs [889289]| 
+|(32) -> (0.349000)msecs [906586]| |(33) -> (0.230000)msecs [599046]| |(34) -> (0.234000)msecs [607476]| |(35) -> (0.356000)msecs [927071]| 
+|(36) -> (0.176000)msecs [457004]| |(37) -> (0.362000)msecs [940163]| |(38) -> (0.368000)msecs [957146]| |(39) -> (0.199000)msecs [519223]| 
+|(40) -> (0.286000)msecs [743300]| |(41) -> (0.293000)msecs [761491]| |(42) -> (0.257000)msecs [667242]| |(43) -> (0.268000)msecs [695243]| 
+|(44) -> (0.377000)msecs [980325]| |(45) -> (0.284000)msecs [738220]| |(46) -> (0.291000)msecs [757572]| |(47) -> (0.396000)msecs [1030273]| 
+|(48) -> (0.291000)msecs [757450]| |(49) -> (0.301000)msecs [782380]| |(50) -> (0.419000)msecs [1088081]| |(51) -> (0.328000)msecs [853742]| 
+|(52) -> (0.327000)msecs [852142]| |(53) -> (0.448000)msecs [1165304]| |(54) -> (0.195000)msecs [507125]| |(55) -> (0.275000)msecs [714248]| 
+|(56) -> (0.277000)msecs [720922]| |(57) -> (0.283000)msecs [735803]| |(58) -> (0.283000)msecs [737412]| |(59) -> (0.552000)msecs [1434668]| 
+|(60) -> (0.362000)msecs [941240]| |(61) -> (0.365000)msecs [948611]| |(62) -> (0.484000)msecs [1257678]| |(63) -> (0.307000)msecs [796533]| 
+|(64) -> (0.310000)msecs [803819]| |(65) -> (0.428000)msecs [1113057]| |(66) -> (0.285000)msecs [743545]| |(67) -> (0.290000)msecs [754630]| 
+|(68) -> (0.410000)msecs [1067496]| |(69) -> (0.291000)msecs [756410]| |(70) -> (0.292000)msecs [760546]| |(71) -> (0.438000)msecs [1139146]| 
+|(72) -> (0.270000)msecs [702248]| |(73) -> (0.301000)msecs [783763]| |(74) -> (0.387000)msecs [1005270]| |(75) -> (0.357000)msecs [929616]| 
+|(76) -> (0.354000)msecs [920268]| |(77) -> (0.509000)msecs [1324648]| |(78) -> (0.338000)msecs [879356]| |(79) -> (0.327000)msecs [851191]| 
+|(80) -> (0.449000)msecs [1167192]| |(81) -> (0.198000)msecs [514008]| |(82) -> (0.282000)msecs [732784]| |(83) -> (0.293000)msecs [760729]| 
+|(84) -> (0.204000)msecs [531369]| |(85) -> (0.209000)msecs [543397]| |(86) -> (0.352000)msecs [913689]| |(87) -> (0.171000)msecs [445444]| 
+|(88) -> (0.356000)msecs [924226]| |(89) -> (0.358000)msecs [932920]| |(90) -> (0.223000)msecs [581687]| |(91) -> (0.305000)msecs [792134]| 
+|(92) -> (0.305000)msecs [793640]| |(93) -> (0.269000)msecs [698945]| |(94) -> (0.273000)msecs [710359]| |(95) -> (0.388000)msecs [1010171]| 
+|(96) -> (0.321000)msecs [834526]| |(97) -> (0.324000)msecs [843036]| |(98) -> (0.450000)msecs [1169290]| |(99) -> (0.289000)msecs [751544]| 
+|(100) -> (0.290000)msecs [754153]| |(101) -> (0.412000)msecs [1069224]| |(102) -> (0.290000)msecs [755548]| |(103) -> (0.291000)msecs [756667]| 
+|(104) -> (0.395000)msecs [1029469]| |(105) -> (0.302000)msecs [787036]| |(106) -> (0.304000)msecs [791183]| |(107) -> (0.433000)msecs [1127898]| 
+|(108) -> (0.286000)msecs [743661]| |(109) -> (0.287000)msecs [745796]| |(110) -> (0.430000)msecs [1116978]| |(111) -> (0.273000)msecs [709363]| 
+|(112) -> (0.294000)msecs [764672]| |(113) -> (0.396000)msecs [1029863]| |(114) -> (0.285000)msecs [742486]| |(115) -> (0.293000)msecs [761834]| 
+|(116) -> (0.395000)msecs [1028850]| |(117) -> (0.320000)msecs [833297]| |(118) -> (0.322000)msecs [837622]| |(119) -> (0.479000)msecs [1244146]| 
+|(120) -> (0.315000)msecs [818752]| |(121) -> (0.316000)msecs [821661]| |(122) -> (0.413000)msecs [1073115]| |(123) -> (0.197000)msecs [513696]| 
+|(124) -> (0.202000)msecs [526335]| |(125) -> (0.277000)msecs [719805]| |(126) -> (0.198000)msecs [514320]| |(127) -> (0.201000)msecs [523004]| 
+|(128) -> (0.260000)msecs [675731]| |(129) -> (0.300000)msecs [780896]| |(130) -> (0.311000)msecs [809460]| |(131) -> (0.448000)msecs [1165326]| 
+|(132) -> (0.297000)msecs [771557]| |(133) -> (0.303000)msecs [789320]| |(134) -> (0.425000)msecs [1105119]| |(135) -> (0.270000)msecs [702046]| 
+|(136) -> (0.280000)msecs [728395]| |(137) -> (0.387000)msecs [1005316]| |(138) -> (0.275000)msecs [715062]| |(139) -> (0.279000)msecs [725161]| 
+|(140) -> (0.384000)msecs [997384]| |(141) -> (0.288000)msecs [748901]| |(142) -> (0.292000)msecs [761720]| |(143) -> (0.398000)msecs [1034363]| 
+|(144) -> (0.314000)msecs [816629]| |(145) -> (0.325000)msecs [845676]| |(146) -> (0.419000)msecs [1091058]| |(147) -> (0.296000)msecs [769897]| 
+|(148) -> (0.299000)msecs [777941]| |(149) -> (0.436000)msecs [1134964]| |(150) -> (0.306000)msecs [794438]| |(151) -> (0.308000)msecs [801491]| 
+|(152) -> (0.437000)msecs [1134671]| |(153) -> (0.283000)msecs [736057]| |(154) -> (0.286000)msecs [743786]| |(155) -> (0.408000)msecs [1061057]| 
+|(156) -> (0.285000)msecs [742046]| |(157) -> (0.289000)msecs [751706]| |(158) -> (0.410000)msecs [1066945]| |(159) -> (0.305000)msecs [793220]| 
+|(160) -> (0.308000)msecs [802057]| |(161) -> (0.423000)msecs [1101069]| |(162) -> (0.286000)msecs [742894]| |(163) -> (0.295000)msecs [765308]| 
+|(164) -> (0.410000)msecs [1066740]| |(165) -> (0.285000)msecs [741838]| |(166) -> (0.311000)msecs [808563]| |(167) -> (0.393000)msecs [1021136]| 
+|(168) -> (0.287000)msecs [747497]| |(169) -> (0.293000)msecs [761313]| |(170) -> (0.390000)msecs [1014419]| |(171) -> (0.361000)msecs [937713]| 
+|(172) -> (0.372000)msecs [967521]| |(173) -> (0.497000)msecs [1294188]| |(174) -> (0.311000)msecs [809221]| |(175) -> (0.317000)msecs [824279]| 
+|(176) -> (0.443000)msecs [1153467]| |(177) -> (0.202000)msecs [525047]| |(178) -> (0.202000)msecs [524576]| |(179) -> (0.320000)msecs [831477]| 
+|(180) -> (0.211000)msecs [549236]| |(181) -> (0.253000)msecs [655983]| |(182) -> (0.339000)msecs [881415]| |(183) -> (0.166000)msecs [432218]| 
+|(184) -> (0.350000)msecs [910358]| |(185) -> (0.357000)msecs [927246]| |(186) -> (0.172000)msecs [446313]| |(187) -> (0.257000)msecs [667956]| 
+|(188) -> (0.296000)msecs [769153]| |(189) -> (0.175000)msecs [453189]| |(190) -> (0.351000)msecs [913456]| |(191) -> (0.359000)msecs [932718]| 
+|(192) -> (0.220000)msecs [571198]| |(193) -> (0.220000)msecs [573043]| |(194) -> (0.344000)msecs [894220]| |(195) -> (0.361000)msecs [939741]| 
+|(196) -> (0.358000)msecs [933005]| |(197) -> (0.455000)msecs [1183260]| |(198) -> (0.297000)msecs [771661]| |(199) -> (0.306000)msecs [795655]| 
+|(200) -> (0.420000)msecs [1092205]| |(201) -> (0.281000)msecs [733053]| |(202) -> (0.283000)msecs [736834]| |(203) -> (0.405000)msecs [1054132]| 
+|(204) -> (0.302000)msecs [786852]| |(205) -> (0.328000)msecs [853877]| |(206) -> (0.440000)msecs [1145398]| |(207) -> (0.286000)msecs [745689]| 
+|(208) -> (0.288000)msecs [748647]| |(209) -> (0.429000)msecs [1116700]| |(210) -> (0.331000)msecs [861411]| |(211) -> (0.334000)msecs [869082]| 
+|(212) -> (0.457000)msecs [1190060]| |(213) -> (0.198000)msecs [515124]| |(214) -> (0.199000)msecs [518360]| |(215) -> (0.278000)msecs [724177]| 
+|(216) -> (0.229000)msecs [593862]| |(217) -> (0.229000)msecs [596966]| |(218) -> (0.333000)msecs [864714]| |(219) -> (0.332000)msecs [862781]| 
+|(220) -> (0.333000)msecs [864041]| |(221) -> (0.453000)msecs [1179100]| |(222) -> (0.320000)msecs [832633]| |(223) -> (0.318000)msecs [826889]| 
+|(224) -> (0.457000)msecs [1188466]| |(225) -> (0.282000)msecs [731601]| |(226) -> (0.286000)msecs [742006]| |(227) -> (0.438000)msecs [1140767]| 
+|(228) -> (0.270000)msecs [703336]| |(229) -> (0.272000)msecs [706664]| |(230) -> (0.417000)msecs [1082760]| |(231) -> (0.315000)msecs [819593]| 
+|(232) -> (0.316000)msecs [822463]| |(233) -> (0.464000)msecs [1207599]| |(234) -> (0.193000)msecs [502357]| |(235) -> (0.273000)msecs [708684]| 
+|(236) -> (0.314000)msecs [816225]| |(237) -> (0.283000)msecs [734528]| |(238) -> (0.281000)msecs [730814]| |(239) -> (0.401000)msecs [1044041]| 
+|(240) -> (0.302000)msecs [784025]| |(241) -> (0.306000)msecs [796142]| |(242) -> (0.405000)msecs [1053419]| |(243) -> (0.311000)msecs [810763]| 
+|(244) -> (0.313000)msecs [814647]| |(245) -> (0.432000)msecs [1124760]| |(246) -> (0.312000)msecs [810359]| |(247) -> (0.317000)msecs [824753]| 
+|(248) -> (0.431000)msecs [1122447]| |(249) -> (0.288000)msecs [751189]| |(250) -> (0.292000)msecs [759264]| |(251) -> (0.411000)msecs [1069038]| 
+|(252) -> (0.294000)msecs [764682]| |(253) -> (0.297000)msecs [772020]| |(254) -> (0.480000)msecs [1248406]| |(255) -> (0.000000)msecs [0]| ERROR: Mapper Time diff is negative!
+
+
+|(0) -> (0.073000)msecs [190268]| |(1) -> (0.028000)msecs [72097]| |(2) -> (0.028000)msecs [72142]| |(3) -> (0.034000)msecs [88990]| 
+|(4) -> (0.024000)msecs [63718]| |(5) -> (0.025000)msecs [63535]| |(6) -> (0.029000)msecs [74907]| |(7) -> (0.024000)msecs [64486]| 
+|(8) -> (0.027000)msecs [69992]| |(9) -> (0.031000)msecs [79765]| |(10) -> (0.025000)msecs [65040]| |(11) -> (0.025000)msecs [65746]| 
+|(12) -> (0.029000)msecs [75483]| |(13) -> (0.026000)msecs [67306]| |(14) -> (0.025000)msecs [66908]| |(15) -> (0.033000)msecs [87057]| 
+|(16) -> (0.027000)msecs [69683]| |(17) -> (0.032000)msecs [83230]| |(18) -> (0.040000)msecs [102648]| |(19) -> (0.029000)msecs [76314]| 
+|(20) -> (0.028000)msecs [71227]| |(21) -> (0.026000)msecs [68573]| |(22) -> (0.032000)msecs [82762]| |(23) -> (0.031000)msecs [81582]| 
+|(24) -> (0.026000)msecs [67970]| |(25) -> (0.032000)msecs [81368]| |(26) -> (0.038000)msecs [99176]| |(27) -> (0.034000)msecs [87216]| 
+|(28) -> (0.033000)msecs [85855]| |(29) -> (0.034000)msecs [89718]| |(30) -> (0.036000)msecs [94172]| |(31) -> (0.032000)msecs [83276]| 
+|(32) -> (0.038000)msecs [99259]| |(33) -> (0.037000)msecs [94328]| |(34) -> (0.031000)msecs [82258]| |(35) -> (0.034000)msecs [89164]| 
+|(36) -> (0.037000)msecs [96714]| |(37) -> (0.034000)msecs [89825]| |(38) -> (0.036000)msecs [94022]| |(39) -> (0.033000)msecs [87522]| 
+|(40) -> (0.033000)msecs [84711]| |(41) -> (0.039000)msecs [101078]| |(42) -> (0.048000)msecs [123585]| |(43) -> (0.040000)msecs [105297]| 
+|(44) -> (0.042000)msecs [109689]| |(45) -> (0.043000)msecs [110913]| |(46) -> (0.038000)msecs [98102]| |(47) -> (0.050000)msecs [131419]| 
+|(48) -> (0.039000)msecs [101394]| |(49) -> (0.038000)msecs [99540]| |(50) -> (0.043000)msecs [111983]| |(51) -> (0.044000)msecs [113687]| 
+|(52) -> (0.044000)msecs [113755]| |(53) -> (0.038000)msecs [98240]| |(54) -> (0.050000)msecs [130627]| |(55) -> (0.043000)msecs [112540]| 
+|(56) -> (0.046000)msecs [118422]| |(57) -> (0.043000)msecs [112308]| |(58) -> (0.036000)msecs [93615]| |(59) -> (0.047000)msecs [120915]| 
+|(60) -> (0.046000)msecs [119924]| |(61) -> (0.041000)msecs [106236]| |(62) -> (0.048000)msecs [125207]| |(63) -> (0.053000)msecs [136940]| 
+|(64) -> (0.049000)msecs [128097]| |(65) -> (0.070000)msecs [182575]| |(66) -> (0.056000)msecs [146282]| |(67) -> (0.042000)msecs [108176]| 
+|(68) -> (0.053000)msecs [137194]| |(69) -> (0.053000)msecs [137935]| |(70) -> (0.040000)msecs [102345]| |(71) -> (0.047000)msecs [122380]| 
+|(72) -> (0.065000)msecs [169483]| |(73) -> (0.047000)msecs [120637]| |(74) -> (0.044000)msecs [113623]| |(75) -> (0.063000)msecs [163665]| 
+|(76) -> (0.046000)msecs [120885]| |(77) -> (0.050000)msecs [130156]| |(78) -> (0.054000)msecs [141736]| |(79) -> (0.050000)msecs [130217]| 
+|(80) -> (0.053000)msecs [139425]| |(81) -> (0.053000)msecs [137457]| |(82) -> (0.065000)msecs [168003]| |(83) -> (0.064000)msecs [165693]| 
+|(84) -> (0.047000)msecs [120900]| |(85) -> (0.062000)msecs [162365]| |(86) -> (0.053000)msecs [136286]| |(87) -> (0.056000)msecs [146884]| 
+|(88) -> (0.050000)msecs [127914]| |(89) -> (0.058000)msecs [152207]| |(90) -> (0.058000)msecs [150188]| |(91) -> (0.054000)msecs [140630]| 
+|(92) -> (0.061000)msecs [158989]| |(93) -> (0.059000)msecs [154495]| |(94) -> (0.061000)msecs [158771]| |(95) -> (0.065000)msecs [169917]| 
+|(96) -> (0.060000)msecs [156404]| |(97) -> (0.063000)msecs [162155]| |(98) -> (0.066000)msecs [170847]| |(99) -> (0.056000)msecs [145202]| 
+|(100) -> (0.057000)msecs [147628]| |(101) -> (0.064000)msecs [167309]| |(102) -> (0.057000)msecs [147166]| |(103) -> (0.059000)msecs [154048]| 
+|(104) -> (0.056000)msecs [144169]| |(105) -> (0.063000)msecs [163396]| |(106) -> (0.062000)msecs [160854]| |(107) -> (0.082000)msecs [212692]| 
+|(108) -> (0.068000)msecs [176657]| |(109) -> (0.069000)msecs [178654]| |(110) -> (0.071000)msecs [186077]| |(111) -> (0.058000)msecs [152348]| 
+|(112) -> (0.074000)msecs [190846]| |(113) -> (0.073000)msecs [188992]| |(114) -> (0.059000)msecs [153501]| |(115) -> (0.075000)msecs [195382]| 
+|(116) -> (0.069000)msecs [179975]| |(117) -> (0.079000)msecs [205293]| |(118) -> (0.070000)msecs [181523]| |(119) -> (0.064000)msecs [167703]| 
+|(120) -> (0.074000)msecs [192666]| |(121) -> (0.083000)msecs [215619]| |(122) -> (0.073000)msecs [191562]| |(123) -> (0.056000)msecs [147567]| 
+|(124) -> (0.073000)msecs [187482]| |(125) -> (0.063000)msecs [165011]| |(126) -> (0.083000)msecs [215011]| |(127) -> (0.073000)msecs [190314]| 
+|(128) -> (0.077000)msecs [198992]| |(129) -> (0.097000)msecs [251909]| |(130) -> (0.068000)msecs [176378]| |(131) -> (0.084000)msecs [218700]| 
+|(132) -> (0.083000)msecs [213463]| |(133) -> (0.069000)msecs [179455]| |(134) -> (0.083000)msecs [217195]| |(135) -> (0.064000)msecs [166963]| 
+|(136) -> (0.074000)msecs [191963]| |(137) -> (0.070000)msecs [181483]| |(138) -> (0.082000)msecs [214149]| |(139) -> (0.067000)msecs [173356]| 
+|(140) -> (0.089000)msecs [230290]| |(141) -> (0.081000)msecs [211303]| |(142) -> (0.078000)msecs [202048]| |(143) -> (0.085000)msecs [220495]| 
+|(144) -> (0.073000)msecs [190803]| |(145) -> (0.080000)msecs [208510]| |(146) -> (0.075000)msecs [196077]| |(147) -> (0.080000)msecs [207654]| 
+|(148) -> (0.073000)msecs [188631]| |(149) -> (0.088000)msecs [228616]| |(150) -> (0.083000)msecs [214271]| |(151) -> (0.084000)msecs [218730]| 
+|(152) -> (0.082000)msecs [214485]| |(153) -> (0.087000)msecs [226328]| |(154) -> (0.070000)msecs [183068]| |(155) -> (0.080000)msecs [207339]| 
+|(156) -> (0.098000)msecs [254656]| |(157) -> (0.081000)msecs [209658]| |(158) -> (0.092000)msecs [238836]| |(159) -> (0.096000)msecs [248924]| 
+|(160) -> (0.087000)msecs [226014]| |(161) -> (0.086000)msecs [222423]| |(162) -> (0.086000)msecs [223625]| |(163) -> (0.095000)msecs [247043]| 
+|(164) -> (0.090000)msecs [234150]| |(165) -> (0.097000)msecs [253328]| |(166) -> (0.088000)msecs [228962]| |(167) -> (0.096000)msecs [249955]| 
+|(168) -> (0.092000)msecs [240405]| |(169) -> (0.083000)msecs [215763]| |(170) -> (0.094000)msecs [243531]| |(171) -> (0.085000)msecs [221028]| 
+|(172) -> (0.091000)msecs [234551]| |(173) -> (0.093000)msecs [243500]| |(174) -> (0.084000)msecs [219030]| |(175) -> (0.088000)msecs [228574]| 
+|(176) -> (0.089000)msecs [231042]| |(177) -> (0.108000)msecs [281956]| |(178) -> (0.099000)msecs [257287]| |(179) -> (0.093000)msecs [243559]| 
+|(180) -> (0.097000)msecs [253032]| |(181) -> (0.095000)msecs [245718]| |(182) -> (0.099000)msecs [257568]| |(183) -> (0.091000)msecs [237784]| 
+|(184) -> (0.101000)msecs [263533]| |(185) -> (0.084000)msecs [217672]| |(186) -> (0.100000)msecs [260055]| |(187) -> (0.102000)msecs [264714]| 
+|(188) -> (0.102000)msecs [266017]| |(189) -> (0.089000)msecs [231859]| |(190) -> (0.108000)msecs [281458]| |(191) -> (0.109000)msecs [281944]| 
+|(192) -> (0.106000)msecs [275272]| |(193) -> (0.096000)msecs [250270]| |(194) -> (0.102000)msecs [264481]| |(195) -> (0.104000)msecs [268904]| 
+|(196) -> (0.101000)msecs [262814]| |(197) -> (0.094000)msecs [245575]| |(198) -> (0.104000)msecs [269739]| |(199) -> (0.113000)msecs [293919]| 
+|(200) -> (0.108000)msecs [281329]| |(201) -> (0.116000)msecs [304099]| |(202) -> (0.113000)msecs [293494]| |(203) -> (0.103000)msecs [269715]| 
+|(204) -> (0.111000)msecs [288411]| |(205) -> (0.101000)msecs [264041]| |(206) -> (0.108000)msecs [279849]| |(207) -> (0.108000)msecs [281746]| 
+|(208) -> (0.119000)msecs [310018]| |(209) -> (0.123000)msecs [320751]| |(210) -> (0.116000)msecs [302432]| |(211) -> (0.104000)msecs [270850]| 
+|(212) -> (0.106000)msecs [277869]| |(213) -> (0.111000)msecs [291011]| |(214) -> (0.117000)msecs [304811]| |(215) -> (0.122000)msecs [316258]| 
+|(216) -> (0.119000)msecs [310413]| |(217) -> (0.135000)msecs [350820]| |(218) -> (0.109000)msecs [283112]| |(219) -> (0.119000)msecs [309183]| 
+|(220) -> (0.113000)msecs [294427]| |(221) -> (0.112000)msecs [290940]| |(222) -> (0.107000)msecs [277221]| |(223) -> (0.116000)msecs [301548]| 
+|(224) -> (0.119000)msecs [308247]| |(225) -> (0.116000)msecs [301826]| |(226) -> (0.138000)msecs [359509]| |(227) -> (0.121000)msecs [315303]| 
+|(228) -> (0.122000)msecs [316882]| |(229) -> (0.115000)msecs [298967]| |(230) -> (0.124000)msecs [321935]| |(231) -> (0.145000)msecs [375835]| 
+|(232) -> (0.126000)msecs [327178]| |(233) -> (0.126000)msecs [326475]| |(234) -> (0.125000)msecs [325829]| |(235) -> (0.131000)msecs [339842]| 
+|(236) -> (0.127000)msecs [328181]| |(237) -> (0.118000)msecs [307993]| |(238) -> (0.136000)msecs [352340]| |(239) -> (0.123000)msecs [319718]| 
+|(240) -> (0.121000)msecs [315013]| |(241) -> (0.130000)msecs [339186]| |(242) -> (0.134000)msecs [346592]| |(243) -> (0.143000)msecs [372969]| 
+|(244) -> (0.144000)msecs [372923]| |(245) -> (0.138000)msecs [357540]| |(246) -> (0.132000)msecs [343766]| |(247) -> (0.146000)msecs [380016]| 
+|(248) -> (0.134000)msecs [348816]| |(249) -> (0.128000)msecs [334085]| |(250) -> (0.142000)msecs [368931]| |(251) -> (0.132000)msecs [345366]| 
+|(252) -> (0.148000)msecs [385687]| |(253) -> (0.143000)msecs [371993]| |(254) -> (0.124000)msecs [320742]| |(255) -> (0.133000)msecs [345170]| 
+|(256) -> (0.144000)msecs [374583]| |(257) -> (0.140000)msecs [365050]| |(258) -> (0.136000)msecs [355943]| |(259) -> (0.139000)msecs [361470]| 
+|(260) -> (0.145000)msecs [376128]| |(261) -> (0.145000)msecs [378551]| |(262) -> (0.151000)msecs [393649]| |(263) -> (0.123000)msecs [318993]| 
+|(264) -> (0.149000)msecs [387287]| |(265) -> (0.142000)msecs [369166]| |(266) -> (0.138000)msecs [358216]| |(267) -> (0.144000)msecs [373929]| 
+|(268) -> (0.161000)msecs [417796]| |(269) -> (0.144000)msecs [375272]| |(270) -> (0.138000)msecs [360528]| |(271) -> (0.164000)msecs [425638]| 
+|(272) -> (0.142000)msecs [370118]| |(273) -> (0.154000)msecs [398357]| |(274) -> (0.162000)msecs [420411]| |(275) -> (0.164000)msecs [427303]| 
+|(276) -> (0.144000)msecs [373926]| |(277) -> (0.159000)msecs [412880]| |(278) -> (0.156000)msecs [405817]| |(279) -> (0.154000)msecs [401095]| 
+|(280) -> (0.162000)msecs [422096]| |(281) -> (0.152000)msecs [397350]| |(282) -> (0.154000)msecs [401700]| |(283) -> (0.162000)msecs [420429]| 
+|(284) -> (0.163000)msecs [422640]| |(285) -> (0.153000)msecs [397372]| |(286) -> (0.155000)msecs [403468]| |(287) -> (0.156000)msecs [404202]| 
+|(288) -> (0.144000)msecs [375516]| |(289) -> (0.173000)msecs [450079]| |(290) -> (0.162000)msecs [421564]| |(291) -> (0.144000)msecs [374284]| 
+|(292) -> (0.161000)msecs [416541]| |(293) -> (0.156000)msecs [405716]| |(294) -> (0.162000)msecs [422075]| |(295) -> (0.167000)msecs [435301]| 
+|(296) -> (0.172000)msecs [447760]| |(297) -> (0.163000)msecs [424372]| |(298) -> (0.158000)msecs [410898]| |(299) -> (0.162000)msecs [419615]| 
+|(300) -> (0.176000)msecs [457508]| |(301) -> (0.187000)msecs [485209]| |(302) -> (0.169000)msecs [438807]| |(303) -> (0.160000)msecs [415847]| 
+|(304) -> (0.166000)msecs [430465]| |(305) -> (0.173000)msecs [451339]| |(306) -> (0.188000)msecs [491073]| |(307) -> (0.174000)msecs [451987]| 
+|(308) -> (0.168000)msecs [437262]| |(309) -> (0.166000)msecs [431873]| |(310) -> (0.166000)msecs [430447]| |(311) -> (0.175000)msecs [456028]| 
+|(312) -> (0.175000)msecs [456486]| |(313) -> (0.163000)msecs [422105]| |(314) -> (0.172000)msecs [445931]| |(315) -> (0.189000)msecs [491064]| 
+|(316) -> (0.168000)msecs [438268]| |(317) -> (0.175000)msecs [456003]| |(318) -> (0.183000)msecs [474619]| |(319) -> (0.168000)msecs [436977]| 
+|(320) -> (0.175000)msecs [453789]| |(321) -> (0.161000)msecs [418936]| |(322) -> (0.180000)msecs [468349]| |(323) -> (0.188000)msecs [489931]| 
+|(324) -> (0.193000)msecs [502050]| |(325) -> (0.171000)msecs [442605]| |(326) -> (0.185000)msecs [482162]| |(327) -> (0.184000)msecs [480193]| 
+|(328) -> (0.184000)msecs [477831]| |(329) -> (0.193000)msecs [501240]| |(330) -> (0.178000)msecs [460793]| |(331) -> (0.174000)msecs [453339]| 
+|(332) -> (0.185000)msecs [480446]| |(333) -> (0.204000)msecs [530265]| |(334) -> (0.176000)msecs [457949]| |(335) -> (0.192000)msecs [499142]| 
+|(336) -> (0.187000)msecs [486023]| |(337) -> (0.178000)msecs [463005]| |(338) -> (0.198000)msecs [513126]| |(339) -> (0.195000)msecs [505908]| 
+|(340) -> (0.174000)msecs [453951]| |(341) -> (0.200000)msecs [521933]| |(342) -> (0.209000)msecs [545740]| |(343) -> (0.177000)msecs [462173]| 
+|(344) -> (0.197000)msecs [512292]| |(345) -> (0.173000)msecs [449775]| |(346) -> (0.200000)msecs [519613]| |(347) -> (0.169000)msecs [438614]| 
+|(348) -> (0.171000)msecs [444433]| |(349) -> (0.164000)msecs [426178]| |(350) -> (0.167000)msecs [433787]| |(351) -> (0.164000)msecs [426721]| 
+|(352) -> (0.168000)msecs [435922]| |(353) -> (0.171000)msecs [444597]| |(354) -> (0.165000)msecs [428081]| |(355) -> (0.166000)msecs [431516]| 
+|(356) -> (0.174000)msecs [451990]| |(357) -> (0.168000)msecs [436780]| |(358) -> (0.179000)msecs [464863]| |(359) -> (0.174000)msecs [450349]| 
+|(360) -> (0.170000)msecs [443693]| |(361) -> (0.165000)msecs [427934]| |(362) -> (0.169000)msecs [437898]| |(363) -> (0.175000)msecs [455927]| 
+|(364) -> (0.173000)msecs [449350]| |(365) -> (0.177000)msecs [458585]| |(366) -> (0.167000)msecs [434917]| |(367) -> (0.206000)msecs [535445]| 
+|(368) -> (0.193000)msecs [500882]| |(369) -> (0.189000)msecs [491097]| |(370) -> (0.180000)msecs [466255]| |(371) -> (0.192000)msecs [500668]| 
+|(372) -> (0.199000)msecs [517555]| |(373) -> (0.201000)msecs [522167]| |(374) -> (0.187000)msecs [485056]| |(375) -> (0.196000)msecs [509921]| 
+|(376) -> (0.186000)msecs [483704]| |(377) -> (0.196000)msecs [510171]| |(378) -> (0.184000)msecs [480697]| |(379) -> (0.189000)msecs [492205]| 
+|(380) -> (0.186000)msecs [482622]| |(381) -> (0.192000)msecs [499859]| |(382) -> (0.190000)msecs [492987]| |(383) -> (0.187000)msecs [486254]| 
+|(384) -> (0.218000)msecs [565693]| |(385) -> (0.228000)msecs [592424]| |(386) -> (0.196000)msecs [509862]| |(387) -> (0.185000)msecs [479710]| 
+|(388) -> (0.198000)msecs [513495]| |(389) -> (0.179000)msecs [464830]| |(390) -> (0.181000)msecs [472463]| |(391) -> (0.185000)msecs [480997]| 
+|(392) -> (0.183000)msecs [476187]| |(393) -> (0.191000)msecs [497486]| |(394) -> (0.189000)msecs [493213]| |(395) -> (0.201000)msecs [521818]| 
+|(396) -> (0.186000)msecs [483329]| |(397) -> (0.187000)msecs [486482]| |(398) -> (0.191000)msecs [494541]| |(399) -> (0.187000)msecs [487528]| 
+|(400) -> (0.192000)msecs [497785]| |(401) -> (0.193000)msecs [501827]| |(402) -> (0.197000)msecs [512182]| |(403) -> (0.192000)msecs [498980]| 
+|(404) -> (0.207000)msecs [537843]| |(405) -> (0.192000)msecs [498805]| |(406) -> (0.190000)msecs [492648]| |(407) -> (0.196000)msecs [508955]| 
+|(408) -> (0.195000)msecs [506064]| |(409) -> (0.234000)msecs [610025]| |(410) -> (0.230000)msecs [599245]| |(411) -> (0.207000)msecs [538372]| 
+|(412) -> (0.201000)msecs [521914]| |(413) -> (0.204000)msecs [531993]| |(414) -> (0.195000)msecs [509250]| |(415) -> (0.195000)msecs [508168]| 
+|(416) -> (0.227000)msecs [588755]| |(417) -> (0.218000)msecs [566659]| |(418) -> (0.206000)msecs [535044]| |(419) -> (0.207000)msecs [538845]| 
+|(420) -> (0.202000)msecs [524184]| |(421) -> (0.201000)msecs [523168]| |(422) -> (0.208000)msecs [541056]| |(423) -> (0.203000)msecs [528272]| 
+|(424) -> (0.203000)msecs [526730]| |(425) -> (0.210000)msecs [545145]| |(426) -> (0.201000)msecs [524008]| |(427) -> (0.206000)msecs [537959]| 
+|(428) -> (0.253000)msecs [658720]| |(429) -> (0.230000)msecs [596268]| |(430) -> (0.212000)msecs [552273]| |(431) -> (0.211000)msecs [548517]| 
+|(432) -> (0.204000)msecs [532837]| |(433) -> (0.202000)msecs [527156]| |(434) -> (0.220000)msecs [570152]| |(435) -> (0.225000)msecs [586430]| 
+|(436) -> (0.211000)msecs [549996]| |(437) -> (0.216000)msecs [561225]| |(438) -> (0.228000)msecs [591010]| |(439) -> (0.226000)msecs [586840]| 
+|(440) -> (0.221000)msecs [573949]| |(441) -> (0.213000)msecs [555262]| |(442) -> (0.218000)msecs [566250]| |(443) -> (0.230000)msecs [595962]| 
+|(444) -> (0.262000)msecs [681115]| |(445) -> (0.245000)msecs [636860]| |(446) -> (0.276000)msecs [716833]| |(447) -> (0.260000)msecs [674350]| 
+|(448) -> (0.215000)msecs [560025]| |(449) -> (0.220000)msecs [572375]| |(450) -> (0.219000)msecs [568922]| |(451) -> (0.224000)msecs [582748]| 
+|(452) -> (0.223000)msecs [580299]| |(453) -> (0.225000)msecs [583954]| |(454) -> (0.222000)msecs [577988]| |(455) -> (0.230000)msecs [600273]| 
+|(456) -> (0.221000)msecs [576225]| |(457) -> (0.227000)msecs [590123]| |(458) -> (0.229000)msecs [595451]| |(459) -> (0.219000)msecs [571275]| 
+|(460) -> (0.222000)msecs [579482]| |(461) -> (0.227000)msecs [591891]| |(462) -> (0.239000)msecs [620889]| |(463) -> (0.256000)msecs [664916]| 
+|(464) -> (0.252000)msecs [654326]| |(465) -> (0.222000)msecs [575530]| |(466) -> (0.225000)msecs [584153]| |(467) -> (0.221000)msecs [576293]| 
+|(468) -> (0.234000)msecs [608261]| |(469) -> (0.231000)msecs [602318]| |(470) -> (0.233000)msecs [604825]| |(471) -> (0.237000)msecs [616281]| 
+|(472) -> (0.239000)msecs [620770]| |(473) -> (0.230000)msecs [597005]| |(474) -> (0.235000)msecs [611805]| |(475) -> (0.223000)msecs [579854]| 
+|(476) -> (0.235000)msecs [612079]| |(477) -> (0.242000)msecs [627702]| |(478) -> (0.235000)msecs [610620]| |(479) -> (0.232000)msecs [604059]| 
+|(480) -> (0.252000)msecs [655863]| |(481) -> (0.251000)msecs [652989]| |(482) -> (0.240000)msecs [623632]| |(483) -> (0.238000)msecs [618936]| 
+|(484) -> (0.245000)msecs [636358]| |(485) -> (0.286000)msecs [743975]| |(486) -> (0.255000)msecs [664669]| |(487) -> (0.237000)msecs [617917]| 
+|(488) -> (0.242000)msecs [628403]| |(489) -> (0.249000)msecs [647956]| |(490) -> (0.248000)msecs [644693]| |(491) -> (0.257000)msecs [668663]| 
+|(492) -> (0.247000)msecs [641737]| |(493) -> (0.249000)msecs [646282]| |(494) -> (0.247000)msecs [643468]| |(495) -> (0.248000)msecs [643694]| 
+|(496) -> (0.255000)msecs [663592]| |(497) -> (0.266000)msecs [692637]| |(498) -> (0.247000)msecs [642063]| |(499) -> (0.240000)msecs [622692]| 
+|(500) -> (0.260000)msecs [675537]| |(501) -> (0.252000)msecs [656130]| |(502) -> (0.244000)msecs [634748]| |(503) -> (0.247000)msecs [643647]| 
+|(504) -> (0.257000)msecs [667439]| |(505) -> (0.284000)msecs [736963]| |(506) -> (0.291000)msecs [757311]| |(507) -> (0.272000)msecs [705062]| 
+|(508) -> (0.249000)msecs [648333]| |(509) -> (0.258000)msecs [670303]| |(510) -> (0.257000)msecs [668827]| |(511) -> (0.251000)msecs [652942]| 
+|(512) -> (0.267000)msecs [695150]| |(513) -> (0.264000)msecs [685262]| |(514) -> (0.269000)msecs [698640]| |(515) -> (0.268000)msecs [696586]| 
+|(516) -> (0.262000)msecs [681363]| |(517) -> (0.256000)msecs [664394]| |(518) -> (0.251000)msecs [653851]| |(519) -> (0.265000)msecs [691047]| 
+|(520) -> (0.264000)msecs [688144]| |(521) -> (0.256000)msecs [664132]| |(522) -> (0.254000)msecs [659776]| |(523) -> (0.299000)msecs [777787]| 
+|(524) -> (0.295000)msecs [766536]| |(525) -> (0.275000)msecs [716114]| |(526) -> (0.270000)msecs [701908]| |(527) -> (0.273000)msecs [709960]| 
+|(528) -> (0.267000)msecs [695888]| |(529) -> (0.265000)msecs [687892]| |(530) -> (0.271000)msecs [703070]| |(531) -> (0.270000)msecs [702110]| 
+|(532) -> (0.267000)msecs [693757]| |(533) -> (0.270000)msecs [701706]| |(534) -> (0.266000)msecs [692581]| |(535) -> (0.284000)msecs [736130]| 
+|(536) -> (0.265000)msecs [689023]| |(537) -> (0.281000)msecs [731694]| |(538) -> (0.277000)msecs [720857]| |(539) -> (0.283000)msecs [734899]| 
+|(540) -> (0.276000)msecs [719145]| |(541) -> (0.275000)msecs [716185]| |(542) -> (0.279000)msecs [725216]| |(543) -> (0.276000)msecs [716269]| 
+|(544) -> (0.325000)msecs [845843]| |(545) -> (0.305000)msecs [792836]| |(546) -> (0.331000)msecs [861403]| |(547) -> (0.291000)msecs [755646]| 
+|(548) -> (0.278000)msecs [722907]| |(549) -> (0.282000)msecs [731854]| |(550) -> (0.282000)msecs [733034]| |(551) -> (0.287000)msecs [745074]| 
+|(552) -> (0.288000)msecs [748672]| |(553) -> (0.293000)msecs [761301]| |(554) -> (0.284000)msecs [736837]| |(555) -> (0.286000)msecs [745023]| 
+|(556) -> (0.288000)msecs [750330]| |(557) -> (0.298000)msecs [774405]| |(558) -> (0.286000)msecs [743823]| |(559) -> (0.290000)msecs [755982]| 
+|(560) -> (0.290000)msecs [755370]| |(561) -> (0.283000)msecs [734335]| |(562) -> (0.304000)msecs [791642]| |(563) -> (0.307000)msecs [798542]| 
+|(564) -> (0.287000)msecs [745683]| |(565) -> (0.286000)msecs [743692]| |(566) -> (0.306000)msecs [795918]| |(567) -> (0.299000)msecs [779364]| 
+|(568) -> (0.300000)msecs [781928]| |(569) -> (0.305000)msecs [791396]| |(570) -> (0.300000)msecs [780710]| |(571) -> (0.293000)msecs [763025]| 
+|(572) -> (0.297000)msecs [772446]| |(573) -> (0.304000)msecs [788346]| |(574) -> (0.297000)msecs [773050]| |(575) -> (0.299000)msecs [776984]| 
+|(576) -> (0.305000)msecs [792201]| |(577) -> (0.298000)msecs [773071]| |(578) -> (0.309000)msecs [803875]| |(579) -> (0.304000)msecs [789639]| 
+|(580) -> (0.302000)msecs [785791]| |(581) -> (0.311000)msecs [808760]| |(582) -> (0.311000)msecs [809690]| |(583) -> (0.308000)msecs [800131]| 
+|(584) -> (0.310000)msecs [804155]| |(585) -> (0.315000)msecs [820248]| |(586) -> (0.311000)msecs [808698]| |(587) -> (0.309000)msecs [804318]| 
+|(588) -> (0.313000)msecs [813054]| |(589) -> (0.312000)msecs [811696]| |(590) -> (0.309000)msecs [805382]| |(591) -> (0.306000)msecs [794748]| 
+|(592) -> (0.316000)msecs [821582]| |(593) -> (0.318000)msecs [828945]| |(594) -> (0.308000)msecs [802711]| |(595) -> (0.311000)msecs [809866]| 
+|(596) -> (0.326000)msecs [847594]| |(597) -> (0.316000)msecs [822720]| |(598) -> (0.321000)msecs [835033]| |(599) -> (0.313000)msecs [816163]| 
+|(600) -> (0.308000)msecs [801923]| |(601) -> (0.328000)msecs [853341]| |(602) -> (0.316000)msecs [822706]| |(603) -> (0.310000)msecs [806050]| 
+|(604) -> (0.311000)msecs [810624]| |(605) -> (0.313000)msecs [813984]| |(606) -> (0.319000)msecs [829278]| |(607) -> (0.340000)msecs [885607]| 
+|(608) -> (0.325000)msecs [846783]| |(609) -> (0.315000)msecs [820462]| |(610) -> (0.327000)msecs [849312]| |(611) -> (0.317000)msecs [823187]| 
+|(612) -> (0.323000)msecs [839654]| |(613) -> (0.330000)msecs [857950]| |(614) -> (0.330000)msecs [856411]| |(615) -> (0.320000)msecs [832235]| 
+|(616) -> (0.321000)msecs [834110]| |(617) -> (0.335000)msecs [870112]| |(618) -> (0.330000)msecs [858481]| |(619) -> (0.326000)msecs [847035]| 
+|(620) -> (0.330000)msecs [857246]| |(621) -> (0.330000)msecs [856826]| |(622) -> (0.334000)msecs [868409]| |(623) -> (0.327000)msecs [850506]| 
+|(624) -> (0.316000)msecs [821671]| |(625) -> (0.327000)msecs [851466]| |(626) -> (0.344000)msecs [892540]| |(627) -> (0.349000)msecs [907135]| 
+|(628) -> (0.332000)msecs [863807]| |(629) -> (0.322000)msecs [835236]| |(630) -> (0.329000)msecs [854642]| |(631) -> (0.338000)msecs [879581]| 
+|(632) -> (0.350000)msecs [908009]| |(633) -> (0.333000)msecs [867337]| |(634) -> (0.341000)msecs [888568]| |(635) -> (0.341000)msecs [888056]| 
+|(636) -> (0.329000)msecs [855442]| |(637) -> (0.337000)msecs [876616]| |(638) -> (0.362000)msecs [941690]| |(639) -> (0.344000)msecs [893188]| 
+|(640) -> (0.329000)msecs [855614]| |(641) -> (0.347000)msecs [900150]| |(642) -> (0.341000)msecs [886431]| |(643) -> (0.336000)msecs [872697]| 
+|(644) -> (0.410000)msecs [1065919]| |(645) -> (0.367000)msecs [954477]| |(646) -> (0.366000)msecs [949648]| |(647) -> (0.334000)msecs [867734]| 
+|(648) -> (0.360000)msecs [935525]| |(649) -> (0.360000)msecs [937054]| |(650) -> (0.345000)msecs [897981]| |(651) -> (0.359000)msecs [933481]| 
+|(652) -> (0.346000)msecs [897366]| |(653) -> (0.350000)msecs [910618]| |(654) -> (0.365000)msecs [948492]| |(655) -> (0.355000)msecs [923029]| 
+|(656) -> (0.348000)msecs [903686]| |(657) -> (0.351000)msecs [912647]| |(658) -> (0.353000)msecs [918008]| |(659) -> (0.354000)msecs [920819]| 
+|(660) -> (0.359000)msecs [933641]| |(661) -> (0.348000)msecs [903991]| |(662) -> (0.355000)msecs [923372]| |(663) -> (0.360000)msecs [933768]| 
+|(664) -> (0.355000)msecs [923157]| |(665) -> (0.362000)msecs [942520]| |(666) -> (0.358000)msecs [930426]| |(667) -> (0.355000)msecs [923333]| 
+|(668) -> (0.355000)msecs [922810]| |(669) -> (0.353000)msecs [917051]| |(670) -> (0.351000)msecs [911453]| |(671) -> (0.356000)msecs [927225]| 
+|(672) -> (0.357000)msecs [929567]| |(673) -> (0.356000)msecs [927241]| |(674) -> (0.366000)msecs [951104]| |(675) -> (0.385000)msecs [999702]| 
+|(676) -> (0.370000)msecs [961102]| |(677) -> (0.362000)msecs [939872]| |(678) -> (0.357000)msecs [929073]| |(679) -> (0.367000)msecs [953314]| 
+|(680) -> (0.352000)msecs [915016]| |(681) -> (0.359000)msecs [932520]| |(682) -> (0.357000)msecs [928170]| |(683) -> (0.373000)msecs [970317]| 
+|(684) -> (0.374000)msecs [972569]| |(685) -> (0.377000)msecs [979526]| |(686) -> (0.381000)msecs [991907]| |(687) -> (0.356000)msecs [927700]| 
+|(688) -> (0.388000)msecs [1011055]| |(689) -> (0.384000)msecs [998239]| |(690) -> (0.378000)msecs [983606]| |(691) -> (0.382000)msecs [992240]| 
+|(692) -> (0.378000)msecs [982666]| |(693) -> (0.385000)msecs [999687]| |(694) -> (0.386000)msecs [1004482]| |(695) -> (0.385000)msecs [1002587]| 
+|(696) -> (0.358000)msecs [929950]| |(697) -> (0.373000)msecs [969031]| |(698) -> (0.382000)msecs [992035]| |(699) -> (0.397000)msecs [1032833]| 
+|(700) -> (0.399000)msecs [1037243]| |(701) -> (0.394000)msecs [1024981]| |(702) -> (0.396000)msecs [1027975]| |(703) -> (0.389000)msecs [1012886]| 
+|(704) -> (0.389000)msecs [1011816]| |(705) -> (0.382000)msecs [992823]| |(706) -> (0.382000)msecs [993119]| |(707) -> (0.381000)msecs [991096]| 
+|(708) -> (0.385000)msecs [1001478]| |(709) -> (0.398000)msecs [1034263]| |(710) -> (0.386000)msecs [1004732]| |(711) -> (0.393000)msecs [1022314]| 
+|(712) -> (0.398000)msecs [1035287]| |(713) -> (0.397000)msecs [1032066]| |(714) -> (0.379000)msecs [986574]| |(715) -> (0.395000)msecs [1026507]| 
+|(716) -> (0.393000)msecs [1020728]| |(717) -> (0.408000)msecs [1061239]| |(718) -> (0.389000)msecs [1011109]| |(719) -> (0.404000)msecs [1050670]| 
+|(720) -> (0.406000)msecs [1054920]| |(721) -> (0.431000)msecs [1119852]| |(722) -> (0.419000)msecs [1088684]| |(723) -> (0.385000)msecs [1000617]| 
+|(724) -> (0.411000)msecs [1069144]| |(725) -> (0.393000)msecs [1023788]| |(726) -> (0.410000)msecs [1067284]| |(727) -> (0.396000)msecs [1030022]| 
+|(728) -> (0.399000)msecs [1039536]| |(729) -> (0.414000)msecs [1077793]| |(730) -> (0.407000)msecs [1056212]| |(731) -> (0.395000)msecs [1028643]| 
+|(732) -> (0.401000)msecs [1043931]| |(733) -> (0.412000)msecs [1070439]| |(734) -> (0.402000)msecs [1043301]| |(735) -> (0.406000)msecs [1056289]| 
+|(736) -> (0.414000)msecs [1074641]| |(737) -> (0.410000)msecs [1067325]| |(738) -> (0.405000)msecs [1052186]| |(739) -> (0.408000)msecs [1059356]| 
+|(740) -> (0.417000)msecs [1083941]| |(741) -> (0.419000)msecs [1090119]| |(742) -> (0.418000)msecs [1086788]| |(743) -> (0.413000)msecs [1075354]| 
+|(744) -> (0.464000)msecs [1208527]| |(745) -> (0.448000)msecs [1165769]| |(746) -> (0.401000)msecs [1042122]| |(747) -> (0.417000)msecs [1082179]| 
+|(748) -> (0.419000)msecs [1089822]| |(749) -> (0.419000)msecs [1088708]| |(750) -> (0.429000)msecs [1115005]| |(751) -> (0.419000)msecs [1089171]| 
+|(752) -> (0.432000)msecs [1121447]| |(753) -> (0.404000)msecs [1051128]| |(754) -> (0.407000)msecs [1056162]| |(755) -> (0.416000)msecs [1082791]| 
+|(756) -> (0.415000)msecs [1080338]| |(757) -> (0.432000)msecs [1121402]| |(758) -> (0.430000)msecs [1118018]| |(759) -> (0.421000)msecs [1093893]| 
+|(760) -> (0.420000)msecs [1092761]| |(761) -> (0.420000)msecs [1091828]| |(762) -> (0.415000)msecs [1079523]| |(763) -> (0.428000)msecs [1112173]| 
+|(764) -> (0.473000)msecs [1230033]| |(765) -> (0.000000)msecs [0]| ERROR: Grouper Time diff is negative!
+|(766) -> (0.000000)msecs [0]| ERROR: Grouper Time diff is negative!
+|(767) -> (0.000000)msecs [0]| ERROR: Grouper Time diff is negative!
+
+Reducer done!
+
+------------------------------------------------
+			 STATS 
+------------------------------------------------
+Reducer Time Taken to Complete : 178.613000
+Server Name : server_0
+Number of Chunck Fetch Requests sent : 255
+Number of Chunck Fetch Repiles rcvd : 255
+Number of Request Blocks sent : 85
+Number of Reply Blocks rcvd : 85
+Size of Requests sent : 510 bytes
+Size of Replies rcvd : 554880 bytes
+Requests Latency : 76.660000 msecs
+Requests clocks taken : 0 cycles
+Requests clocks taken(rdtsc) : 199386929 cycles
+
+Server Name : server_1
+Number of Chunck Fetch Requests sent : 255
+Number of Chunck Fetch Repiles rcvd : 255
+Number of Request Blocks sent : 85
+Number of Reply Blocks rcvd : 85
+Size of Requests sent : 510 bytes
+Size of Replies rcvd : 554880 bytes
+Requests Latency : 80.877000 msecs
+Requests clocks taken : 0 cycles
+Requests clocks taken(rdtsc) : 210318965 cycles
+
+Server Name : server_2
+Number of Chunck Fetch Requests sent : 255
+Number of Chunck Fetch Repiles rcvd : 255
+Number of Request Blocks sent : 85
+Number of Reply Blocks rcvd : 85
+Size of Requests sent : 510 bytes
+Size of Replies rcvd : 554880 bytes
+Requests Latency : 82.129000 msecs
+Requests clocks taken : 0 cycles
+Requests clocks taken(rdtsc) : 213604539 cycles
+
+Grouper Thread stats
+Deserialization Latency : 157.224000 msecs
+Deseialization clocks taken : 0 cycles
+Deseialization clocks taken (rdtsc) : 408824585 cycles
+------------------------------------------------
